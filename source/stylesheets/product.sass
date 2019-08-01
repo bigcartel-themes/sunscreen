@@ -24,16 +24,33 @@
     margin-bottom: 0
 
 .product-page-details
-  +flexbox
-  +flex-wrap(wrap)
+  overflow: auto
+
+  &::after
+    content: ""
+    clear: both
+    display: table
 
   @media screen and (max-width: $break-small)
-    +flex-direction(column)
     padding: 0 50px
 
+  &.inactive
+    .product-page-titles
+      float: none
+      max-width: 100%
+
+    .product-description
+      float: none
+      max-width: 100%
+
 .product-page-titles
-  +flex-basis(100%)
-  order: 1
+  float: left
+  max-width: calc(100% - 375px)
+  width: 100%
+
+  @media screen and (max-width: $break-small)
+    float: none
+    max-width: 100%
 
 h1.product-name
   font-size: 25px
@@ -45,14 +62,18 @@ h1.product-name
   font-size: 15px
 
 .product-description
+  clear: left
+  float: left
   font-size: 20px
   line-height: 32px
   margin-top: 30px
-  order: 3
+  max-width: calc(100% - 375px)
 
   @media screen and (max-width: $break-small)
+    float: none
     font-size: 18px
     line-height: 28px
+    max-width: 100%
 
   ul, ol
     padding-left: 1em
@@ -64,12 +85,12 @@ h1.product-name
     max-width: 100%
 
 .product-form
-  margin-left: auto
+  float: right
   max-width: 300px
-  order: 2
   width: 100%
 
   @media screen and (max-width: $break-small)
+    float: none
     margin-left: 0
     margin-top: 50px
     max-width: 100%
@@ -77,41 +98,44 @@ h1.product-name
     .add-to-cart-button
       max-width: 100%
 
-  + .product-page-titles
-    +flex-basis(calc(100% - 375px))
-
-.product-quantity, #option
+.product-quantity
   display: none
 
 .product-option-selection
   +all-transitions
   font-size: 15px
   height: 60px
-  margin: 0 0 0 auto
+  margin: 0 0 10px auto
   position: relative
   text-align: center
   width: 100%
   z-index: 1
 
+  &.opened
+    z-index: 3
+
   &:hover, &:active
     box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
     +transform(scale(1.02, 1.02))
+
 
 .product-option-selection-button
   +all-transitions
   +flexbox
   +justify-content(center)
   +align-items(center)
-  background: $text-color
-  border: none
-  color: $background-color
+  background: $background-color
+  border: 1px solid $text-color
+  color: $text-color
   cursor: pointer
   font-family: $primary-font
   height: 60px
   max-width: 100%
   padding: 0 50px
+  position: relative
   white-space: nowrap
   width: 100%
+  z-index: 1
 
   &.opened .down-arrow
     +transform(rotate(180deg))
@@ -146,7 +170,7 @@ h1.product-name
   top: 100%
   width: 100%
   visibility: hidden
-  z-index: 2
+  z-index: 1
 
   li
     +flexbox
@@ -173,6 +197,10 @@ h1.product-name
     opacity: 1
     visibility: visible
     +transform(scale(1) translateY(0))
+    z-index: 3
+
+.add-to-cart-button
+  max-width: 100%
 
 .all-similar-products
   display: none
