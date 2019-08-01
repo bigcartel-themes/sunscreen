@@ -244,13 +244,13 @@ Array.prototype.count = function(filterMethod) {
   return this.reduce((count, item) => filterMethod(item)? count + 1 : count, 0);
 }
 if ($('.product_option_select').length) {
-  $('.add-to-cart-button').attr("disabled",true);
+  disableAddButton();
 }
 $('.product_option_select').on('change',function() {
   var option_price = $(this).find("option:selected").attr("data-price");
   enableAddButton(option_price);
 });
-var enableAddButton = function(updated_price) {
+function enableAddButton(updated_price) {
   var addButton = $('.add-to-cart-button');
   var addButtonTitle = addButton.attr('data-add-title');
   addButton.attr("disabled",false);
@@ -263,7 +263,7 @@ var enableAddButton = function(updated_price) {
   addButton.html(addButtonTitle + priceTitle);
 }
 
-var disableAddButton = function(type) {
+function disableAddButton(type) {
   var addButton = $('.add-to-cart-button');
   var addButtonTitle = addButton.attr('data-add-title');
   if (type == "sold-out") {
@@ -275,20 +275,24 @@ var disableAddButton = function(type) {
   addButton.html(addButtonTitle);
 }
 
-var enableSelectOption = function(select_option) {
+function enableSelectOption(select_option) {
   select_option.removeAttr("disabled");
   select_option.text(select_option.attr("data-name"));
+  select_option.removeAttr("disabled-type");
 }
-var disableSelectOption = function(select_option, sold_out = true) {
-  if (sold_out === true) {
+function disableSelectOption(select_option, type) {
+  if (type === "sold-out") {
     disabled_text = select_option.parent().attr("data-sold-text");
+    disabled_type = "sold-out";
   }
-  else {
+  if (type === "unavailable") {
     disabled_text = select_option.parent().attr("data-unavailable-text");
+    disabled_type = "unavailable";
   }
   if (select_option.val() > 0) {
     var name = select_option.attr("data-name");
     select_option.attr("disabled",true);
     select_option.text(name + ' ' + disabled_text);
+    select_option.attr("disabled-type",disabled_type);
   }
 }
