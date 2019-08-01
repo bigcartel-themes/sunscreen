@@ -90,6 +90,10 @@ a, a:visited
   text-align: center
   width: 100%
 
+  &:disabled, &.disabled
+    cursor: not-allowed
+    opacity: .3
+
   &.centered-button
     display: block
     margin: 60px auto
@@ -510,3 +514,66 @@ footer
       fill: $text-color
       height: 11px
       width: 11px
+
+.select
+  +all-transitions
+  border: 1px solid $text-color
+  color: $text-color
+  font-family: $primary-font
+  height: 60px
+  margin-bottom: 15px
+  max-width: 100%
+  padding: 0
+  position: relative
+  text-transform: uppercase
+  width: 100%
+
+  select
+    +all-transitions
+    appearance: none
+    -webkit-appearance: none
+    background: none
+    border: 0
+    color: $text-color
+    font-family: $primary-font
+    font-size: 14px
+    height: 100%
+    letter-spacing: 1px
+    line-height: 60px
+    padding: 0 66px 0 16px
+    position: relative
+    width: 100%
+    z-index: 2
+
+    @media screen and (max-width: $break-small)
+      font-size: 16px
+
+    option
+      background-color: #FFF
+      color: #000
+
+    &:focus
+      box-shadow: none
+      outline: none
+
+    &::-ms-expand
+      display: none
+
+  svg
+    +all-transitions
+    +transform(translateY(-50%))
+    fill: $text-color
+    position: absolute
+    right: 20px
+    top: 50%
+    z-index: 1
+
+  &:hover, &:active, &:focus, &:focus-within
+    color: $text-color
+    border-color: $text-color
+
+    select
+      color: $text-color
+
+    svg
+      fill: $text-color
