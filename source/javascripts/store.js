@@ -285,13 +285,12 @@ if (!Array.prototype.includes) {
 Array.prototype.count = function(filterMethod) {
   return this.reduce((count, item) => filterMethod(item)? count + 1 : count, 0);
 }
-if ($('.product_option_select').length) {
-  disableAddButton();
-}
+
 $('.product_option_select').on('change',function() {
   var option_price = $(this).find("option:selected").attr("data-price");
   enableAddButton(option_price);
 });
+
 function enableAddButton(updated_price) {
   var addButton = $('.add-to-cart-button');
   var addButtonTitle = addButton.attr('data-add-title');
