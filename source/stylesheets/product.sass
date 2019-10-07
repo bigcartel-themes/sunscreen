@@ -102,105 +102,21 @@ h1.product-name
     opacity: 0
     visibility: hidden
 
-.product-quantity
-  display: none
-
-.product-option-selection
-  +all-transitions
-  font-size: 15px
-  height: 60px
-  margin: 0 0 10px auto
-  position: relative
+.reset-selection-button-container
   text-align: center
   width: 100%
-  z-index: 1
 
-  &.opened
-    z-index: 3
-
-  &:hover, &:active
-    box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
-    +transform(scale(1.02, 1.02))
-
-.product-option-selection-button
-  +all-transitions
-  +flexbox
-  +justify-content(center)
-  +align-items(center)
-  background: $background-color
-  border: 1px solid $text-color
-  color: $text-color
-  cursor: pointer
-  font-family: $primary-font
-  height: 60px
+button.reset-selection-button
+  display: none
+  height: auto
   max-width: 100%
-  padding: 0 50px
-  position: relative
-  white-space: nowrap
-  width: 100%
-  z-index: 1
+  line-height: normal
+  margin: 20px auto 0
+  padding: 4px
+  width: auto
 
-  &.opened .down-arrow
-    +transform(rotate(180deg))
-
-  &:active, &:focus, &:hover
-    background: $text-color
-    color: $background-color
-
-    .down-arrow
-      fill: $background-color
-
-  .dropdown-title
-    display: none
-
-  .down-arrow
-    fill: $background-color
-    margin-left: 10px
-
-.product-option-list
-  +transform-origin(100% 0%)
-  +transform(scaleY(0.75))
-  +transition(all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)
-  box-shadow: 0 30px 40px -10px rgba(0,0,0,0.20)
-  background: $background-color
-  list-style: none
-  margin: 0
-  max-height: 450px
-  opacity: 0
-  overflow: auto
-  padding: 0
-  position: absolute
-  top: 100%
-  width: 100%
-  visibility: hidden
-  z-index: 1
-
-  li
-    +flexbox
-    +align-items(center)
-    +justify-content(center)
-    border-bottom: 1px solid $accent-color
-    min-height: 60px
-
-    span.product-option
-      display: block
-      cursor: pointer
-      line-height: 20px
-      padding: 10px 30px
-
-    &:active, &:focus, &:hover
-      background: $text-color
-      color: $background-color
-      outline: none
-
-    &:last-child
-      border-bottom: 0px
-
-  &.visible
-    opacity: 1
-    visibility: visible
-    +transform(scale(1) translateY(0))
-    z-index: 3
+.product-quantity
+  display: none
 
 .add-to-cart-button
   max-width: 100%
