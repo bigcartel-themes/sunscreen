@@ -72,6 +72,12 @@ a, a:visited
   color: $text-color
   text-decoration: none
 
+  &:hover, &:focus
+    color: $link-hover-color
+
+a[href], label[for], select, button, .pointer
+  cursor: pointer
+
 .button, a.button
   +all-transitions
   +appearance(none)
@@ -596,3 +602,13 @@ footer
 
     svg
       fill: $text-color
+
+.visually-hidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
