@@ -12,6 +12,7 @@
 {% if theme.featured_items_type == 'Categories' %}
   {% if categories.active != blank and theme.featured_items > 0 %}
     <div class="featured-categories">
+      <h1 class="visually-hidden">Featured categories</h1>
       {% for category in categories.active limit:theme.featured_items %}
         <div class="featured-category">
           <div class="featured-category-info">
@@ -37,6 +38,7 @@
   {% if theme.featured_items > 0 %}
     {% get products from products.all limit:theme.featured_items %}
       {% if products != blank %}
+        <h1 class="visually-hidden">Featured products</h1>
         <div class="product-list">
           {% for product in products %}
             {% assign product_status = '' %}
