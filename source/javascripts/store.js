@@ -55,20 +55,6 @@ $(window).on("scroll", function(e) {
   }
 });
 
-$('.open-overlay').click(function(e) {
-  var screen_width = $(window).width();
-  if (screen_width <= 767) {
-    $(this).parent().addClass('overlay-open');
-    $('body').addClass('no-scroll');
-  }
-});
-
-$('.close-overlay').click(function(e) {
-  e.preventDefault();
-  $(this).parent().removeClass('overlay-open');
-  $('body').removeClass('no-scroll');
-});
-
 $('.close-errors').click(function(e) {
   $('.error-modal').hide();
 });
@@ -86,10 +72,6 @@ $('.cart-item-remove').click(function(e) {
   return false;
 });
 
-$('.option-quantity').blur(function(e) {
-  $(this).closest('form').submit();
-  return false;
-});
 
 $('.contact-form input[type="text"], .contact-form textarea').focus(function(){
   $(this).parents('.contact-form-group').addClass('focused');
@@ -352,3 +334,26 @@ function disableSelectOption(select_option, type) {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.srcset = lazyImage.dataset.srcset;
+          lazyImage.classList.remove("lazy");
+          lazyImageObserver.unobserve(lazyImage);
+        }
+      }, {
+        rootMargin: "0px 0px 256px 0px"
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }
+});
