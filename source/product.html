@@ -10,7 +10,7 @@
   {% endcase %}
 
   <div class="primary-product-image-container">
-    <img alt="Image of {{ product.name | escape }}" class="primary-product-image" src="{{ product.image | product_image_url | constrain: 1500 }}">
+    <img alt="{{ product.name | escape }}" class="lazy primary-product-image" src="{{ product.image | product_image_url | constrain: 100 }}" data-src="{{ product.image | product_image_url | constrain: 768 }}" data-srcset="{{ product.image | product_image_url | constrain: 1536 }} 2x, {{ product.image | product_image_url | constrain: 768 }} 1x">
   </div>
 
   <div class="product-page-details{% if product.status != 'active' %} inactive{% endif %}">
@@ -45,7 +45,7 @@
                       <option value="{{ value.id }}" data-name="{{ value.name | escape }}">{{ value.name }}</option>
                     {% endfor %}
                   </select>
-                  <svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg>
+                  <svg aria-hidden="true" class="down-arrow" width="13" height="15" viewBox="0 0 13 15" xmlns="http://www.w3.org/2000/svg"><path d="M13 8.35885695l-1.05568445-1.0024981-4.69025523 4.39122407V-4e-7H5.74593968v11.74758332L1.0556845 7.35635885 0 8.35885695 6.5 14.444444z" fill-rule="nonzero"/></svg>
                 </div>
               {% endfor %}
             </div>
@@ -57,7 +57,7 @@
                   <option value="{{ option.id }}" data-price="{{ option.price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }} {% if option.sold_out %} (Sold out){% endif %}</option>
                 {% endfor %}
               </select>
-              <svg class="down-arrow" width="11" height="13" viewBox="0 0 11 13"><path d="M9.65 7.65l.71.71-4.5 4.5c-.1.1-.23.15-.35.15-.12 0-.26-.05-.35-.15l-4.5-4.5.71-.71 3.65 3.65V0h1v11.29l3.63-3.64z" fill-rule="nonzero" /></svg>
+              <svg aria-hidden="true" class="down-arrow" width="13" height="15" viewBox="0 0 13 15" xmlns="http://www.w3.org/2000/svg"><path d="M13 8.35885695l-1.05568445-1.0024981-4.69025523 4.39122407V-4e-7H5.74593968v11.74758332L1.0556845 7.35635885 0 8.35885695 6.5 14.444444z" fill-rule="nonzero"/></svg>
             </div>
           {% endif %}
         {% endif %}
@@ -81,7 +81,7 @@
   {% if product.images.size > 1 %}
     <div class="secondary-product-image-container">
       {% for image in product.images offset: 1 %}
-        <img alt="Image of {{ product.name | escape }}" class="secondary-product-image" src="{{ image | product_image_url | constrain: 1500 }}">
+        <img alt="{{ product.name | escape }}" class="lazy secondary-product-image" src="{{ image | product_image_url | constrain: 70 }}" data-src="{{ image | product_image_url | constrain: 768 }}" data-srcset="{{ image | product_image_url | constrain: 1536 }} 2x, {{ image | product_image_url | constrain: 768 }} 1x">
       {% endfor %}
     </div>
   {% endif %}
