@@ -1,7 +1,7 @@
 {% if theme.welcome_image or theme.welcome_text != blank %}
   <div class="home-welcome">
     {% if theme.welcome_image %}
-      <img class="lazy welcome-image" src="{{ theme.images.welcome_image.url | constrain: 100,70 }}" data-src="{{ theme.images.welcome_image.url | constrain: 1000,700 }}" data-srcset="{{ theme.images.welcome_image.url | constrain: 2000,1400 }} 2x, {{ {{ theme.images.welcome_image.url | constrain: 1000,700 }} 1x" alt="Welcome to {{ store.name | escape }}">
+      <img class="lazy welcome-image" src="{{ theme.images.welcome_image.url | constrain: 100,70 }}" data-src="{{ theme.images.welcome_image.url | constrain: 1000,700 }}" data-srcset="{{ theme.images.welcome_image.url | constrain: 2000,1400 }} 2x, {{ theme.images.welcome_image.url | constrain: 1000,700 }} 1x" alt="Welcome to {{ store.name | escape }}">
     {% endif %}
     {% if theme.welcome_text != blank %}
       <div class="welcome-message{% if theme.welcome_image %} with-image{% endif %}">
@@ -39,10 +39,10 @@
 {% else %}
   {% if theme.featured_items > 0 %}
     {% if theme.max_products_per_row == 4 %}
-      {% assign product_image_constrain = 400 %}
+      {% assign product_image_constrain = 300 %}
       {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
     {% elsif theme.max_products_per_row == 3 %}
-      {% assign product_image_constrain = 600 %}
+      {% assign product_image_constrain = 400 %}
       {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
     {% elsif theme.max_products_per_row == 2 %}
       {% assign product_image_constrain = 700 %}
@@ -77,7 +77,16 @@
                   <figure class="product-list-image-container {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}show-secondary{% endif %}">
                     <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ product.image | product_image_url | constrain: 50 }}" data-src="{{ product.image | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ product.image | product_image_url | constrain: product_image_constrain_large }} 2x, {{ product.image | product_image_url | constrain: product_image_constrain }} 1x">
                     {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
-                      <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ product.images[1] | product_image_url | constrain: 50 }}" data-src="{{ product.images[1] | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ product.images[1] | product_image_url | constrain: product_image_constrain_large }} 2x, {{ product.images[1] | product_image_url | constrain: product_image_constrain }} 1x">
+                      {% capture secondary_image_class %}
+                        {% if product.images[1].height > product.images[1].width %}
+                          image-tall
+                        {% elsif product.images[1].height < product.images[1].width %}
+                          image-wide
+                        {% else %}
+                          image-square
+                        {% endif %}
+                      {% endcapture %}
+                      <img alt="" class="lazy product-list-image {{ secondary_image_class }}" src="{{ product.images[1] | product_image_url | constrain: 50 }}" data-src="{{ product.images[1] | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ product.images[1] | product_image_url | constrain: product_image_constrain_large }} 2x, {{ product.images[1] | product_image_url | constrain: product_image_constrain }} 1x">
                     {% endif %}
                   </figure>
                 </div>

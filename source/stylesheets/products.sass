@@ -37,12 +37,12 @@
     &:hover
       .show-secondary
         .product-list-image:first-child
-          height: 0
           opacity: 0
+          visibility: hidden
 
         .product-list-image:last-child
-          height: 100%
           opacity: 1
+          visibility: visible
 
 .product-list-thumb-container
   position: relative
@@ -98,12 +98,12 @@
       width: 100%
 
   &:last-child
-    height: 0
     opacity: 0
+    visibility: hidden
 
   &:only-child
-    height: auto
     opacity: 1
+    visibility: visible
 
 .product-list-thumb-info
   font-size: 20px
@@ -121,7 +121,7 @@
 
 .product-list-thumb-price
   font-size: .75em
-  margin-top: 10px
+  margin-top: 8px
 
   @media screen and (max-width: $break-small)
     margin-top: 5px
@@ -131,8 +131,9 @@
   +justify-content(center)
   color: $text-color
   font-size: 18px
+  line-height: 1.5em
   margin: 50px auto 0
-  max-width: 275px
+  max-width: 225px
   position: relative
   text-align: center
   width: 100%
@@ -156,6 +157,8 @@
 .pagination-arrow
   display: block
   fill: $text-color
+  height: 17px
+  width: 17px
 
   &.prev-arrow
     margin-right: auto

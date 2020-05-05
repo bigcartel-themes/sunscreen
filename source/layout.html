@@ -13,7 +13,9 @@
       <aside class="flash-message">
         <div class="flash-message-text">{{ theme.announcement_message_text }}</div>
         <button class="flash-message-close" title="Close announcement message">
-          <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path></svg>
+          <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
+            <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
+          </svg>
         </button>
       </aside>
     {% endif %}
@@ -26,42 +28,34 @@
         {% else %}
           <a class="store-link" href="/" title="{{ store.name | escape }} Home">{{ store.name }}</a>
         {% endif %}
-
         <nav class="header-nav-container">
-
-
           <ul class="nav" role="menubar" aria-hidden="false">
             <li class="nav-menu-item" role="menuitem" aria-haspopup="{% if categories.active == blank %}false{% else%}true{% endif %}">
-
-              {% if categories.active != blank  or artists.active != blank or theme.show_search != false %}
+              {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
                 <a href="#">Shop</a>
                 <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
                   <button class="close-nav-menu" title="Close navigation">
-                    <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path></svg>
+                    <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
+                      <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
+                    </svg>
                   </button>
                   {% if theme.show_search %}
                     <li class="dropdown-search">
                       <form class="search-form" name="search" action="/products" method="get" accept-charset="utf8">
-                        <button type="submit" class="search-button">
-                          <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle stroke="{{ theme.text_color }}" cx="5" cy="5" r="4.5"/><path fill="{{ theme.text_color }}" d="M8.318 7.732l2.829 2.829-.707.707L7.61 8.44z"/></g></svg>
-                        </button>
+                        <label for="search" class="visually-hidden">Search products</label>
+
                         <input type="hidden" name="utf8" value='✓'>
                         <input class="search-input" id="search" name="search" placeholder="Search..." type="text" autocomplete="off" />
+                        <button type="submit" class="search-button" aria-label="Submit search form">
+                          <svg aria-hidden="true" height="15" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.15 11.27">
+                            <path d="M11.15 10.56L8.8 8.21A4.93 4.93 0 0010 5a5.06 5.06 0 10-1.92 3.91l2.36 2.36zM1 5a4 4 0 114 4 4 4 0 01-4-4z"fill-rule="evenodd"/>
+                          </svg>
+                        </button>
                       </form>
                     </li>
                   {% endif %}
-
                   <li class="horizontal-nav-link" role="menuitem"><a href="/products" tabindex="-1">All</a></li>
                   {% if categories.active != blank %}
-                    {% for category in categories.active %}
-                      <li class="horizontal-nav-link"><a href="{{ category.url }}" tabindex="-1">{{ category.name }}</a></li>
-                    {% endfor %}
-                    {% for category in categories.active %}
-                      <li class="horizontal-nav-link"><a href="{{ category.url }}" tabindex="-1">{{ category.name }}</a></li>
-                    {% endfor %}
-                    {% for category in categories.active %}
-                      <li class="horizontal-nav-link"><a href="{{ category.url }}" tabindex="-1">{{ category.name }}</a></li>
-                    {% endfor %}
                     {% for category in categories.active %}
                       <li class="horizontal-nav-link"><a href="{{ category.url }}" tabindex="-1">{{ category.name }}</a></li>
                     {% endfor %}
@@ -72,20 +66,20 @@
                       <li class="horizontal-nav-link"><a href="{{ artist.url }}" tabindex="-1">{{ artist.name }}</a></li>
                     {% endfor %}
                   {% endif %}
-
                 </ul>
               {% else %}
                 <a href="/products">Shop</a>
               {% endif %}
             </li>
 
-
             {% if pages.all.size > 0 or store.website != blank %}
               <li class="nav-menu-item" role="menuitem" aria-haspopup="true">
                 <a href="#">Info</a>
                 <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
                   <button class="close-nav-menu" title="Close navigation">
-                    <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path></svg>
+                    <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
+                      <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
+                    </svg>
                   </button>
                   {% for page in pages.all %}
                     <li class="horizontal-nav-link" role="menuitem"><a href="{{ page.url }}" tabindex="-1">{{ page.name }}</a></li></li>
@@ -94,14 +88,11 @@
                   {% if store.website != blank %}
                     <li class="horizontal-nav-link" role="menuitem"><a href="{{ store.website }}" tabindex="-1">Back to site</a></li>
                   {% endif %}
-
                 </ul>
               </li>
             {% else %}
               <li class="nav-menu-item" role="menuitem" aria-haspopup="false"><a href="/contact">Contact</a></li>
             {% endif %}
-
-
 
             {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
               {% capture social_urls %}{{ theme.twitter_url }},{{ theme.facebook_url }},{{ theme.instagram_url }},{{ theme.tumblr_url }},{{ theme.pinterest_url }}{% endcapture %}
@@ -119,10 +110,12 @@
                 </li>
               {% else %}
                 <li class="nav-menu-item" role="menuitem" aria-haspopup="true">
-                  <a href="#">Info</a>
+                  <a href="#">Follow</a>
                   <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
                     <button class="close-nav-menu" title="Close navigation">
-                      <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path></svg>
+                      <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
+                        <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
+                      </svg>
                     </button>
                     {% if theme.instagram_url != blank %}
                       <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.instagram_url }}" target="_blank" tabindex="-1">Instagram</a></li>
@@ -143,22 +136,14 @@
                     {% if theme.tumblr_url != blank %}
                       <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.tumblr_url }}" target="_blank" tabindex="-1">Tumblr</a></li>
                     {% endif %}
-
                   </ul>
                 </li>
               {% endif %}
             {% endif %}
-
-
-
-
-            <li class="nav-menu-item" role="menuitem" aria-haspopup="false"><a href="/cart">Cart <span class="cart-item-count {% if cart.item_count == 0 %}no-items{% endif %}">{{ cart.item_count }}</span></a></li>
-
+            <li class="nav-menu-item" role="menuitem" aria-haspopup="false"><a href="/cart" aria-label="View cart, {% if cart.item_count > 0 %}{{ cart.item_count | pluralize: 'item', 'items' }}{% endif %}">
+              Cart <span class="cart-item-count {% if cart.item_count == 0 %}no-items{% endif %}">{{ cart.item_count }}</span></a>
+            </li>
           </ul>
-
-
-
-
         </nav>
     </header>
     <main class="content" id="main">
@@ -173,7 +158,7 @@
                 {% if theme.image_sets.lookbook_images.size > 0 %}
                   <div class="lookbook-gallery">
                     {% for image in theme.image_sets.lookbook_images %}
-                      <img class="lookbook-gallery-image" src="{{ image.url | constrain: '1400', '' }}">
+                      <img alt="" class="lazy lookbook-gallery-image" src="{{ image.url | constrain: '100','' }}" data-src="{{ image.url | constrain: '760','' }}" data-srcset="{{ image.url | constrain: '1520','' }} 2x, {{ image.url | constrain: '760','' }} 1x">
                     {% endfor %}
                   </div>
                 {% endif %}
@@ -182,16 +167,25 @@
 
           </div>
         {% else %}
+          {% if errors != blank %}
+            <div class="error-container">
+              <div class="error-list">
+                {% for error in errors %}
+                  <div class="error-list-item">{{ error }}</div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
           {{ page_content }}
         {% endif %}
       </div>
       {% if page.full_url contains '/product/' %}
         {% if theme.show_similar_products %}
           {% if theme.max_products_per_row == 4 %}
-            {% assign product_image_constrain = 400 %}
+            {% assign product_image_constrain = 300 %}
             {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
           {% elsif theme.max_products_per_row == 3 %}
-            {% assign product_image_constrain = 600 %}
+            {% assign product_image_constrain = 400 %}
             {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
           {% elsif theme.max_products_per_row == 2 %}
             {% assign product_image_constrain = 700 %}
@@ -224,7 +218,16 @@
                       <figure class="product-list-image-container {% if category_product.images[1] != blank and theme.secondary_image_on_hover == true %}show-secondary{% endif %}">
                         <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ category_product.image | product_image_url | constrain: 50 }}" data-src="{{ category_product.image | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ category_product.image | product_image_url | constrain: product_image_constrain_large }} 2x, {{ category_product.image | product_image_url | constrain: product_image_constrain }} 1x">
                         {% if category_product.images[1] != blank and theme.secondary_image_on_hover == true %}
-                          <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ category_product.images[1] | product_image_url | constrain: 50 }}" data-src="{{ category_product.images[1] | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ category_product.images[1] | product_image_url | constrain: product_image_constrain_large }} 2x, {{ category_product.images[1] | product_image_url | constrain: product_image_constrain }} 1x">
+                          {% capture secondary_image_class %}
+                            {% if category_product.images[1].height > category_product.images[1].width %}
+                              image-tall
+                            {% elsif category_product.images[1].height < category_product.images[1].width %}
+                              image-wide
+                            {% else %}
+                              image-square
+                            {% endif %}
+                          {% endcapture %}
+                          <img alt="" class="lazy product-list-image {{ secondary_image_class }}" src="{{ category_product.images[1] | product_image_url | constrain: 50 }}" data-src="{{ category_product.images[1] | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ category_product.images[1] | product_image_url | constrain: product_image_constrain_large }} 2x, {{ category_product.images[1] | product_image_url | constrain: product_image_constrain }} 1x">
                         {% endif %}
                       </figure>
                     </div>
@@ -263,32 +266,6 @@
         <div class="footer-store-credit">{{ bigcartel_credit }}</div>
       </div>
     </footer>
-    {% if errors != blank %}
-      <div class="error-modal">
-        <div class="error-background"></div>
-        <div class="error-container">
-          <div class="error-list">
-            {% for error in errors %}
-              <div class="error-list-item">{{ error }}</div>
-            {% endfor %}
-          </div>
-          <button class="close-errors" aria-label="Close errors">
-            <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path></svg>
-          </button>
-        </div>
-      </div>
-
-    {% else %}
-      <div class="error-modal" style="display: none;">
-        <div class="error-background"></div>
-        <div class="error-container">
-          <div class="error-list"></div>
-          <button class="close-errors" aria-label="Close errors">
-            <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17"><path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path></svg>
-          </button>
-        </div>
-      </div>
-    {% endif %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>
