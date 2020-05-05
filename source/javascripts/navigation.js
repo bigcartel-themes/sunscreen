@@ -2,24 +2,6 @@
 $(document).ready(function() {
   // Setup the accesible nav
   $('.nav').setup_navigation();
-
-  // RWD nav pattern
-  $('body').addClass('js');
-  var $menu = $('#menu'),
-    $menulink = $('.menu-link'),
-    $menuTrigger = $('.has-subnav > a');
-
-  $menulink.click(function(e) {
-    e.preventDefault();
-    $menulink.toggleClass('active');
-    $menu.toggleClass('active');
-  });
-
-  $menuTrigger.click(function(e) {
-    e.preventDefault();
-    var $this = $(this);
-    $this.toggleClass('active').next('ul').toggleClass('active');
-  });
 });
 /*
 $(function(){
@@ -121,12 +103,14 @@ $.fn.setup_navigation = function(settings) {
       .addClass(settings.menuHoverClass)
       .find('a').attr('tabIndex', 0);
   });
-  $('.header-nav-container').mouseleave(function() {
-    $('.' + settings.menuHoverClass)
+  $('.nav').mouseleave(function() {
+    if (!$(this).find('.clicked').length) {
+      $('.' + settings.menuHoverClass)
       .attr('aria-hidden', 'true')
       .removeClass(settings.menuHoverClass)
       .find('a')
       .attr('tabIndex', -1);
+    }
   })
   $(top_level_links).focus(function() {
     $(this).closest('ul')
@@ -278,11 +262,18 @@ $.fn.setup_navigation = function(settings) {
   });
   $('.close-nav-menu').click(function(e) {
     e.preventDefault();
-    e.isPropagationStopped()
     $(this).parent()
         .attr('aria-hidden', 'true')
         .removeClass(settings.menuHoverClass)
         .find('a')
         .attr('tabIndex', -1);
   });
+
+  $('.nav-menu-item[aria-haspopup="true"]').click(function(e) {
+    $(this).toggleClass('clicked');
+  })
+  $('.nav-menu-item[aria-haspopup="true"] > a').click(function(e) {
+    e.preventDefault();
+  });
+
 };
