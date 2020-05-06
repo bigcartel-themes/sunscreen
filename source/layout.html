@@ -32,12 +32,13 @@
           <ul class="nav" role="menubar" aria-hidden="false">
             <li class="nav-menu-item" role="menuitem" aria-haspopup="{% if categories.active == blank %}false{% else%}true{% endif %}">
               {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
-                <a href="#">Shop</a>
+                <a href="#" aria-label="Browse by category">Shop</a>
                 <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
-                  <button class="close-nav-menu" title="Close navigation">
+                  <button class="close-nav-menu">
                     <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
                       <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
                     </svg>
+                    <span class="visually-hidden">Close navigation</span>
                   </button>
                   {% if theme.show_search %}
                     <li class="dropdown-search">
@@ -74,12 +75,13 @@
 
             {% if pages.all.size > 0 or store.website != blank %}
               <li class="nav-menu-item" role="menuitem" aria-haspopup="true">
-                <a href="#">Info</a>
+                <a href="#" aria-label="Pages list">Info</a>
                 <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
-                  <button class="close-nav-menu" title="Close navigation">
+                  <button class="close-nav-menu">
                     <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
                       <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
                     </svg>
+                    <span class="visually-hidden">Close navigation</span>
                   </button>
                   {% for page in pages.all %}
                     <li class="horizontal-nav-link" role="menuitem"><a href="{{ page.url }}" tabindex="-1">{{ page.name }}</a></li></li>
@@ -112,10 +114,11 @@
                 <li class="nav-menu-item" role="menuitem" aria-haspopup="true">
                   <a href="#">Follow</a>
                   <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
-                    <button class="close-nav-menu" title="Close navigation">
+                    <button class="close-nav-menu">
                       <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
                         <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
                       </svg>
+                      <span class="visually-hidden">Close navigation</span>
                     </button>
                     {% if theme.instagram_url != blank %}
                       <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.instagram_url }}" target="_blank" tabindex="-1">Instagram</a></li>

@@ -61,7 +61,7 @@
             </div>
           {% endif %}
         {% endif %}
-        <button class="button add-to-cart-button" name="submit" type="submit" title="Add to Cart" data-adding-text="Adding..." data-added-text="Added!" data-add-title="Add to Cart" data-sold-title="Sold out"{% if product.has_default_option %}{% else %}disabled="disabled"{% endif %}>Add to Cart</button>
+        <button class="button add-to-cart-button" name="submit" type="submit" data-adding-text="Adding..." data-added-text="Added!" data-add-title="Add to Cart" data-sold-title="Sold out"{% if product.has_default_option %}{% else %}disabled="disabled"{% endif %}>Add to Cart</button>
         {{ store | instant_checkout_button: 'dark', '44px' }}
         {% if product.has_option_groups %}
           <div class="reset-selection-button-container">
@@ -81,7 +81,7 @@
   {% if product.images.size > 1 %}
     <div class="secondary-product-image-container">
       {% for image in product.images offset: 1 %}
-        <img alt="{{ product.name | escape }}" class="lazy secondary-product-image" src="{{ image | product_image_url | constrain: 70 }}" data-src="{{ image | product_image_url | constrain: 768 }}" data-srcset="{{ image | product_image_url | constrain: 1536 }} 2x, {{ image | product_image_url | constrain: 768 }} 1x">
+        <img alt="{{ product.name | escape }} Image {{ forloop.index | plus: 1 }}" class="lazy secondary-product-image" src="{{ image | product_image_url | constrain: 70 }}" data-src="{{ image | product_image_url | constrain: 768 }}" data-srcset="{{ image | product_image_url | constrain: 1536 }} 2x, {{ image | product_image_url | constrain: 768 }} 1x">
       {% endfor %}
     </div>
   {% endif %}
