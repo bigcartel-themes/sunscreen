@@ -52,23 +52,23 @@
   width: 100%
 
   @media screen and (max-width: $break-small)
-    height: 80px
-    max-width: 80px
+    height: 60px
+    margin-right: 10px
+    max-width: 60px
 
 .cart-item-details-quantity-price
   +flexbox
-  +align-items(center)
+  +align-items(flex-start)
   width: 100%
 
   @media screen and (max-width: $break-small)
     +flex-direction(column)
-    width: calc(100% - 135px)
+    width: calc(100% - 105px)
 
 .cart-item-details-unit-price
   margin-top: 10px
 
 .cart-item-details
-  max-width: 300px
   width: 100%
 
 .cart-item-details-name
