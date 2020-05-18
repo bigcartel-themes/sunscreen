@@ -31,19 +31,27 @@ $('body')
 var processUpdate = function(input, item_id, new_val, cart) {
   var sub_total = Format.money(cart.total, true, true);
   var item_count = cart.item_count;
-  $('.cart-subtotal-amount').html(sub_total);
-  $('.cart-item-count').html(item_count);
-  $('.error-container').hide();
-  if (item_count == 0) {
-    $('.cart-item-count').hide();
 
-    $('.cart-form').slideUp('fast',function() {
+  $('.error-container').fadeOut(100);
+
+  $('.cart-subtotal-amount').fadeOut(100, function() {
+    $('.cart-subtotal-amount').html(sub_total);
+    $('.cart-subtotal-amount').fadeIn(500);
+  });
+
+  if (item_count == 0) {
+    $('.cart-item-count').fadeOut(100);
+
+    $('.cart-form').fadeOut('fast',function() {
       $('.cart-container').addClass('empty-cart');
       $("html, body").animate({ scrollTop: 0 }, "fast");
     });
-
   }
   else {
+    $('.cart-item-count').fadeOut(100, function() {
+      $('.cart-item-count').html(item_count);
+      $('.cart-item-count').fadeIn(500);
+    });
     if (input) {
       input.val(new_val);
     }
@@ -53,7 +61,11 @@ var processUpdate = function(input, item_id, new_val, cart) {
       if (cart.items[itemIndex].id == item_id) {
         item_price = cart.items[itemIndex].price;
         formatted_item_price = Format.money(item_price, true, true);
-        $('.cart-item[data-item-id="'+item_id+'"]').find('.cart-item-details-price').html(formatted_item_price)
+        item_price_element = $('.cart-item[data-item-id="'+item_id+'"]').find('.cart-item-details-price');
+        item_price_element.fadeOut(100, function() {
+          item_price_element.html(formatted_item_price);
+          item_price_element.fadeIn(500);
+        });
       }
     }
 
