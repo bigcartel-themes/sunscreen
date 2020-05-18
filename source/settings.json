@@ -61,12 +61,12 @@
     {
       "variable": "button_hover_background_color",
       "label": "Button Hover Background Color",
-      "default": "#2c508e"
+      "default": "#15294D"
     },
     {
       "variable": "link_hover_color",
       "label": "Link Hover Color",
-      "default": "#2c508e"
+      "default": "#15294D"
     },
     {
       "variable": "shop_name_text_color",
@@ -187,7 +187,7 @@
       "variable": "secondary_image_on_hover",
       "label": "Show secondary image on hover",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Displays the secondary product image when hovering over thumbnails"
     },
     {
