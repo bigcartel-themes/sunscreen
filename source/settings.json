@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.4.0",
+  "version": "1.3.55",
   "images": [
     {
       "variable": "logo",
@@ -49,9 +49,24 @@
       "default": "#325DA8"
     },
     {
+      "variable": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#325DA8"
+    },
+    {
+      "variable": "button_hover_background_color",
+      "label": "Button Hover Background Color",
+      "default": "#2c508e"
+    },
+    {
       "variable": "link_hover_color",
       "label": "Link Hover Color",
-      "default": "#061f49"
+      "default": "#2c508e"
     },
     {
       "variable": "shop_name_text_color",
@@ -124,7 +139,7 @@
         ["Fit to square", "fit-to-square"],
         ["Crop to square", "crop-to-square"]
       ],
-      "default": "fit-to-square",
+      "default": "crop-to-square",
       "description": "Sets the display of images in the product grid"
     },
     {
@@ -209,7 +224,7 @@
   "checkout": {
     "header_image": "{{ logo }}",
     "header_image_max_width": "754px",
-    "header_image_max_height": "200px",
+    "header_image_max_height": "180px",
     "title_font": "{{ primary_font }}",
     "title_font_weight": "normal",
     "title_font_size": "28px",
@@ -219,7 +234,8 @@
     "accent_background_color": "{{ accent_color }}",
     "background_color": "{{ background_color }}",
     "body_font": "{{ primary_font }}",
-    "body_font_size": "15px",
+    "body_font_size": "16px",
+    "secondary_font_size": "16px",
     "step_border_color": "{{ background_color }}",
     "step_header_color": "{{ text_color }}",
     "step_border_width": "4px",
@@ -238,6 +254,7 @@
     "error_color": "#ffffff",
     "error_border_radius": "0px",
     "error_border_color": "#ea4859",
+    "error_font_size": "16px",
     "input_focus_color": "#000000",
     "input_focus_background_color": "#ffffff",
     "input_focus_border_color": "#777777",
@@ -250,19 +267,24 @@
     "input_border_radius": "0px",
     "input_border_width": "2px",
     "input_font": "{{ primary_font }}",
-    "button_color": "{{ background_color }}",
+    "input_font_size": "16px",
+    "label_font_size": "16px",
+    "button_color": "{{ button_text_color }}",
     "button_border_width": "0px",
     "button_border_radius": "0px",
     "button_font": "{{ primary_font }}",
-    "button_hover_color": "{{ background_color }}",
-    "button_background_color": "{{ text_color }}",
-    "button_hover_background_color": "{{ text_color }}",
+    "button_font_size": "16px",
+    "button_hover_color": "{{ button_text_color }}",
+    "button_background_color": "{{ button_background_color }}",
+    "button_hover_background_color": "{{ button_hover_background_color }}",
     "button_text_transform": "none",
     "link_color": "{{ text_color }}",
+    "link_font_size": "16px",
     "link_hover_color": "{{ text_color }}",
     "step_header_color": "{{ text_color }}",
-    "step_header_font_size": "18px",
+    "step_header_font_size": "22px",
     "summary_color": "{{ text_color }}",
+    "summary_font_size": "16px",
     "summary_secondary_color": "{{ text_color }}",
     "summary_item_border_color": "{{ text_color }}",
     "summary_item_list_border_color": "{{ text_color }}",

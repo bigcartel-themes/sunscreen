@@ -1,20 +1,33 @@
-{% if theme.max_products_per_row == 4 %}
-  {% assign product_image_constrain = 300 %}
-  {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
-{% elsif theme.max_products_per_row == 3 %}
-  {% assign product_image_constrain = 400 %}
-  {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
-{% elsif theme.max_products_per_row == 2 %}
-  {% assign product_image_constrain = 700 %}
-  {% assign product_image_constrain_large = product_image_constrain | times: 2 %}
-{% endif %}
-
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
     <h1 class="page-title products-page-title">{% if page.full_url contains "search=" %}Search results - {{ paginate.items }}{% else %}{{ page.name }}{% endif %}</h1>
     <div class="product-list-container">
       <div class="product-list">
         {% for product in products %}
+          {% if theme.max_products_per_row == 4 %}
+            {% assign product_image_constrain_width = 288 %}
+            {% assign product_image_constrain_height = 288 %}
+            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+          {% elsif theme.max_products_per_row == 3 %}
+            {% assign product_image_constrain_width = 390 %}
+            {% assign product_image_constrain_height = 390 %}
+            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+          {% elsif theme.max_products_per_row == 2 %}
+            {% assign product_image_constrain_width = 592 %}
+            {% assign product_image_constrain_height = 526 %}
+            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+          {% elsif theme.max_products_per_row == 1 %}
+            {% assign product_image_constrain_width = 1200 %}
+            {% assign product_image_constrain_height = 1200 %}
+            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+          {% endif %}
+          {% assign thumb_constrain_width = 30 %}
+          {% assign thumb_constrain_height = 30 %}
+
           {% assign product_status = '' %}
           {% case product.status %}
             {% when 'active' %}
@@ -27,8 +40,18 @@
           {% capture image_class %}
             {% if product.image.height > product.image.width %}
               image-tall
+              {% if theme.grid_image_style == 'crop-to-square' %}
+                {% assign product_image_constrain_height = '' %}
+                {% assign product_image_constrain_height_large = '' %}
+                {% assign thumb_constrain_height = '' %}
+              {% endif %}
             {% elsif product.image.height < product.image.width %}
               image-wide
+              {% if theme.grid_image_style == 'crop-to-square' %}
+                {% assign product_image_constrain_width = '' %}
+                {% assign product_image_constrain_width_large = '' %}
+                {% assign thumb_constrain_width = '' %}
+              {% endif %}
             {% else %}
               image-square
             {% endif %}
@@ -36,19 +59,54 @@
           <a class="product-list-thumb {{ theme.grid_image_style }}" href="{{ product.url }}" title="View {{ product.name | escape }}">
             <div class="product-list-thumb-container">
               <figure class="product-list-image-container {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}show-secondary{% endif %}">
-                <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ product.image | product_image_url | constrain: 50 }}" data-src="{{ product.image | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ product.image | product_image_url | constrain: product_image_constrain_large }} 2x, {{ product.image | product_image_url | constrain: product_image_constrain }} 1x">
-                {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
-                  {% capture secondary_image_class %}
-                    {% if product.images[1].height > product.images[1].width %}
-                      image-tall
-                    {% elsif product.images[1].height < product.images[1].width %}
-                      image-wide
-                    {% else %}
-                      image-square
+                <div class="image-wrapper">
+                  <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ product.image | product_image_url | constrain: thumb_constrain_width,thumb_constrain_height }}" data-src="{{ product.image | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }}" data-srcset="{{ product.image | product_image_url | constrain: product_image_constrain_width_large, product_image_constrain_height_large }} 2x, {{ product.image | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }} 1x">
+                  {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
+                    {% if theme.max_products_per_row == 4 %}
+                      {% assign product_image_constrain_width = 288 %}
+                      {% assign product_image_constrain_height = 288 %}
+                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+                    {% elsif theme.max_products_per_row == 3 %}
+                      {% assign product_image_constrain_width = 390 %}
+                      {% assign product_image_constrain_height = 390 %}
+                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+                    {% elsif theme.max_products_per_row == 2 %}
+                      {% assign product_image_constrain_width = 592 %}
+                      {% assign product_image_constrain_height = 526 %}
+                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
+                    {% elsif theme.max_products_per_row == 1 %}
+                      {% assign product_image_constrain_width = 1200 %}
+                      {% assign product_image_constrain_height = 1200 %}
+                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
+                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
                     {% endif %}
-                  {% endcapture %}
-                  <img alt="" class="lazy product-list-image {{ secondary_image_class }}" src="{{ product.images[1] | product_image_url | constrain: 50 }}" data-src="{{ product.images[1] | product_image_url | constrain: product_image_constrain }}" data-srcset="{{ product.images[1] | product_image_url | constrain: product_image_constrain_large }} 2x, {{ product.images[1] | product_image_url | constrain: product_image_constrain }} 1x">
-                {% endif %}
+                    {% assign thumb_constrain_width = 30 %}
+                    {% assign thumb_constrain_height = 30 %}
+                    {% capture secondary_image_class %}
+                      {% if product.images[1].height > product.images[1].width %}
+                        image-tall
+                        {% if theme.grid_image_style == 'crop-to-square' %}
+                          {% assign product_image_constrain_height = '' %}
+                          {% assign product_image_constrain_height_large = '' %}
+                          {% assign thumb_constrain_height = '' %}
+                        {% endif %}
+                      {% elsif product.images[1].height < product.images[1].width %}
+                        image-wide
+                        {% if theme.grid_image_style == 'crop-to-square' %}
+                          {% assign product_image_constrain_width = '' %}
+                          {% assign product_image_constrain_width_large = '' %}
+                          {% assign thumb_constrain_width = '' %}
+                        {% endif %}
+                      {% else %}
+                        image-square
+                      {% endif %}
+                    {% endcapture %}
+                    <img alt="" class="lazy product-list-image {{ secondary_image_class }}" src="{{ product.images[1] | product_image_url | constrain: thumb_constrain_width,thumb_constrain_height }}" data-src="{{ product.images[1] | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }}" data-srcset="{{ product.images[1] | product_image_url | constrain: product_image_constrain_width_large, product_image_constrain_height_large }} 2x, {{ product.images[1] | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }} 1x">
+                  {% endif %}
+                </div>
               </figure>
             </div>
             <div class="product-list-thumb-info">
