@@ -1,5 +1,15 @@
 @import 'variables'
 
+.empty-cart-message
+  display: none
+
+  .empty-cart &
+    display: block
+
+.empty-cart-message
+  font-size: 20px
+  text-align: center
+
 .cart-items
   border-top: 1px solid $text-color
   list-style: none
@@ -12,7 +22,6 @@
   +flexbox
   +align-items(center)
   border-bottom: 1px solid $text-color
-  font-size: 15px
   padding: 40px 0
 
   @media screen and (max-width: $break-small)
@@ -21,10 +30,7 @@
     padding: 30px 0
 
 .cart-item-remove
-  cursor: pointer
-  height: 25px
-  margin-right: 26px
-  width: 25px
+  margin-right: 25px
 
   @media screen and (max-width: $break-small)
     margin-right: 10px
@@ -32,6 +38,9 @@
 .cart-remove-icon
   display: block
   fill: $text-color
+
+  .cart-item-remove:hover &, .cart-item-remove:focus &
+    fill: $link-hover-color
 
 .cart-item-image
   background-position: 50% 50%
@@ -44,14 +53,34 @@
 
   @media screen and (max-width: $break-small)
     height: 60px
+    margin-right: 10px
     max-width: 60px
 
-.cart-item-details
-  max-width: 300px
+.cart-item-details-quantity-price
+  +flexbox
+  +align-items(flex-start)
   width: 100%
 
   @media screen and (max-width: $break-small)
-    +flex-basis(calc(100% - 115px))
+    +flex-direction(column)
+    width: calc(100% - 105px)
+
+.cart-item-details-unit-price
+  margin-top: 10px
+
+.cart-item-details
+  width: 100%
+
+.cart-item-details-name
+  font-size: 18px
+  margin-bottom: 10px
+
+.cart-item-quantity-price
+  +flexbox
+  width: 100%
+
+  @media screen and (max-width: $break-small)
+    margin-top: 20px
 
 .cart-item-details-price
   margin-left: auto
@@ -62,30 +91,30 @@
   width: 60px
 
   @media screen and (max-width: $break-small)
-    margin-left: 115px
     width: 40px
+    margin-left: 0
 
   input
-    +all-transitions
-    background: none
-    border: none
     border-bottom: 1px solid $text-color
-    font-size: 15px
     padding: 8px 0
     text-align: center
     width: 100%
 
     &:active, &:focus
-      border-color: $text-color
+      background-color: $accent-color
+      border-color: $link-hover-color
 
 .cart-footer
-  font-size: 25px
   margin: 50px auto 0
   max-width: 700px
   width: 100%
 
+  @media screen and (max-width: $break-small)
+    margin: 30px auto 0
+
 .cart-subtotal
   +flexbox
+  font-size: 25px
 
 .cart-subtotal-amount
   margin-left: auto
@@ -95,16 +124,17 @@
   margin: 50px auto 0
 
   @media screen and (max-width: $break-small)
+    margin: 30px auto 0
     max-width: 100%
 
-a.continue-shopping
-  +all-transitions
-  background-color: transparent
-  border-color: transparent
-  color: $text-color
+a.button.continue-shopping
   display: block
+  font-size: 16px
+  height: auto
+  line-height: normal
   margin: 20px auto 0
-  padding: 0
+  padding: 10px
+
 
   &:active, &:focus, &:hover
     border-color: transparent

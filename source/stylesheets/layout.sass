@@ -15,7 +15,6 @@ body
   background-color: $background-color
   color: $text-color
   font-family: $primary-font
-  font-size: 14px
   height: 100%
   min-height: 100vh
 
@@ -24,37 +23,29 @@ body
     position: relative
 
   &.maintenance-page
+    padding-top: 75px
 
     .maintenance-content
       +flexbox
       +align-items(center)
-      +justify-content(center)
+      +justify-content(flex-start)
       +flex-direction(column)
       height: 100%
       position: relative
       text-align: center
 
     h1
-      font-size: 50px
-      position: absolute
-      top: 100px
-
-      @media screen and (max-width: $break-small)
-        top: 50px
+      font-size: 36px
+      margin-bottom: 40px
 
     p
-      font-size: 40px
-
-      @media screen and (max-width: $break-small)
-        font-size: 18px
+      font-size: 20px
+      margin-bottom: 40px
 
     .maintenance-social-links
-      font-size: 25px
+      font-size: 16px
       margin: 0
       padding: 0
-
-      @media screen and (max-width: $break-small)
-        font-size: 15px
 
       li
         display: inline-block
@@ -68,39 +59,65 @@ body
         display: block
         padding: 4px 10px
 
+a.skip-link
+  +transition(all .3s)
+  background: $background-color
+  border: 1px solid $text-color
+  color: $text-color
+  left: 25px
+  padding: 15px 20px
+  position: absolute
+  text-decoration: underline
+  top: -150px
+  z-index: 100
+
+  &:focus
+    top: 20px
+
 a, a:visited
   color: $text-color
   text-decoration: none
 
-.button, a.button
-  +all-transitions
-  +appearance(none)
-  background-color: $text-color
-  border-radius: 0
-  border: none
-  color: $background-color
+  &:hover, &:focus
+    color: $link-hover-color
+
+a[href], label[for], select, button, .pointer
   cursor: pointer
+
+button, input, textarea, select
+  +appearance(none)
+  background: none
+  border: none
+  border-radius: 0
+  color: $text-color
   font-family: $primary-font
-  font-size: 15px
+  font-size: 16px
+  padding: 0
+
+.button, a.button
+  +transition(all .2s linear)
+  background-color: $button-background-color
+  color: $button-text-color
   height: 60px
   line-height: 60px
-  outline: none
   max-width: 275px
   padding: 0 40px
   text-align: center
   width: 100%
 
   &.minimal-button
+    +transform(none)
     background: none
     color: $text-color
     border: none
-    font-size: 13px
+    font-size: 14px
     padding: 0
 
     &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
       +transform(none)
       box-shadow: none
       background: none
+      color: $link-hover-color
       text-decoration: underline
 
   &:disabled, &.disabled
@@ -112,20 +129,10 @@ a, a:visited
     margin: 60px auto
 
   &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-    box-shadow: 0px 15px 15px -10px rgba(0,0,0,0.4)
+    background-color: $button-hover-background-color
     +transform(scale(1.02, 1.02))
+    color: $button-text-color
 
-input, textarea
-  +appearance(none)
-  border-radius: 0
-  border: 4px solid $text-color
-  color: $text-color
-  font-family: $primary-font
-  font-size: 14px
-  outline: none
-
-  &:active, &:focus
-    outline: none
 
 h1, h2, h3, h4, h5, h6
   color: $text-color
@@ -139,66 +146,19 @@ h1
   line-height: 50px
   margin-bottom: 55px
 
-@keyframes showErrors
-  from
-    opacity: 0
-
-  to
-    opacity: 1
-
-.error-modal
+.error-container
   +flexbox
   +justify-content(center)
   +align-items(center)
-  bottom: 0
-  height: 100%
+  background-color: $accent-color
   padding: 20px
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  width: 100%
-  z-index: 30
-
-  .error-background
-    background-color: $background-color
-    bottom: 0
-    height: 100%
-    left: 0
-    opacity: .8
-    position: absolute
-    right: 0
-    top: 0
-    width: 100%
-
-  .error-container
-    animation: showErrors .2s
-    box-shadow: 0px 10px 40px -10px rgba(0,0,0,0.2)
-    background-color: $background-color
-    max-width: 600px
-    padding: 50px 100px
-    position: relative
-    text-align: center
-    width: 100%
-
-    @media screen and (max-width: $break-small)
-      padding: 50px
+  margin: 0 auto 30px
+  max-width: 760px
 
   .error-list
-    font-size: 15px
     list-style: none
     margin: 0
     padding: 0
-
-  .close-errors
-    cursor: pointer
-    padding: 2px
-    position: absolute
-    right: 20px
-    top: 20px
-
-    svg
-      fill: $text-color
 
 .wrapper
   margin: 0 auto
@@ -206,23 +166,27 @@ h1
   padding: 0 20px
   width: 100%
 
-#home .content .wrapper, #product .content .wrapper
+#home .content .wrapper
   padding: 0
 
+#product .content .wrapper
+  padding: 0 20px
+
+  @media screen and (max-width: $break-small)
+    padding: 0
+
 #cart .content .wrapper, #contact .content .wrapper
-  padding: 0 50px
+  padding: 0 20px
 
 .custom-content
   font-size: 20px
-  line-height: 32px
+  line-height: 1.5em
   margin: 0 auto
   max-width: 760px
   width: 100%
 
   @media screen and (max-width: $break-small)
-    font-size: 18px
-    line-height: 28px
-    padding: 0 30px
+    font-size: 16px
 
   ul, ol
     padding-left: 1em
@@ -242,12 +206,13 @@ h1
 .lookbook-gallery-image
   display: block
   margin-bottom: 50px
+  width: 100%
 
   &:last-child
     margin-bottom: 0
 
 .header
-  margin-bottom: 100px
+  margin-bottom: 80px
 
   @media screen and (max-width: $break-small)
     margin-bottom: 50px
@@ -257,7 +222,7 @@ a.store-link
   display: block
   font-family: $shop-name-font
   font-size: 50px
-  margin: 100px auto
+  margin: 100px auto 80px
   max-width: 754px
   width: 100%
 
@@ -275,174 +240,44 @@ a.store-link
 
 .header-nav-container
   background: $background-color
-  padding: 20px 0
+  padding: 10px 0
   position: relative
   z-index: 10
 
   &.fixed
     left: 0
+    padding: 20px 0
     position: fixed
     top: 0
     width: 100%
     z-index: 20
 
     @media screen and (max-width: $break-small)
-      padding: 20px 10px
+      padding: 10px 10px
 
-.header-nav
-  +flexbox
-  +justify-content(center)
-  font-size: 25px
-  list-style: none
-  margin: 0
-  padding: 0
-  position: relative
+.dropdown-search
 
-  @media screen and (max-width: $break-small)
-    +justify-content(space-evenly)
-    font-size: 20px
-
-  > li
-    display: block
-    position: relative
-
-    &.overlay-open
-
-      @media screen and (max-width: $break-small)
-        ul
-          -webkit-overflow-scrolling: touch
-          +transform(none)
-          +transition(none)
-          height: 100vh
-          left: 0
-          max-height: 100vh
-          opacity: 1
-          padding: 70px 50px
-          position: fixed
-          top: 0
-          width: 100vw
-          z-index: 30
-          visibility: visible
-
-        .close-overlay
-          background: none
-          border: none
-          color: $text-color
-          display: block
-          height: 24px
-          line-height: normal
-          padding: 5px
-          position: fixed
-          right: 30px
-          top: 30px
-          width: 24px
-          z-index: 40
-
-    > a, > .dropdown-title, .open-overlay
-      cursor: pointer
-      display: block
-      font-family: $primary-font
-      padding: 2px 25px
-      position: relative
-
-      @media screen and (max-width: $break-small)
-        padding: 2px 10px
-
-    .open-overlay
-      +appearance(none)
-      border: none
-      background: none
-      color: $text-color
-
-    .close-overlay
-      height: auto !important
-
-  .close-overlay
-    display: none
-
-    svg
-      fill: $text-color
-
-  ul
-    +transform-origin(100% 0%)
-    +transform(translateX(-50%) scaleY(0.75))
-    +transition(all 0.3s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)
-    box-shadow: 0 30px 40px -10px rgba(0,0,0,0.20)
-    background: $background-color
-    font-size: 15px
-    left: 50%
-    list-style: none
-    margin: 0
-    max-height: 450px
-    opacity: 0
-    overflow: auto
-    padding: 10px 0 0 0
-    position: absolute
-    top: 100%
-    width: 300px
-    visibility: hidden
-    z-index: 20
-
-    > li
-      border-bottom: 1px solid $accent-color
-
-      a
-        +flexbox
-        +justify-content(center)
-        +align-items(center)
-        cursor: pointer
-        height: 67px
-        line-height: 20px
-        padding: 0 30px
-
-        &:active, &:focus, &:hover
-          background: $text-color
-          color: $background-color
-          outline: none
-
-      &:last-child
-        border-bottom: 0px
-
-@media screen and (min-width: $break-small)
-  .header-nav li:hover > ul, .header-nav li ul:hover
-    +transform(scale(1) translateY(0) translateX(-50%))
-    visibility: visible
-    opacity: 1
-    transition-delay: 0s
-
-    @media screen and (max-width: $break-small)
-      +transform(none)
-      left: 0
-
-  .header-nav li:focus-within > ul
-    +transform(scale(1) translateY(0) translateX(-50%))
-    visibility: visible
-    opacity: 1
-    transition-delay: 0s
-
-    @media screen and (max-width: $break-small)
-      +transform(none)
-      left: 0
-
-ul li ul li
-  clear: both
-  width: 100%
+  &:hover, &:focus, &:focus-within
+    background-color: $accent-color
 
 .search-form
   +flexbox
   +justify-content(center)
   +align-items(center)
   cursor: pointer
-  height: 67px
-  line-height: 20px
+  height: 60px
+  margin: 0 auto
   padding: 0 30px
+  position: relative
+  width: 235px
 
   input
     border: 0
-    background-color: $background-color
+    background-color: none
     color: $text-color
-    font-size: 15px
+    padding: 6px
     text-align: center
+    width: 150px
 
     &::-webkit-input-placeholder
       color: $text-color
@@ -454,22 +289,33 @@ ul li ul li
       color: $text-color
 
   button.search-button
+    +transform(translateY(-50%))
     background: none
     border: none
-    margin-right: 5px
-    padding: 2px
+    padding: 6px
+    position: absolute
+    right: 10px
+    top: 50%
     width: auto
+
+    svg
+      display: block
+      fill: $text-color
+
+    &:hover, &:focus
+      svg
+        fill: $link-hover-color
 
 .cart-item-count
   font-size: 15px
   min-width: 40px
   position: absolute
-  right: -15px
+  right: -18px
   text-align: left
-  top: -8px
+  top: -4px
 
   @media screen and (max-width: $break-small)
-    right: -30px
+    right: -20px
 
   &.no-items
     opacity: 0
@@ -482,6 +328,9 @@ header, footer
 
 footer
   padding: 100px 0
+
+  @media screen and (max-width: $break-small)
+    padding: 75px 0
 
 .footer-store-name
   font-size: 20px
@@ -500,7 +349,6 @@ footer
   +justify-content(center)
   background-color: $accent-color
   color: $text-color
-  font-size: 15px
   left: 0
   line-height: 26px
   padding: 14px 20px
@@ -519,17 +367,20 @@ footer
   .flash-message-close
     +transform(translateY(-50%))
     cursor: pointer
+    padding: 4px
     position: absolute
-    right: 20px
+    right: 16px
     top: 50%
 
     svg
+      display: block
       fill: $text-color
-      height: 11px
-      width: 11px
+
+    &:hover, &:focus
+      svg
+        fill: $link-hover-color
 
 .select
-  +all-transitions
   border: 1px solid $text-color
   color: $text-color
   font-family: $primary-font
@@ -542,14 +393,9 @@ footer
   width: 100%
 
   select
-    +all-transitions
-    appearance: none
-    -webkit-appearance: none
-    background: none
     border: 0
     color: $text-color
     font-family: $primary-font
-    font-size: 14px
     height: 100%
     letter-spacing: 1px
     line-height: 60px
@@ -558,22 +404,11 @@ footer
     width: 100%
     z-index: 2
 
-    @media screen and (max-width: $break-small)
-      font-size: 16px
-
     option
-      background-color: #FFF
       color: #000
-
-      &:disabled
-        color: graytext
 
     &:focus
       box-shadow: none
-      outline: none
-
-    &::-ms-expand
-      display: none
 
   svg
     +all-transitions
@@ -585,6 +420,7 @@ footer
     z-index: 1
 
   &:hover, &:active, &:focus, &:focus-within
+    background-color: $accent-color
     color: $text-color
     border-color: $text-color
 
@@ -596,3 +432,13 @@ footer
 
     svg
       fill: $text-color
+
+.visually-hidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
