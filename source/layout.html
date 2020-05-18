@@ -182,7 +182,6 @@
         {% for category in product.categories %}
           {% assign this_product = product %}
           {% capture product_divs %}
-
             {% for product in category.products %}
               {% if this_product.id != product.id %}
                 {% if theme.max_products_per_row == 4 %}
@@ -307,7 +306,6 @@
           {% endcapture %}
         {% endfor %}
       {% endif %}
-
       {% if product_divs != blank %}
         <div class="all-similar-products">{{ product_divs }}</div>
         <div class="similar-products">
@@ -317,7 +315,6 @@
           </div>
         </div>
       {% endif %}
-
     </main>
     <footer class="footer">
       <div class="wrapper">
@@ -325,7 +322,7 @@
         <div class="footer-store-credit">{{ bigcartel_credit }}</div>
       </div>
     </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>
     {% if page.full_url contains '/product/' %}

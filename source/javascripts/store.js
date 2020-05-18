@@ -106,10 +106,11 @@ $(document).ready(function() {
       this_data_srcset = $(this).attr('data-srcset');
 
       img = $('<img />').attr('alt','').attr('class',this_class).attr('src',this_src).attr('data-src',this_data_src).attr('data-srcset',this_data_srcset);
-      $(this).closest('.image-wrapper').html(img);
+      $(this).parent().append(img);
+      $(this).remove();
     })
     $('.all-similar-products').remove();
-    $('.div.product-list-image').remove();
+
     window.document.dispatchEvent(new Event("DOMContentLoaded", {}));
   }
 });
