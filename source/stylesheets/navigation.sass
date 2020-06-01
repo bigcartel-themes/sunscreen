@@ -13,10 +13,16 @@
   +align-items(center)
   +justify-content(center)
 
+  @media screen and (max-width: $break-small)
+    +justify-content(space-evenly)
+
 .nav-menu-item
   color: $text-color
   margin: 0 2px
   position: relative
+
+  @media screen and (max-width: $break-small)
+    margin: 0
 
   > a
     color: $text-color
@@ -25,6 +31,10 @@
     padding: 5px 25px
     position: relative
     text-decoration: none
+
+    @media screen and (max-width: $break-small)
+      font-size: 20px
+      padding: 2px 15px
 
 .horizontal-nav-links
   +transform-origin(100% 0%)
