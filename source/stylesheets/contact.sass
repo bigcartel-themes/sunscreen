@@ -7,13 +7,13 @@
 .contact-form-group
   display: block
   margin: 0 auto
-  margin-bottom: 60px
+  margin-bottom: 40px
   max-width: 660px
   position: relative
   width: 100%
 
-  &.contact-captcha
-    margin-bottom: 40px
+  &.contact-recaptcha
+    margin-bottom: 0
 
   .contact-form-label
     +transition(all 150ms)
@@ -42,7 +42,7 @@
       padding-top: 20px
 
   .send-message-button
-    margin-top: 100px
+    margin-top: 60px
 
     @media screen and (max-width: $break-small)
       margin-top: 50px
@@ -52,13 +52,13 @@
   transform: translateY(-125%)
   font-size: 16px
 
-#captcha_image
-  position: absolute
-  right: 0
-  top: 9px
-
-.captcha-instructions
+.recaptcha-note
+  font-size: 14px
+  line-height: 1.5em
   margin-top: 20px
+
+  a
+    text-decoration: underline
 
 .send-message-button
   display: block
