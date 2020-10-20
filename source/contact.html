@@ -21,10 +21,8 @@
         <label class="contact-form-label contact-message" for="message">Message</label>
         {{ contact | contact_input: 'message' }}
       </div>
-      <div class="contact-form-group">
-        <label class="contact-form-label contact-captcha" for="captcha">Spam check</label>
-        {{ contact | contact_input: 'captcha' }} {{ contact.captcha }}
-        <div class="captcha-instructions">Enter the characters from the image</div>
+      <div class="contact-form-group contact-recaptcha">
+        <div class="recaptcha-note">{{ contact.recaptcha }}</div>
       </div>
 
       <div class="contact-form-group contact-send">
