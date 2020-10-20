@@ -1,5 +1,3 @@
-var inPreview = (/\/admin\/design/.test(top.location.pathname));
-
 API.onError = function(errors) {
   var errorList = $('.error-list');
   $.each(errors, function(index, error) {
