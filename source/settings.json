@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "images": [
     {
       "variable": "logo",
@@ -237,7 +237,6 @@
     "body_font_size": "16px",
     "secondary_font_size": "16px",
     "step_border_color": "{{ text_color }}",
-    "step_header_color": "{{ text_color }}",
     "step_border_width": "2px",
     "step_border_style": "solid",
     "step_border_radius": "0px",
@@ -251,6 +250,7 @@
     "content_header_font_size": "18px",
     "content_border_color": "transparent",
     "content_border_radius": "0px",
+    "content_border_width": "0px",
     "error_background_color": "#a02936",
     "error_color": "#ffffff",
     "error_border_radius": "0px",
