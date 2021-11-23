@@ -182,7 +182,7 @@
         {% for category in product.categories %}
           {% assign this_product = product %}
           {% capture product_divs %}
-            {% for product in category.products %}
+            {% for product in category.products limit: 15 %}
               {% if this_product.id != product.id %}
                 {% if theme.max_products_per_row == 4 %}
                   {% assign product_image_constrain_width = 288 %}
