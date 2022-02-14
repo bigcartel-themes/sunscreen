@@ -22,43 +22,6 @@ body
     overflow: hidden
     position: relative
 
-  &.maintenance-page
-    padding-top: 75px
-
-    .maintenance-content
-      +flexbox
-      +align-items(center)
-      +justify-content(flex-start)
-      +flex-direction(column)
-      height: 100%
-      position: relative
-      text-align: center
-
-    h1
-      font-size: 36px
-      margin-bottom: 40px
-
-    p
-      font-size: 20px
-      margin-bottom: 40px
-
-    .maintenance-social-links
-      font-size: 16px
-      margin: 0
-      padding: 0
-
-      li
-        display: inline-block
-
-        @media screen and (max-width: $break-small)
-          display: block
-          margin-bottom: 10px
-
-      a
-        cursor: pointer !important
-        display: block
-        padding: 4px 10px
-
 a.skip-link
   +transition(all .3s)
   background: $background-color

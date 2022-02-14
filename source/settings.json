@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.4.9",
+  "version": "1.5.0",
   "images": [
     {
       "variable": "logo",
@@ -85,6 +85,13 @@
       "label": "Announcement text",
       "type": "text",
       "description": "Displays an announcement message on the top of every page"
+    },
+    {
+      "variable": "maintenance_message",
+      "label": "Maintenance mode message",
+      "type": "text",
+      "description": "A message visitors see when your shop is in Maintenance Mode",
+      "default": "We're working on our shop right now.<br /><br />Please check back soon."
     },
     {
       "variable": "lookbook_page_name",
