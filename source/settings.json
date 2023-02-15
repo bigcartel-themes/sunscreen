@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "images": [
     {
       "variable": "logo",
@@ -235,7 +235,7 @@
     "title_font": "{{ shop_name_font }}",
     "title_font_weight": "normal",
     "title_font_size": "38px",
-    "title_color": "{{ text_color }}",
+    "title_color": "{{ shop_name_text_color }}",
     "title_background_color": "{{ background_color }}",
     "title_vertical_padding": "40px",
     "accent_background_color": "{{ accent_color }}",
