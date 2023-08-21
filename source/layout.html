@@ -103,11 +103,11 @@
               {% assign social_urls_array_size = social_urls_array | size %}
               {% if social_urls_array_size == 1 %}
                 <li class="nav-menu-item" role="menuitem" aria-haspopup="false">
-                  {% if theme.instagram_url != blank %}<a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a>{% endif %}
-                  {% if theme.twitter_url != blank %}<a target="_blank" title="Twitter" href="{{ theme.twitter_url }}">Twitter</a>{% endif %}
-                  {% if theme.facebook_url != blank %}<a target="_blank" title="Facebook" href="{{ theme.facebook_url }}">Facebook</a>{% endif %}
-                  {% if theme.pinterest_url != blank %}<a target="_blank" title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a>{% endif %}
-                  {% if theme.tumblr_url != blank %}<a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a>{% endif %}
+                  {% if theme.instagram_url != blank %}<a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a>{% endif %}
+                  {% if theme.twitter_url != blank %}<a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a>{% endif %}
+                  {% if theme.facebook_url != blank %}<a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a>{% endif %}
+                  {% if theme.pinterest_url != blank %}<a title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a>{% endif %}
+                  {% if theme.tumblr_url != blank %}<a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a>{% endif %}
                 </li>
               {% else %}
                 <li class="nav-menu-item" role="menuitem" aria-haspopup="true">
@@ -120,23 +120,23 @@
                       <span class="visually-hidden">Close navigation</span>
                     </button>
                     {% if theme.instagram_url != blank %}
-                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.instagram_url }}" target="_blank" tabindex="-1">Instagram</a></li>
+                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.instagram_url }}" tabindex="-1">Instagram</a></li>
                     {% endif %}
 
                     {% if theme.twitter_url != blank %}
-                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.twitter_url }}" target="_blank" tabindex="-1">Twitter</a></li>
+                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.twitter_url }}" tabindex="-1">Twitter</a></li>
                     {% endif %}
 
                     {% if theme.facebook_url != blank %}
-                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.facebook_url }}" target="_blank" tabindex="-1">Facebook</a></li>
+                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.facebook_url }}" tabindex="-1">Facebook</a></li>
                     {% endif %}
 
                     {% if theme.pinterest_url != blank %}
-                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.pinterest_url }}" target="_blank" tabindex="-1">Pinterest</a></li>
+                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.pinterest_url }}" tabindex="-1">Pinterest</a></li>
                     {% endif %}
 
                     {% if theme.tumblr_url != blank %}
-                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.tumblr_url }}" target="_blank" tabindex="-1">Tumblr</a></li>
+                      <li class="horizontal-nav-link" role="menuitem"><a href="{{ theme.tumblr_url }}" tabindex="-1">Tumblr</a></li>
                     {% endif %}
                   </ul>
                 </li>
