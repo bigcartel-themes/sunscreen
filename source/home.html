@@ -1,5 +1,5 @@
 {% if theme.welcome_image or theme.welcome_text != blank %}
-  <div class="home-welcome">
+  <div class="home-welcome" role="banner" aria-label="Welcome Banner">
     {% if theme.welcome_image %}
       <img class="lazy welcome-image" src="{{ theme.images.welcome_image.url | constrain: 100,70 }}" data-src="{{ theme.images.welcome_image.url | constrain: 1000,700 }}" data-srcset="{{ theme.images.welcome_image.url | constrain: 2000,1400 }} 2x, {{ theme.images.welcome_image.url | constrain: 1000,700 }} 1x" alt="Welcome to {{ store.name | escape }}">
     {% endif %}
