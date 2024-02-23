@@ -239,7 +239,7 @@
       "variable": "secondary_image_on_hover",
       "label": "Show secondary image on hover",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Displays the secondary product image when hovering over thumbnails"
     },
     {

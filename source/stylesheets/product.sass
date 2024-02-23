@@ -1,130 +1,102 @@
-.product-page-content
-  margin: 0 auto
-  max-width: 800px
-  width: 100%
-
-.product-images-container
-  margin-bottom: 50px
-
-.product-page-details
-
-  &::after
-    content: ""
-    clear: both
-    display: table
-
-  @media screen and (max-width: $break-small)
-    padding: 0 20px
-
-  &.inactive
-    .product-page-titles
-      float: none
-      max-width: 100%
-
-    .product-description
-      float: none
-      max-width: 100%
-
-.product-page-titles
-  float: left
-  max-width: calc(100% - 350px)
-  width: 100%
-
-  @media screen and (max-width: $break-small)
-    float: none
-    max-width: 100%
-
-h1.product-name
-  font-size: 25px
-  line-height: 36px
-  margin-bottom: 8px
-  text-align: left
-
-.product-description
-  clear: left
-  float: left
-  font-size: 20px
-  line-height: 1.5em
-  margin-top: 30px
-  max-width: calc(100% - 350px)
-
-  @media screen and (max-width: $break-small)
-    float: none
-    font-size: 16px
-    max-width: 100%
-
-  p
-    margin: revert
-
-  &>:first-child
-    margin-top: 0
-
-  &>:last-child
-    margin-bottom: 0
-
-  ol, ul
-    margin: 1em
-
-  ul
-    list-style: disc
-
-  ol
-    list-style: decimal
+.product-breadcrumb
+  margin-bottom: 16px
 
   a
+    color: inherit
     text-decoration: underline
 
-.product-form
-  float: right
-  max-width: 290px
-  width: 100%
+    &:hover
+      color: var(--link-hover-color)
 
-  @media screen and (max-width: $break-small)
-    float: none
-    margin-left: 0
-    margin-top: 50px
-    max-width: 100%
+.product-container
+  display: grid
+  grid-template-columns: 1fr 360px
+  column-gap: 60px
+  row-gap: 40px
 
-    .add-to-cart-button
-      max-width: 100%
+  @media screen and (max-width: $break-large)
+    column-gap: 40px
 
-  select span, select span option
-    display: none
-    opacity: 0
-    visibility: hidden
+  @media screen and (max-width: $break-medium)
+    grid-template-columns: 1fr
 
 .reset-selection-button-container
   text-align: center
   width: 100%
 
-button.reset-selection-button
-  display: none
-  font-size: 14px
-  height: auto
-  max-width: 100%
-  line-height: normal
-  margin: 20px auto 0
-  padding: 4px
-  width: auto
+  button.reset-selection-button
+    display: none
 
-.product-quantity
-  display: none
+.product-form
+  width: 100%
 
-.add-to-cart-button
-  max-width: 100%
+  button
+    max-width: 100%
 
-.all-similar-products
-  display: none
+  @media screen and (max-width: $break-large)
+    max-width: 100%
 
-.related-products-container
-  background-color: $accent-color
-  margin-top: 100px
-  padding: 100px 0
+.product-selects
+  margin-bottom: 20px
 
-.related-products-title
-  font-size: 25px
-  margin-bottom: 40px
-  text-align: center
+.product-option-groups
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.product-detail
+  display: flex
+  flex-direction: column
+  row-gap: 36px
+
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+  &__status
+    text-transform: uppercase
+    font-size: .825rem
+    line-height: normal
+    font-weight: 700
+    display: inline-block
+    padding: 4px 6px
+    margin-left: 8px
+    border: 1px solid var(--border-color)
+    border-radius: var(--border-radius)
+    background: $accent-color
+    letter-spacing: 1.1px
+
+  &__pricing
+    display: flex
+    align-items: center
+    font-size: 1.5em
+
+  &__description
+    p
+      margin: revert
+
+    &>:first-child
+      margin-top: 0
+
+    &>:last-child
+      margin-bottom: 0
+
+    ol, ul
+      margin: 1em
+
+    ul
+      list-style: disc
+
+    ol
+      list-style: decimal
+
+    a
+      text-decoration: underline
+
+  .page-title
+    margin-bottom: 0
+    text-align: left
 
 #instant-checkout-button
   margin-top: 12px

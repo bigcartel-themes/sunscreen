@@ -46,40 +46,6 @@ API.onError = function(errors) {
   $('.error-modal').show();
 }
 
-$('.product-form').submit(function(e) {
-  e.preventDefault();
-  var quantity = 1
-  , itemID = $("#option").val()
-  , addButton = $('.add-to-cart-button')
-  if (addButton.length) {
-    var addMethod = addButton;
-    var updateElement = addButton;
-    var addText = addButton.html();
-  }
-  var addedText = addMethod.data('added-text')
-  , addingText = addMethod.data('adding-text')
-  if (!addMethod.hasClass('adding')) {
-    if (quantity > 0 && itemID > 0) {
-      addMethod.addClass('adding');
-      addMethod.blur();
-      Cart.addItem(itemID, quantity, function(cart) {
-        setTimeout(function() {
-          updateElement.html(addingText);
-          setTimeout(function() {
-            updateElement.html(addedText);
-            $('.cart-item-count').html(cart.item_count);
-            $('.cart-item-count').removeClass('no-items');
-            addMethod.removeClass('adding');
-            setTimeout(function() {
-              updateElement.html(addText);
-            }, 900)
-          }, 600);
-        }, 300);
-      });
-    }
-  }
-});
-
 var nav_position = $('.header-nav-container').offset().top;
 var header_nav_height = $('.header-nav-container').outerHeight();
 

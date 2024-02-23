@@ -87,15 +87,14 @@ button, input, textarea, select
     background: none
     color: $text-color
     border: none
-    font-size: 14px
     padding: 0
+    text-decoration: underline
 
     &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
       +transform(none)
       box-shadow: none
       background: none
       color: $link-hover-color
-      text-decoration: underline
 
   &:disabled, &.disabled
     cursor: not-allowed
@@ -107,9 +106,10 @@ button, input, textarea, select
 
   &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
     background-color: $button-hover-background-color
-    +transform(scale(1.02, 1.02))
     color: $button-text-color
 
+    @media (hover: hover)
+      +transform(scale(1.02, 1.02))
 
 h1, h2, h3, h4, h5, h6
   color: $text-color
@@ -417,7 +417,6 @@ footer
   color: $text-color
   font-family: $primary-font
   height: 60px
-  margin-bottom: 15px
   max-width: 100%
   padding: 0
   position: relative
@@ -445,7 +444,7 @@ footer
   svg
     +all-transitions
     +transform(translateY(-50%))
-    fill: $text-color
+    fill: currentColor
     position: absolute
     right: 20px
     top: 50%

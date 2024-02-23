@@ -1,7 +1,6 @@
 .home-welcome
   display: grid
   color: $welcome-header-text-color
-  padding: 0 var(--spacing-unit)
   position: relative
   align-items: center
   margin-bottom: 80px
@@ -18,7 +17,6 @@
       z-index: 2
 
   @media screen and (max-width: $break-small)
-    padding: 0
     margin-bottom: 50px
 
 .welcome-message
@@ -37,7 +35,7 @@
 
 .featured-category
   display: flex
-  background-color: var(--accent-color)
+  background-color: $accent-color
   margin-bottom: 50px
   padding: 80px
 
