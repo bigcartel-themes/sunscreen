@@ -3,7 +3,7 @@
 $text-color: #{"{{ theme.text_color }}"}
 $link-hover-color: #{"{{ theme.link_hover_color }}"}
 $background-color: #{"{{ theme.background_color }}"}
-$accent-color: #{"{{ theme.accent_color }}"}
+$accent-color: #{"{{ theme.accent_background_color }}"}
 $welcome-header-text-color: #{"{{ theme.welcome_header_text_color }}"}
 $shop-name-text-color: #{"{{ theme.shop_name_text_color }}"}
 
@@ -35,10 +35,6 @@ $primary-font: #{"{{ theme.primary_font | font_family }}"}
   -webkit-transform-origin: $str
   transform-origin: $str
 
-@mixin appearance($str...)
-  -webkit-appearance: none
-  appearance: none
-
 @mixin keyframes($animation...)
   @-webkit-keyframes #{$animation}
     @content
@@ -49,3 +45,42 @@ $primary-font: #{"{{ theme.primary_font | font_family }}"}
 @mixin animation($str...)
   -webkit-animation: $str
   animation: $str
+
+@mixin appearance($str...)
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+*, *::before, *::after
+  box-sizing: border-box
+
+*
+  margin: 0
+  padding: 0
+  border: 0
+
+body
+  line-height: 1.5
+  -webkit-font-smoothing: antialiased
+
+img, picture, video, canvas, svg, iframe, embed, audio
+  display: block
+  max-width: 100%
+
+input, button, textarea, select
+  +appearance(none)
+  border: 0
+  border-radius: 0
+  background: none
+  color: inherit
+  font: inherit
+
+button
+  cursor: pointer
+
+p, h1, h2, h3, h4, h5, h6
+  overflow-wrap: break-word
+  word-break: break-word
+
+ol, ul
+  list-style: none

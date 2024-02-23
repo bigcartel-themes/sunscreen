@@ -1,7 +1,23 @@
-@import 'variables'
+\:root
+  --background-color: #{'{{ theme.background_color }}'}
 
-*
-  box-sizing: border-box
+  --text-color: #{'{{ theme.text_color }}'}
+  --link-hover-color: #{'{{ theme.link_hover_color }}'}
+
+  --header-text-color: #{'{{ theme.header_text_color }}'}
+
+  --button-background-color: #{'{{ theme.button_background_color }}'}
+  --button-hover-background-color: #{'{{ theme.button_hover_background_color }}'}
+  --button-text-color: #{'{{ theme.button_text_color }}'}
+
+  --error-background-color: #950f1e
+  --error-text-color: #FFFFFF
+
+  --announcement-background-color: #{'{{ theme.accent_background_color }}'}
+  --announcement-text-color: #{'{{ theme.text_color }}'}
+
+  --border-radius: 0
+  --border-radius-sm: 2px
 
 body
   +flexbox
@@ -149,14 +165,26 @@ h1
   @media screen and (max-width: $break-small)
     font-size: 16px
 
-  ul, ol
-    padding-left: 1em
+  p
+    margin: revert
+
+  &>:first-child
+    margin-top: 0
+
+  &>:last-child
+    margin-bottom: 0
+
+  ol, ul
+    margin: 1em
+
+  ul
+    list-style: disc
+
+  ol
+    list-style: decimal
 
   a
     text-decoration: underline
-
-  img, iframe
-    max-width: 100%
 
 .lookbook-gallery
   text-align: center
@@ -203,7 +231,7 @@ a.store-link
   background: $background-color
   padding: 10px 0
   position: relative
-  z-index: 10
+  z-index: 11
 
   &.fixed
     left: 0

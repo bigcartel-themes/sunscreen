@@ -1,28 +1,10 @@
-@import 'variables'
-
-
 .product-page-content
   margin: 0 auto
   max-width: 800px
   width: 100%
 
-.primary-product-image-container
+.product-images-container
   margin-bottom: 50px
-
-.primary-product-image
-  display: block
-  width: 100%
-
-.secondary-product-image-container
-  margin-top: 50px
-
-.secondary-product-image
-  display: block
-  margin-bottom: 50px
-  width: 100%
-
-  &:last-child
-    margin-bottom: 0
 
 .product-page-details
 
@@ -71,14 +53,26 @@ h1.product-name
     font-size: 16px
     max-width: 100%
 
-  ul, ol
-    padding-left: 1em
+  p
+    margin: revert
+
+  &>:first-child
+    margin-top: 0
+
+  &>:last-child
+    margin-bottom: 0
+
+  ol, ul
+    margin: 1em
+
+  ul
+    list-style: disc
+
+  ol
+    list-style: decimal
 
   a
     text-decoration: underline
-
-  img, iframe
-    max-width: 100%
 
 .product-form
   float: right
