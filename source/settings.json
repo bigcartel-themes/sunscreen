@@ -106,6 +106,13 @@
       "description": "Displays a welcome message on the Home page"
     },
     {
+      "variable": "featured_header",
+      "label": "Featured header",
+      "type": "text",
+      "description": "Displays above your featured products or categories on the Home page",
+      "default": "Featured"
+    },
+    {
       "variable": "featured_items_type",
       "label": "Featured items type",
       "type": "select",
@@ -142,11 +149,11 @@
       "label": "Product grid image style",
       "type": "select",
       "options": [
-        ["Default", "default"],
-        ["Fit to square", "fit-to-square"],
-        ["Crop to square", "crop-to-square"]
+        ["Normal", "default"],
+        ["Fit to square", "contain"],
+        ["Crop to square", "cover"]
       ],
-      "default": "crop-to-square",
+      "default": "cover",
       "description": "Sets the display of images in the product grid"
     },
     {
@@ -214,6 +221,13 @@
       "description": "Choose to hide or show thumbnails on the mobile Product page carousel"
     },
     {
+      "variable": "show_related_products",
+      "label": "Show related products",
+      "type": "boolean",
+      "default": false,
+      "description": "Displays related products on the Product page"
+    },
+    {
       "variable": "show_sold_out_product_options",
       "label": "Show sold out product options",
       "type": "boolean",
@@ -225,7 +239,7 @@
       "variable": "secondary_image_on_hover",
       "label": "Show secondary image on hover",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "Displays the secondary product image when hovering over thumbnails"
     },
     {

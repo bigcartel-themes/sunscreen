@@ -1,33 +1,13 @@
+<h1 class="page-title">{% if page.full_url contains 'search=' %}Search Results{% else %}{{ page.name }}{% endif %}</h1>
+
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
-    <h1 class="page-title products-page-title">{% if page.full_url contains "search=" %}Search results - {{ paginate.items }}{% else %}{{ page.name }}{% endif %}</h1>
     <div class="product-list-container">
-      <div class="product-list">
+      <div class="product-list {% if products.size < 4 %}product-list--center{% endif %}">
         {% for product in products %}
-          {% if theme.max_products_per_row == 4 %}
-            {% assign product_image_constrain_width = 288 %}
-            {% assign product_image_constrain_height = 288 %}
-            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-          {% elsif theme.max_products_per_row == 3 %}
-            {% assign product_image_constrain_width = 390 %}
-            {% assign product_image_constrain_height = 390 %}
-            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-          {% elsif theme.max_products_per_row == 2 %}
-            {% assign product_image_constrain_width = 592 %}
-            {% assign product_image_constrain_height = 526 %}
-            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-          {% elsif theme.max_products_per_row == 1 %}
-            {% assign product_image_constrain_width = 1200 %}
-            {% assign product_image_constrain_height = 1200 %}
-            {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-            {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-          {% endif %}
-          {% assign thumb_constrain_width = 30 %}
-          {% assign thumb_constrain_height = 30 %}
-
+          {% assign image_width = product.image.width | times: 1.0 %}
+          {% assign image_height = product.image.height | times: 1.0 %}
+          {% assign aspect_ratio = image_width | divided_by: image_height %}
           {% assign product_status = '' %}
           {% case product.status %}
             {% when 'active' %}
@@ -37,115 +17,93 @@
             {% when 'coming-soon' %}
               {% assign product_status = 'Coming soon' %}
           {% endcase %}
-          {% capture image_class %}
-            {% if product.image.height > product.image.width %}
-              image-tall
-              {% if theme.grid_image_style == 'crop-to-square' %}
-                {% assign product_image_constrain_height = '' %}
-                {% assign product_image_constrain_height_large = '' %}
-                {% assign thumb_constrain_height = '' %}
-              {% endif %}
-            {% elsif product.image.height < product.image.width %}
-              image-wide
-              {% if theme.grid_image_style == 'crop-to-square' %}
-                {% assign product_image_constrain_width = '' %}
-                {% assign product_image_constrain_width_large = '' %}
-                {% assign thumb_constrain_width = '' %}
-              {% endif %}
-            {% else %}
-              image-square
-            {% endif %}
-          {% endcapture %}
-          <a class="product-list-thumb {{ theme.grid_image_style }}" href="{{ product.url }}" title="View {{ product.name | escape }}">
-            <div class="product-list-thumb-container">
-              <figure class="product-list-image-container {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}show-secondary{% endif %}">
-                <div class="image-wrapper">
-                  <img alt="" class="lazy product-list-image {{ image_class }}" src="{{ product.image | product_image_url | constrain: thumb_constrain_width,thumb_constrain_height }}" data-src="{{ product.image | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }}" data-srcset="{{ product.image | product_image_url | constrain: product_image_constrain_width_large, product_image_constrain_height_large }} 2x, {{ product.image | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }} 1x">
-                  {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
-                    {% if theme.max_products_per_row == 4 %}
-                      {% assign product_image_constrain_width = 288 %}
-                      {% assign product_image_constrain_height = 288 %}
-                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-                    {% elsif theme.max_products_per_row == 3 %}
-                      {% assign product_image_constrain_width = 390 %}
-                      {% assign product_image_constrain_height = 390 %}
-                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-                    {% elsif theme.max_products_per_row == 2 %}
-                      {% assign product_image_constrain_width = 592 %}
-                      {% assign product_image_constrain_height = 526 %}
-                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-                    {% elsif theme.max_products_per_row == 1 %}
-                      {% assign product_image_constrain_width = 1200 %}
-                      {% assign product_image_constrain_height = 1200 %}
-                      {% assign product_image_constrain_width_large = product_image_constrain_width | times: 2 %}
-                      {% assign product_image_constrain_height_large = product_image_constrain_height | times: 2 %}
-                    {% endif %}
-                    {% assign thumb_constrain_width = 30 %}
-                    {% assign thumb_constrain_height = 30 %}
-                    {% capture secondary_image_class %}
-                      {% if product.images[1].height > product.images[1].width %}
-                        image-tall
-                        {% if theme.grid_image_style == 'crop-to-square' %}
-                          {% assign product_image_constrain_height = '' %}
-                          {% assign product_image_constrain_height_large = '' %}
-                          {% assign thumb_constrain_height = '' %}
-                        {% endif %}
-                      {% elsif product.images[1].height < product.images[1].width %}
-                        image-wide
-                        {% if theme.grid_image_style == 'crop-to-square' %}
-                          {% assign product_image_constrain_width = '' %}
-                          {% assign product_image_constrain_width_large = '' %}
-                          {% assign thumb_constrain_width = '' %}
-                        {% endif %}
-                      {% else %}
-                        image-square
-                      {% endif %}
-                    {% endcapture %}
-                    <img alt="" class="lazy product-list-image {{ secondary_image_class }}" src="{{ product.images[1] | product_image_url | constrain: thumb_constrain_width,thumb_constrain_height }}" data-src="{{ product.images[1] | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }}" data-srcset="{{ product.images[1] | product_image_url | constrain: product_image_constrain_width_large, product_image_constrain_height_large }} 2x, {{ product.images[1] | product_image_url | constrain: product_image_constrain_width, product_image_constrain_height }} 1x">
+          <div class="product-list-thumb {{ product.css_class }}">
+            <a class="product-list-link{% if product.images[1] != blank and theme.secondary_image_on_hover == true %} product-list-link--show-secondary{% endif %}" href="{{ product.url }}" title="View {{ product.name | escape }}">
+              <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
+                <img
+                  alt=""
+                  class="blur-up product-list-image product-list-image--primary lazyload grid-{{ theme.grid_image_style }}"
+                  src="{{ product.image | product_image_url | constrain: 20 }}"
+                  {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                  data-srcset="
+                    {{ product.image | product_image_url | constrain: 240 }} 240w,
+                    {{ product.image | product_image_url | constrain: 320 }} 320w,
+                    {{ product.image | product_image_url | constrain: 400 }} 400w,
+                    {{ product.image | product_image_url | constrain: 540 }} 540w,
+                    {{ product.image | product_image_url | constrain: 600 }} 600w,
+                    {{ product.image | product_image_url | constrain: 800 }} 800w,
+                    {{ product.image | product_image_url | constrain: 960 }} 960w
+                  "
+                  data-sizes="auto"
+                >
+                {% if product.images[1] != blank and theme.secondary_image_on_hover == true %}
+                  {% assign image_width = product.image.width | times: 1.0 %}
+                  {% assign image_height = product.image.height | times: 1.0 %}
+                  {% assign aspect_ratio = image_width | divided_by: image_height %}
+                  <img
+                    alt=""
+                    class="blur-up product-list-image product-list-image--secondary lazyload grid-{{ theme.grid_image_style }}"
+                    src="{{ product.images[1] | product_image_url | constrain: 20 }}"
+                    {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
+                    data-srcset="
+                      {{ product.images[1] | product_image_url | constrain: 240 }} 240w,
+                      {{ product.images[1] | product_image_url | constrain: 320 }} 320w,
+                      {{ product.images[1] | product_image_url | constrain: 400 }} 400w,
+                      {{ product.images[1] | product_image_url | constrain: 540 }} 540w,
+                      {{ product.images[1] | product_image_url | constrain: 600 }} 600w,
+                      {{ product.images[1] | product_image_url | constrain: 800 }} 800w,
+                      {{ product.images[1] | product_image_url | constrain: 960 }} 960w
+                    "
+                    data-sizes="auto"
+                  >
+                {% endif %}
+
+                {% if product_status != blank %}<div class="product-list-thumb-status">{{ product_status }}</div>{% endif %}
+              </div>
+              <div class="product-list-thumb-info">
+                <div class="product-list-thumb-name">{{ product.name }}</div>
+                <div class="product-list-thumb-price">
+                  {% if product.variable_pricing %}
+                    {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+                  {% else %}
+                    {{ product.default_price | money: theme.money_format }}
                   {% endif %}
                 </div>
-              </figure>
-            </div>
-            <div class="product-list-thumb-info">
-              <div class="product-list-thumb-name">{{ product.name }}</div>
-              <div class="product-list-thumb-price">
-                {% if product.variable_pricing %}
-                  {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
-                {% else %}
-                  {{ product.default_price | money: theme.money_format }}
-                {% endif %}
-                {% if product_status != blank %}<span class="product-list-thumb-status">&mdash; {{ product_status }}</span>{% endif %}
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         {% endfor %}
       </div>
     </div>
-
     {% if paginate.pages > 1 %}
-      <div class="pagination">
+      <nav class="pagination" aria-label="Pagination">
         {% if paginate.previous.is_link %}
-          <a class="pagination-link prev-link" href="{{ paginate.previous.url }}" title="Previous Page">
-            <svg aria-hidden="true" class="pagination-arrow prev-arrow" width="15" height="14" viewBox="0 0 15 14" xmlns="http://www.w3.org/2000/svg"><path d="M6.36336505 13.722222l1.0024981-1.05568445-4.39122407-4.69025523H14.7222224V6.46816168H2.97463908L7.36586315 1.7779065 6.36336505.722222l-6.08558705 6.5z" fill-rule="nonzero"/></svg>
+          <a aria-label="Go to previous page" class="page-link previous-page-link" href="{{ paginate.previous.url }}">
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M0.46875 6.96875L6.46875 1C6.75 0.6875 7.21875 0.6875 7.53125 1C7.8125 1.28125 7.8125 1.75 7.53125 2.03125L2.03125 7.5L7.5 13C7.8125 13.2812 7.8125 13.75 7.5 14.0312C7.21875 14.3438 6.75 14.3438 6.46875 14.0312L0.46875 8.03125C0.15625 7.75 0.15625 7.28125 0.46875 6.96875Z"></path></svg>
+            <span>Previous</span>
           </a>
+        {% else %}
+          <span class="page-link previous-page-link disabled">
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M0.46875 6.96875L6.46875 1C6.75 0.6875 7.21875 0.6875 7.53125 1C7.8125 1.28125 7.8125 1.75 7.53125 2.03125L2.03125 7.5L7.5 13C7.8125 13.2812 7.8125 13.75 7.5 14.0312C7.21875 14.3438 6.75 14.3438 6.46875 14.0312L0.46875 8.03125C0.15625 7.75 0.15625 7.28125 0.46875 6.96875Z"></path></svg>
+            <span>Previous</span>
+          </span>
         {% endif %}
-        <span class="pagination-caption">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+        {{ paginate | default_pagination, 'page-numbers', 'page-numbers' }}
+
         {% if paginate.next.is_link %}
-          <a class="pagination-link next-link" href="{{ paginate.next.url }}" title="Next Page">
-            <svg aria-hidden="true" class="pagination-arrow next-arrow" width="15" height="14" viewBox="0 0 15 14" xmlns="http://www.w3.org/2000/svg"><path d="M8.63663495.722222l-1.0024981 1.05568445 4.39122407 4.69025523H.2777776v1.50812064h11.74758332L7.63413685 12.6665375l1.0024981 1.0556845 6.08558705-6.5z" fill-rule="nonzero"/></svg>
+          <a aria-label="Go to next page" class="page-link next-page-link" href="{{ paginate.next.url }}">
+            <span>Next</span>
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M7.53125 6.96875C7.8125 7.28125 7.8125 7.75 7.53125 8.03125L1.53125 14.0312C1.21875 14.3438 0.75 14.3438 0.46875 14.0312C0.15625 13.75 0.15625 13.2812 0.46875 13L5.9375 7.53125L0.46875 2.03125C0.15625 1.75 0.15625 1.28125 0.46875 1C0.75 0.6875 1.21875 0.6875 1.5 1L7.53125 6.96875Z"></path></svg>
           </a>
+        {% else %}
+          <span class="page-link next-page-link disabled">
+            <span>Next</span>
+            <svg aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.23 0.77 7.51 13.5"><path d="M7.53125 6.96875C7.8125 7.28125 7.8125 7.75 7.53125 8.03125L1.53125 14.0312C1.21875 14.3438 0.75 14.3438 0.46875 14.0312C0.15625 13.75 0.15625 13.2812 0.46875 13L5.9375 7.53125L0.46875 2.03125C0.15625 1.75 0.15625 1.28125 0.46875 1C0.75 0.6875 1.21875 0.6875 1.5 1L7.53125 6.96875Z"></path></svg>
+          </span>
         {% endif %}
-      </div>
+      </nav>
     {% endif %}
   {% else %}
-    {% if page.full_url contains "search=" %}
-      <h1 class="page-title products-page-title">No products matched your search.</h1>
-      <a class="button centered-button" href="/products">View All</a>
-    {% else %}
-      <h1 class="page-title products-page-title">{{ page.name }}</h1>
-    {% endif %}
+    <div class="message-banner message-banner--centered message-banner--no-bg">No products found.</div>
   {% endif %}
 {% endpaginate %}

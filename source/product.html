@@ -166,7 +166,7 @@
         {{ store | instant_checkout_button: 'dark', '44px' }}
         {% if product.has_option_groups %}
           <div class="reset-selection-button-container">
-            <button class="button minimal-button reset-selection-button" title="Reset selection" type="reset">Reset selection</button>
+            <button class="button minimal-button reset-selection-button" type="reset">Reset selection</button>
           </div>
         {% endif %}
       </form>
@@ -179,11 +179,4 @@
   	</div>
   </div>
 
-  {% if product.images.size > 1 %}
-    <div class="secondary-product-image-container">
-      {% for image in product.images offset: 1 %}
-        <img alt="{{ product.name | escape }} Image {{ forloop.index | plus: 1 }}" class="lazy secondary-product-image" src="{{ image | product_image_url | constrain: 70 }}" data-src="{{ image | product_image_url | constrain: 768 }}" data-srcset="{{ image | product_image_url | constrain: 1536 }} 2x, {{ image | product_image_url | constrain: 768 }} 1x">
-      {% endfor %}
-    </div>
-  {% endif %}
 </div>

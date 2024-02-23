@@ -92,29 +92,3 @@ $(window).on("scroll", function(e) {
      $('body').css('padding-top',0);
   }
 });
-
-$(document).ready(function() {
-  if ($('.all-similar-products').length) {
-    var num_products = $('.all-similar-products > a').length;
-    var elements = $('.all-similar-products').children().toArray();
-    var num_to_display = 3;
-    for (var i=1; i<=num_to_display; i++) {
-      var randomIndex = getRandomIndex(elements);
-      $('.similar-product-list').append($('.all-similar-products').children().eq(randomIndex));
-      elements.splice(randomIndex, 1);
-    }
-    $('.similar-product-list .product-list-image').each(function() {
-      this_class = $(this).attr('class');
-      this_src = $(this).attr('src');
-      this_data_src = $(this).attr('data-src');
-      this_data_srcset = $(this).attr('data-srcset');
-
-      img = $('<img />').attr('alt','').attr('class',this_class).attr('src',this_src).attr('data-src',this_data_src).attr('data-srcset',this_data_srcset);
-      $(this).parent().append(img);
-      $(this).remove();
-    })
-    $('.all-similar-products').remove();
-
-    window.document.dispatchEvent(new Event("DOMContentLoaded", {}));
-  }
-});
