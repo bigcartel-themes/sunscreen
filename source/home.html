@@ -1,7 +1,18 @@
 {% if theme.welcome_image or theme.welcome_text != blank %}
-  <div class="home-welcome">
+  <div class="home-welcome stacked">
     {% if theme.welcome_image %}
-      <img class="lazy welcome-image" src="{{ theme.images.welcome_image.url | constrain: 100,70 }}" data-src="{{ theme.images.welcome_image.url | constrain: 1000,700 }}" data-srcset="{{ theme.images.welcome_image.url | constrain: 2000,1400 }} 2x, {{ theme.images.welcome_image.url | constrain: 1000,700 }} 1x" alt="Welcome to {{ store.name | escape }}">
+      <img
+        alt=""
+        class="lazyload welcome-image blur-up"
+        src="{{ theme.images.welcome_image.url | constrain: 400 }}"
+        data-srcset="
+          {{ theme.images.welcome_image.url | constrain: 800 }} 800w,
+          {{ theme.images.welcome_image.url | constrain: 1200 }} 1200w,
+          {{ theme.images.welcome_image.url | constrain: 1600 }} 1600w,
+          {{ theme.images.welcome_image.url | constrain: 2000 }} 2000w,
+        "
+        data-sizes="auto"
+      >
     {% endif %}
     {% if theme.welcome_text != blank %}
       <div class="welcome-message{% if theme.welcome_image %} with-image{% endif %}">
