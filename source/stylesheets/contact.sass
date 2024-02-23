@@ -1,63 +1,41 @@
 .contact-form
+  display: flex
+  flex-direction: column
+  gap: 24px
   margin: 0 auto
   max-width: 700px
 
-.contact-form-group
-  display: block
-  margin: 0 auto
-  margin-bottom: 40px
-  max-width: 660px
-  position: relative
+.contact-form-block
+  display: flex
+  flex-direction: column
+  gap: 8px
+
+.contact-label
+  font-weight: 700
+
+input, textarea
+  border-radius: var(--border-radius)
+  background: var(--background-color)
+  border: 1px solid var(--text-color)
+  font-weight: normal
   width: 100%
+  font-size: 1rem
+  padding: 12px
 
-  &.contact-recaptcha
-    margin-bottom: 0
-
-  .contact-form-label
-    +transition(all 150ms)
-    background-color: transparent
-    color: $text-color
-    cursor: text
-    font-size: 20px
-    left: 0
-    position: absolute
-    top: 20px
-
-  input, textarea
-    +transition(all .3s)
-    background-color: transparent
-    border: 0
-    border-bottom: 1px solid $text-color
-    font-size: 25px
-    height: 70px
-    outline: 0
-    padding: 30px 0 10px
-    position: relative
-    width: 100%
-
-    @media screen and (max-width: $break-small)
-      font-size: 20px
-      padding-top: 20px
-
-  .send-message-button
-    margin-top: 60px
-
-    @media screen and (max-width: $break-small)
-      margin-top: 50px
-      max-width: 100%
-
-.focused .contact-form-label
-  transform: translateY(-125%)
-  font-size: 16px
+textarea
+  min-height: 148px
+  resize: vertical
 
 .recaptcha-note
-  font-size: 14px
-  line-height: 1.5em
-  margin-top: 20px
+  font-size: .925rem
+  text-align: center
 
   a
     text-decoration: underline
 
-.send-message-button
-  display: block
-  margin: 0 auto
+.contact-send
+  button
+    margin: 0 auto
+
+    @media screen and (max-width: $break-small)
+      max-width: 100%

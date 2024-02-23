@@ -1,3 +1,43 @@
+"use strict";
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.remove("preloader");
+  let contactFields = document.querySelectorAll(".contact-form input, .contact-form textarea");
+  contactFields.forEach(function (contactField) {
+    contactField.removeAttribute("tabindex");
+  });
+  const numShades = 5;
+
+  let cssProperties = [];
+
+  for (const themeColor in themeColors) {
+    const hexValue = themeColors[themeColor];
+    var hsl = tinycolor(hexValue).toHsl();
+    for (var i = numShades - 1; i >= 0; i -= 1) {
+      hsl.l = (i + 0.5) / numShades;
+      cssProperties.push(`--${camelCaseToDash(themeColor)}-${((i * 100) / 1000) * 200}: ${tinycolor(hsl).toRgbString()};`);
+    }
+    numColor = tinycolor(hexValue).toRgb();
+    cssProperties.push(`--${camelCaseToDash(themeColor)}-rgb: ${numColor["r"]}, ${numColor["g"]}, ${numColor["b"]};`);
+  }
+
+  const headTag = document.getElementsByTagName("head")[0];
+  const styleTag = document.createElement("style");
+
+  styleTag.innerHTML = `
+    :root {
+      ${cssProperties.join("\n")}
+    }
+  `;
+  headTag.appendChild(styleTag);
+});
+
+window.addEventListener("load", () => {
+  document.body.classList.remove("transition-preloader");
+});
+
+
+
 API.onError = function(errors) {
   var errorList = $('.error-list');
   $.each(errors, function(index, error) {
@@ -53,41 +93,7 @@ $(window).on("scroll", function(e) {
   }
 });
 
-$('.close-errors').click(function(e) {
-  $('.error-modal').hide();
-});
-
-$(document).on('keyup',function(e) {
-  if (e.keyCode == 27) {
-    if ($('.error-modal').is(":visible")) {
-      $('.error-modal').hide();
-    }
-  }
-});
-
-$('.contact-form input[type="text"], .contact-form textarea').focus(function(){
-  $(this).parents('.contact-form-group').addClass('focused');
-});
-
-$('.contact-form input[type="text"], .contact-form textarea').blur(function(){
-  var inputValue = $(this).val();
-  if (inputValue.length == 0) {
-    $(this).removeClass('filled');
-    $(this).parents('.contact-form-group').removeClass('focused');
-  } else {
-    $(this).addClass('filled');
-  }
-})
-
 $(document).ready(function() {
-  $('.contact-form input[type="text"], .contact-form textarea').each(function(){
-    var inputValue = $(this).val();
-    if (inputValue.length > 0) {
-      $(this).addClass('filled');
-      $(this).parents('.contact-form-group').addClass('focused');
-    }
-  })
-  autoExpand($('textarea')[0]);
   if ($('.all-similar-products').length) {
     var num_products = $('.all-similar-products > a').length;
     var elements = $('.all-similar-products').children().toArray();
@@ -112,19 +118,3 @@ $(document).ready(function() {
     window.document.dispatchEvent(new Event("DOMContentLoaded", {}));
   }
 });
-
-
-document.addEventListener('input', function (event) {
-	if (event.target.tagName.toLowerCase() !== 'textarea') return;
-	autoExpand(event.target);
-}, false);
-
-function autoExpand(textarea) {
-  if (textarea) {
-    if (textarea.value) {
-      textarea.style.height = 'inherit';
-      var height = textarea.scrollHeight;
-      textarea.style.height = height + 'px';
-    }
-  }
-};
