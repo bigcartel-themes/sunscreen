@@ -31,7 +31,7 @@
         {% endif %}
         <nav class="header-nav-container">
           <ul class="nav">
-            <li class="nav-menu-item" aria-haspopup="{% if categories.active == blank %}false{% else %}true{% endif %}">
+            <li class="nav-menu-item" aria-haspopup="{% if categories.active == blank and artists.active == blank and theme.show_search == false %}false{% else %}true{% endif %}">
               {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
                 <button type="button" class="nav-menu-action open-dropdown" aria-label="Browse by category">
                   <span>Shop</span>
@@ -94,12 +94,15 @@
                 </ul>
               </li>
             {% else %}
-              <li class="nav-menu-item" aria-haspopup="false"><a href="/contact" class="nav-menu-link nav-menu-action">Contact</a></li>
+              <li class="nav-menu-item"><a href="/contact" class="nav-menu-link nav-menu-action">Contact</a></li>
             {% endif %}
 
-            <li class="nav-menu-item" aria-haspopup="false">
-              <a href="/cart" class="nav-menu-link nav-menu-action nav-menu-link--cart" aria-label="View cart{% if cart.item_count > 0 %}, {{ cart.item_count | pluralize: 'item', 'items' }}{% endif %}">
-                <span>Cart (<span class="cart-num-items">{{ cart.item_count }}</span>)</span>
+            <li class="nav-menu-item">
+              <a href="/cart" class="nav-menu-link" title="View cart">
+                <span>Cart</span>
+                <span class="cart-count" {% if cart.item_count == 0 %} style="display:none;"{% endif %}>
+                  <span class="cart-value">{{ cart.item_count }}</span>
+                </span>
               </a>
             </li>
           </ul>
@@ -122,15 +125,6 @@
             {% endif %}
           </div>
         {% else %}
-          {% if errors != blank %}
-            <div class="error-container">
-              <div class="error-list">
-                {% for error in errors %}
-                  <div class="error-list-item">{{ error }}</div>
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
           {{ page_content }}
         {% endif %}
       </div>

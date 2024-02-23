@@ -2,7 +2,7 @@
   --gap: calc(var(--spacing-unit) * 4)
   --row-gap: 48px
   --columns: #{"{{ theme.max_products_per_row }}"}
-  --spacing-unit: 8px
+  --spacing-unit: 10px
   display: flex
   flex-wrap: wrap
   justify-content: flex-start
@@ -94,7 +94,7 @@ a.product-list-link
   font-size: .875rem
   line-height: 1em
   letter-spacing: 1.12px
-  font-weight: 500
+  font-weight: 700
   position: absolute
   text-transform: uppercase
   padding: 6px
@@ -123,12 +123,13 @@ a.product-list-link
   position: relative
   text-align: center
   width: 100%
-  gap: 24px
+  gap: 16px
   line-height: 2em
-  margin-top: var(--margin-size)
+  padding-top: 80px
 
   .page-link
     display: flex
+    flex-shrink: 0
     align-items: center
     gap: 12px
     padding: 0 8px
@@ -145,7 +146,7 @@ a.product-list-link
 
 .page-numbers
   display: flex
-  gap: 24px
+  gap: 16px
 
   .current
     text-underline-offset: 4px
