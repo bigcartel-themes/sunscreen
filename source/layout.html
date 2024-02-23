@@ -30,23 +30,25 @@
           <a class="store-link" href="/" title="{{ store.name | escape }} Home">{{ store.name }}</a>
         {% endif %}
         <nav class="header-nav-container">
-          <ul class="nav" role="menubar" aria-hidden="false">
-            <li class="nav-menu-item" role="menuitem" aria-haspopup="{% if categories.active == blank %}false{% else%}true{% endif %}">
+          <ul class="nav">
+            <li class="nav-menu-item" aria-haspopup="{% if categories.active == blank %}false{% else %}true{% endif %}">
               {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
-                <a href="#" aria-label="Browse by category">Shop</a>
-                <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
-                  <button class="close-nav-menu">
-                    <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
+                <button type="button" class="nav-menu-action open-dropdown" aria-label="Browse by category">
+                  <span>Shop</span>
+                  <svg aria-hidden="true" fill="currentColor" class="dropdown-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
+                </button>
+                <ul aria-hidden="true" class="horizontal-nav-links">
+                  <button class="close-nav-menu" type="button" aria-label="Close menu">
+                    <svg fill="currentColor" aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
                       <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
                     </svg>
-                    <span class="visually-hidden">Close navigation</span>
                   </button>
                   {% if theme.show_search %}
                     <li class="dropdown-search">
                       <form class="search-form" name="search" action="/products" method="get" accept-charset="utf8" role="search">
                         <label for="search" class="visually-hidden">Search products</label>
                         <input type="hidden" name="utf8" value='✓'>
-                        <input class="search-input" id="search" name="search" placeholder="Search..." type="text" autocomplete="off" />
+                        <input class="search-input" id="search" name="search" placeholder="Search products" type="text" autocomplete="off" />
                         <button type="submit" class="search-button" aria-label="Submit search form">
                           <svg aria-hidden="true" height="15" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.15 11.27">
                             <path d="M11.15 10.56L8.8 8.21A4.93 4.93 0 0010 5a5.06 5.06 0 10-1.92 3.91l2.36 2.36zM1 5a4 4 0 114 4 4 4 0 01-4-4z" fill-rule="evenodd"/>
@@ -55,49 +57,50 @@
                       </form>
                     </li>
                   {% endif %}
-                  <li class="horizontal-nav-link" role="menuitem"><a href="/products" tabindex="-1">All</a></li>
+                  <li class="horizontal-nav-link"><a href="/products">All</a></li>
                   {% if categories.active != blank %}
                     {% for category in categories.active %}
-                      <li class="horizontal-nav-link"><a href="{{ category.url }}" tabindex="-1">{{ category.name }}</a></li>
+                      <li class="horizontal-nav-link"><a href="{{ category.url }}">{{ category.name }}</a></li>
                     {% endfor %}
                   {% endif %}
 
                   {% if artists.active != blank %}
                     {% for artist in artists.active %}
-                      <li class="horizontal-nav-link"><a href="{{ artist.url }}" tabindex="-1">{{ artist.name }}</a></li>
+                      <li class="horizontal-nav-link"><a href="{{ artist.url }}">{{ artist.name }}</a></li>
                     {% endfor %}
                   {% endif %}
                 </ul>
               {% else %}
-                <a href="/products">Shop</a>
+                <a href="/products" class="nav-menu-link nav-menu-action">Shop</a>
               {% endif %}
             </li>
 
-            {% if pages.all.size > 0 or store.website != blank %}
-              <li class="nav-menu-item" role="menuitem" aria-haspopup="true">
-                <a href="#" aria-label="Pages list">Info</a>
-                <ul aria-hidden="true" role="menu" class="horizontal-nav-links">
-                  <button class="close-nav-menu">
-                    <svg aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
+            {% if pages.all.size > 0 %}
+              <li class="nav-menu-item" aria-haspopup="true">
+                <button type="button" class="open-dropdown nav-menu-action" aria-label="Pages list">
+                  <span>Info</span>
+                  <svg aria-hidden="true" fill="currentColor" class="dropdown-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
+                </button>
+                <ul aria-hidden="true" class="horizontal-nav-links">
+                  <button class="close-nav-menu" type="button" aria-label="Close menu">
+                    <svg fill="currentColor" aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
                       <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
                     </svg>
-                    <span class="visually-hidden">Close navigation</span>
                   </button>
                   {% for page in pages.all %}
-                    <li class="horizontal-nav-link" role="menuitem"><a href="{{ page.url }}" tabindex="-1">{{ page.name }}</a></li></li>
+                    <li class="horizontal-nav-link"><a href="{{ page.url }}">{{ page.name }}</a></li></li>
                   {% endfor %}
-                  <li class="horizontal-nav-link" role="menuitem"><a href="/contact" tabindex="-1">Contact</a></li>
-                  {% if store.website != blank %}
-                    <li class="horizontal-nav-link" role="menuitem"><a href="{{ store.website }}" tabindex="-1">Back to site</a></li>
-                  {% endif %}
+                  <li class="horizontal-nav-link"><a href="/contact">Contact</a></li>
                 </ul>
               </li>
             {% else %}
-              <li class="nav-menu-item" role="menuitem" aria-haspopup="false"><a href="/contact">Contact</a></li>
+              <li class="nav-menu-item" aria-haspopup="false"><a href="/contact" class="nav-menu-link nav-menu-action">Contact</a></li>
             {% endif %}
 
-            <li class="nav-menu-item" role="menuitem" aria-haspopup="false"><a href="/cart" aria-label="View cart, {% if cart.item_count > 0 %}{{ cart.item_count | pluralize: 'item', 'items' }}{% endif %}">
-              Cart <span class="cart-item-count {% if cart.item_count == 0 %}no-items{% endif %}">{{ cart.item_count }}</span></a>
+            <li class="nav-menu-item" aria-haspopup="false">
+              <a href="/cart" class="nav-menu-link nav-menu-action nav-menu-link--cart" aria-label="View cart{% if cart.item_count > 0 %}, {{ cart.item_count | pluralize: 'item', 'items' }}{% endif %}">
+                <span>Cart (<span class="cart-num-items">{{ cart.item_count }}</span>)</span>
+              </a>
             </li>
           </ul>
         </nav>

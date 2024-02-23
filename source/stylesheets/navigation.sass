@@ -1,3 +1,76 @@
+.header-nav-container
+  transition: background .2s ease
+  background: var(--background-color)
+  padding: 10px 0
+  position: relative
+  z-index: 10
+
+  @media screen and (max-width: $break-small)
+    padding: 10px 0
+
+  &.fixed
+    background: var(--accent-background-color)
+    left: 0
+    padding: 10px 0
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 20
+
+    @media screen and (max-width: $break-extra-small)
+      padding: 10px 20px
+
+.dropdown-search
+
+  &:hover, &:focus, &:focus-within
+    background-color: var(--accent-background-color)
+
+.search-form
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+  height: 60px
+  margin: 0 auto
+  padding: 0 30px
+  position: relative
+  width: 235px
+
+  input
+    border: 0
+    background: none
+    font: inherit
+    padding: 6px
+    text-align: center
+    width: 150px
+
+    &::-webkit-input-placeholder
+      color: var(--text-color)
+
+    &:-moz-placeholder
+      color: var(--text-color)
+
+    &:-ms-input-placeholder
+      color: var(--text-color)
+
+  button.search-button
+    +transform(translateY(-50%))
+    background: none
+    border: none
+    color: var(--text-color)
+    padding: 6px
+    position: absolute
+    right: 10px
+    top: 50%
+    width: auto
+
+    svg
+      display: block
+      fill: currentColor
+
+    &:hover, &:focus
+      color: var(--link-hover-color)
+
 .main-nav
   position: relative
 
@@ -7,108 +80,124 @@
   list-style: none
 
 .nav
-  +inline-flex
-  +align-items(center)
-  +justify-content(center)
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 20px
 
-  @media screen and (max-width: $break-small)
-    +justify-content(space-evenly)
+  @media screen and (max-width: $break-extra-small)
+    justify-content: space-around
     width: 100%
 
 .nav-menu-item
-  color: $text-color
-  margin: 0 2px
   position: relative
 
-  @media screen and (max-width: $break-small)
-    margin: 0
+.open-dropdown, .nav-menu-link
+  display: flex
+  font-size: 1.5em
+  padding: 5px 25px
+  position: relative
+  text-decoration: none
+  align-items: center
+  gap: 10px
 
-  > a
-    color: $text-color
-    display: block
-    font-size: 25px
-    padding: 5px 25px
-    position: relative
-    text-decoration: none
+  &:hover, &:focus
+    color: var(--link-hover-color)
 
-    @media screen and (max-width: $break-small)
-      font-size: 20px
-      padding: 2px
+  @media screen and (max-width: $break-extra-small)
+    padding: 5px 10px
+
+  .dropdown-arrow
+    width: 12px
 
 .horizontal-nav-links
   +transform-origin(100% 0%)
   +transform(translateX(-50%) scaleY(0.75))
-  box-shadow: 0 30px 40px -10px rgba(0,0,0,0.20)
-  background: $background-color
+  box-shadow: var(--shadow-elevation-medium)
+  background: var(--background-color)
+  border: 1px solid #{'rgba(var(--text-color-rgb), .2)'}
   left: 50%
-  line-height: 1.25em
   min-width: 300px
-  max-height: 500px
+  max-height: 70vh
   opacity: 0
-  overflow-y: scroll
+  overflow: auto
   position: absolute
   top: 100%
   z-index: 0
   visibility: hidden
 
+  &[aria-hidden="false"]
+    transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out
+    +transform(scale(1) translateY(0) translateX(-50%))
+    visibility: visible
+    opacity: 1
+    transition-delay: 0s
+
+    &::-webkit-scrollbar
+      height: .375rem
+      width: .75rem
+
+    &::-webkit-scrollbar-track
+      background-color: transparent
+
+    &::-webkit-scrollbar-thumb
+      border-radius: .375rem
+      border: 3px solid transparent
+      background-color: #{"rgba(var(--text-color-rgb),.5)"}
+      background-clip: content-box
+
+    @media screen and (max-width: $break-small)
+      transition: none
+      +transform(none)
+
   @media screen and (max-width: $break-small)
     +transform(none)
-    +transition(opacity .15s)
+    transition: opacity .15s
     +transform-origin(0)
     -webkit-overflow-scrolling: touch
+    overscroll-behavior: contain
+    box-shadow: none
+    border: 0
     left: 0
-    max-height: 100vh
+    font-size: 1.1em
     max-width: 100%
-    padding-bottom: 140px
-    padding-top: 75px
+    padding-bottom: 40px
+    padding-top: 96px
     position: fixed
     top: 0
     width: 100%
+    min-height: 100vh
+    min-height: 100dvh
     height: 100vh
+    height: 100dvh
     z-index: 101
 
 .horizontal-nav-link
   position: static
 
   a
-    +transition(.1s linear all)
-    color: $text-color
     display: block
     padding: 20px 10px
     text-decoration: none
 
     @media screen and (max-width: $break-small)
-      padding: 20px 60px
+      padding: 12px 60px
 
-  &:hover, &:focus
-    background-color: $accent-color
-
-    a
-      color: $link-hover-color
+    &:hover, &:focus
+      background-color: var(--accent-background-color)
       text-decoration: underline
-
-.nav li:focus > a,
-.nav li:hover > a,
-.nav li:focus-within > a
-  color: $link-hover-color
-
-ul.show-menu
-  +transition(all 0.3s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)
-  +transform(scale(1) translateY(0) translateX(-50%))
-  visibility: visible
-  opacity: 1
-  transition-delay: 0s
-
-  @media screen and (max-width: $break-small)
-    +transition(opacity .2s ease-out)
-    +transform(none)
 
 .close-nav-menu
   display: none
-  padding: 10px
+  padding: 8px
   position: fixed
-  right: 15px
-  top: 15px
+  right: 20px
+  top: 20px
+  color: var(--text-color)
+
+  svg
+    height: 20px
+    width: 20px
 
   @media screen and (max-width: $break-small)
     display: block

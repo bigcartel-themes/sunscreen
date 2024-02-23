@@ -4,6 +4,8 @@
   --text-color: #{'{{ theme.text_color }}'}
   --link-hover-color: #{'{{ theme.link_hover_color }}'}
 
+  --accent-background-color: #{'{{ theme.accent_background_color }}'}
+
   --header-text-color: #{'{{ theme.header_text_color }}'}
 
   --button-background-color: #{'{{ theme.button_background_color }}'}
@@ -12,6 +14,9 @@
 
   --error-background-color: #950f1e
   --error-text-color: #FFFFFF
+
+  --shadow-color: #{'rgba(var(--text-color-rgb), 0.1)'}
+  --shadow-elevation-medium: 0px 0.4px 0.5px var(--shadow-color), 0px 1.3px 1.5px -0.8px var(--shadow-color), 0px 3.4px 3.8px -1.7px var(--shadow-color), 0px 8.2px 9.2px -2.5px var(--shadow-color)
 
   --announcement-background-color: #{'{{ theme.accent_background_color }}'}
   --announcement-text-color: #{'{{ theme.text_color }}'}
@@ -127,7 +132,7 @@ h1
   +flexbox
   +justify-content(center)
   +align-items(center)
-  background-color: $accent-color
+  background-color: var(--accent-background-color)
   padding: 20px
   margin: 0 auto 30px
   max-width: 760px
@@ -193,114 +198,28 @@ h1
     margin-bottom: 0
 
 .header
-  margin-bottom: 80px
+  margin-bottom: 100px
 
   @media screen and (max-width: $break-small)
-    margin-bottom: 50px
+    margin-bottom: 40px
 
 a.store-link
-  color: $shop-name-text-color
+  color: var(--shop-name-text-color)
   display: block
-  font-family: $shop-name-font
-  font-size: 50px
-  margin: 100px auto 80px
+  font-family: var(--shop-name-font)
+  font-size: 3em
+  margin: 60px auto
   max-width: 754px
   width: 100%
-
-  @media screen and (max-width: $break-small)
-    margin: 50px auto
 
 .store-logo
   display: block
   margin: 0 auto
   max-width: 100%
-  max-height: 400px
+  max-height: 200px
 
   @media screen and (max-width: $break-small)
-    max-height: 200px
-
-.header-nav-container
-  background: $background-color
-  padding: 10px 0
-  position: relative
-  z-index: 11
-
-  &.fixed
-    left: 0
-    padding: 20px 0
-    position: fixed
-    top: 0
-    width: 100%
-    z-index: 20
-
-    @media screen and (max-width: $break-small)
-      padding: 15px 10px
-
-.dropdown-search
-
-  &:hover, &:focus, &:focus-within
-    background-color: $accent-color
-
-.search-form
-  +flexbox
-  +justify-content(center)
-  +align-items(center)
-  cursor: pointer
-  height: 60px
-  margin: 0 auto
-  padding: 0 30px
-  position: relative
-  width: 235px
-
-  input
-    border: 0
-    background-color: none
-    color: $text-color
-    padding: 6px
-    text-align: center
-    width: 150px
-
-    &::-webkit-input-placeholder
-      color: $text-color
-
-    &:-moz-placeholder
-      color: $text-color
-
-    &:-ms-input-placeholder
-      color: $text-color
-
-  button.search-button
-    +transform(translateY(-50%))
-    background: none
-    border: none
-    padding: 6px
-    position: absolute
-    right: 10px
-    top: 50%
-    width: auto
-
-    svg
-      display: block
-      fill: $text-color
-
-    &:hover, &:focus
-      svg
-        fill: $link-hover-color
-
-.cart-item-count
-  font-size: 15px
-  min-width: 40px
-  position: absolute
-  right: -18px
-  text-align: left
-  top: -4px
-
-  @media screen and (max-width: $break-small)
-    right: -40px
-
-  &.no-items
-    opacity: 0
-    visibility: hidden
+    max-height: 150px
 
 header, footer
   +flexbox
@@ -372,46 +291,6 @@ footer
     padding-top: 1px
     width: 80px
 
-.flash-message
-  display: none
-
-.has-flash-message .flash-message
-  +flexbox
-  +align-items(center)
-  +justify-content(center)
-  background-color: $accent-color
-  color: $text-color
-  left: 0
-  line-height: 26px
-  padding: 14px 20px
-  position: relative
-  top: 0
-  width: 100%
-  z-index: 9
-
-  .flash-message-text
-    text-align: center
-    width: calc(100% - 100px)
-
-    @media screen and (max-width: $break-small)
-      width: calc(100% - 50px)
-
-  .flash-message-close
-    +transform(translateY(-50%))
-    cursor: pointer
-    padding: 4px
-    position: absolute
-    right: 16px
-    top: 50%
-
-    svg
-      display: block
-      fill: $text-color
-
-    &:hover, &:focus
-      svg
-        fill: $link-hover-color
-
 .select
   border: 1px solid $text-color
   color: $text-color
@@ -451,7 +330,7 @@ footer
     z-index: 1
 
   &:hover, &:active, &:focus, &:focus-within
-    background-color: $accent-color
+    background-color: var(--accent-background-color)
     color: $text-color
     border-color: $text-color
 
@@ -473,3 +352,24 @@ footer
   padding: 0
   position: absolute
   width: 1px
+
+.message-banner
+  border-radius: var(--border-radius)
+  background-color: var(--announcement-background-color)
+  color: var(--announcement-text-color)
+  padding: 16px
+  margin-bottom: 32px
+  text-align: left
+  width: 100%
+
+  &--centered
+    text-align: center
+
+  &--no-bg
+    color: var(--text-color)
+    background: none
+    padding: 0
+
+  &--errors
+    background-color: var(--error-background-color)
+    color: var(--error-text-color)
