@@ -22,91 +22,71 @@
     {% endif %}
     <header class="header">
       <div class="wrapper">
-        {% if theme.logo != blank %}
-          <a class="store-link" href="/">
-            <img alt="{{ store.name | escape }} Home" class="store-logo" src="{{ theme.images.logo.url | constrain: 1508, 1508 }}">
-          </a>
-        {% else %}
-          <a class="store-link" href="/" title="{{ store.name | escape }} Home">{{ store.name }}</a>
-        {% endif %}
-        <nav class="header-nav-container">
-          <ul class="nav">
-            <li class="nav-menu-item" aria-haspopup="{% if categories.active == blank and artists.active == blank and theme.show_search == false %}false{% else %}true{% endif %}">
-              {% if categories.active != blank or artists.active != blank or theme.show_search != false %}
-                <button type="button" class="nav-menu-action open-dropdown" aria-label="Browse by category">
-                  <span>Shop</span>
-                  <svg aria-hidden="true" fill="currentColor" class="dropdown-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
-                </button>
-                <ul aria-hidden="true" class="horizontal-nav-links">
-                  <button class="close-nav-menu" type="button" aria-label="Close menu">
-                    <svg fill="currentColor" aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
-                      <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
-                    </svg>
-                  </button>
-                  {% if theme.show_search %}
-                    <li class="dropdown-search">
-                      <form class="search-form" name="search" action="/products" method="get" accept-charset="utf8" role="search">
-                        <label for="search" class="visually-hidden">Search products</label>
-                        <input type="hidden" name="utf8" value='✓'>
-                        <input class="search-input" id="search" name="search" placeholder="Search products" type="text" autocomplete="off" />
-                        <button type="submit" class="search-button" aria-label="Submit search form">
-                          <svg aria-hidden="true" height="15" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.15 11.27">
-                            <path d="M11.15 10.56L8.8 8.21A4.93 4.93 0 0010 5a5.06 5.06 0 10-1.92 3.91l2.36 2.36zM1 5a4 4 0 114 4 4 4 0 01-4-4z" fill-rule="evenodd"/>
-                          </svg>
-                        </button>
-                      </form>
-                    </li>
-                  {% endif %}
-                  <li class="horizontal-nav-link"><a href="/products">All</a></li>
-                  {% if categories.active != blank %}
-                    {% for category in categories.active %}
-                      <li class="horizontal-nav-link"><a href="{{ category.url }}">{{ category.name }}</a></li>
-                    {% endfor %}
-                  {% endif %}
-
-                  {% if artists.active != blank %}
-                    {% for artist in artists.active %}
-                      <li class="horizontal-nav-link"><a href="{{ artist.url }}">{{ artist.name }}</a></li>
-                    {% endfor %}
-                  {% endif %}
-                </ul>
-              {% else %}
-                <a href="/products" class="nav-menu-link nav-menu-action">Shop</a>
-              {% endif %}
-            </li>
-
-            {% if pages.all.size > 0 %}
-              <li class="nav-menu-item" aria-haspopup="true">
-                <button type="button" class="open-dropdown nav-menu-action" aria-label="Pages list">
-                  <span>Info</span>
-                  <svg aria-hidden="true" fill="currentColor" class="dropdown-arrow" viewBox="0 0 13.4 8.1"><path d="M6.8 8.1L0 1.75 1.36.3l5.38 5L11.97 0l1.42 1.4-6.6 6.7z" /></svg>
-                </button>
-                <ul aria-hidden="true" class="horizontal-nav-links">
-                  <button class="close-nav-menu" type="button" aria-label="Close menu">
-                    <svg fill="currentColor" aria-hidden="true" height="16" width="16" class="close-icon" viewBox="0 0 17 17">
-                      <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"></path>
-                    </svg>
-                  </button>
-                  {% for page in pages.all %}
-                    <li class="horizontal-nav-link"><a href="{{ page.url }}">{{ page.name }}</a></li></li>
-                  {% endfor %}
-                  <li class="horizontal-nav-link"><a href="/contact">Contact</a></li>
-                </ul>
-              </li>
-            {% else %}
-              <li class="nav-menu-item"><a href="/contact" class="nav-menu-link nav-menu-action">Contact</a></li>
+        <div class="header-columns">
+          <div class="header-left">
+            <button type="button" title="Open navigation menu" class="open-nav-menu"><span></span><span></span><span></span><span></span></button>
+            {% if theme.show_search %}
+              <button class="open-search" aria-label="Open search menu">
+                <svg fill="currentColor" aria-hidden="true" viewBox="3.9 3.8 22.2 22.4"><path d="M26.1 24.7l-5.9-5.9c1.3-1.6 2-3.6 2-5.8 0-5.1-4.1-9.2-9.2-9.2S3.9 8 3.9 13.1s4.1 9.2 9.2 9.2c2.2 0 4.2-.8 5.8-2l5.9 5.9 1.3-1.5zM5.9 13.1c0-4 3.2-7.2 7.2-7.2s7.2 3.2 7.2 7.2-3.2 7.2-7.2 7.2-7.2-3.2-7.2-7.2z"></path></svg>
+              </button>
             {% endif %}
-
-            <li class="nav-menu-item">
-              <a href="/cart" class="nav-menu-link" title="View cart">
-                <span>Cart</span>
+          </div>
+          <div class="header-center">
+            {% if theme.logo != blank %}
+              <a class="store-link" href="/">
+                <img alt="{{ store.name | escape }} Home" class="store-logo" src="{{ theme.images.logo.url | constrain: 1508, 1508 }}">
+              </a>
+            {% else %}
+              <a class="store-link" href="/" title="{{ store.name | escape }} Home">{{ store.name }}</a>
+            {% endif %}
+          </div>
+          <div class="header-right">
+            {% if theme.show_search %}
+              <button class="open-search" aria-label="Open search menu">
+                <svg fill="currentColor" aria-hidden="true" viewBox="3.9 3.8 22.2 22.4"><path d="M26.1 24.7l-5.9-5.9c1.3-1.6 2-3.6 2-5.8 0-5.1-4.1-9.2-9.2-9.2S3.9 8 3.9 13.1s4.1 9.2 9.2 9.2c2.2 0 4.2-.8 5.8-2l5.9 5.9 1.3-1.5zM5.9 13.1c0-4 3.2-7.2 7.2-7.2s7.2 3.2 7.2 7.2-3.2 7.2-7.2 7.2-7.2-3.2-7.2-7.2z"></path></svg>
+              </button>
+            {% endif %}
+            <div class="header-cart">
+              <a href="/cart" class="header-cart__link" title="View cart">
+                <svg class="cart-icon" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0.66 0 31.23 28"><path d="M25.3749929 27.9999278c1.9329635 0 3.4999917-1.5670227 3.4999917-3.4999862 0-.991796-.4131994-1.8865006-1.0760168-2.5233628.1341029-.1041601.2011543-.1766346.2011543-.2174235V20.124952H11.1430856l-.5134952-2.6249937h17.0846227c.6174225 0 1.1513721-.4303426 1.2824829-1.0337195C30.9224827 7.82207961 31.885376 3.5 31.885376 3.5H7.89030864L7.40576172 0H.65624844v2.62499374h4.38812735L8.85027492 22.0773552c-.60364389.6289048-.9752937 1.4820598-.9752937 2.4225864 0 1.9329635 1.56702813 3.4999862 3.49999168 3.4999862 1.9329635 0 3.4999916-1.5670227 3.4999916-3.4999862 0-.5205981-.2102579-1.3028839-.4693821-1.7499958h7.938801c-.2591242.4471119-.4693821 1.2293977-.4693821 1.7461506 0 1.9368087 1.5670281 3.5038314 3.4999916 3.5038314zm1.2817352-13.1249633H10.1160953L8.40380382 6.1249854H28.5587164l-1.9019883 8.7499791zm-15.2817552 10.937474c-.7237532 0-1.3124969-.5887438-1.3124969-1.3124969 0-.7237532.5887437-1.3124969 1.3124969-1.3124969.7237531 0 1.3124969.5887437 1.3124969 1.3124969 0 .7237531-.5887438 1.3124969-1.3124969 1.3124969zm13.9999666 0c-.7237532 0-1.3124969-.5887438-1.3124969-1.3124969 0-.7237532.5887437-1.3124969 1.3124969-1.3124969s1.3124969.5887437 1.3124969 1.3124969c0 .7237531-.5887437 1.3124969-1.3124969 1.3124969z" fill-rule="nonzero"></path></svg>
                 <span class="cart-count" {% if cart.item_count == 0 %} style="display:none;"{% endif %}>
                   <span class="cart-value">{{ cart.item_count }}</span>
                 </span>
               </a>
+            </div>
+          </div>
+        </div>
+        <nav class="header-navigation" aria-label="Primary">
+          <ul class="header-pages">
+            <li class="header-page-link">
+              {% if categories.active != blank %}
+                <div class="category-nav header-category-nav">
+                  <button class="category-nav-heading" aria-label="Open category navigation" aria-controls="header-dropdown" aria-expanded="false">
+                    <div class="category-nav-page">Shop</div>
+                    <svg aria-hidden="true" fill="currentColor" class="category-nav-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+                  </button>
+                  <div class="category-dropdown" id="header-dropdown" aria-hidden="true">
+                    {% if categories.active != blank %}
+                      <ul class="dropdown-list categories-list">
+                        <li><a href="/products">All products</a></li>
+                        {% for category in categories.active %}
+                          <li>{{ category | link_to }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </div>
+                </div>
+              {% else %}
+                <a href="/products">{{ pages.products.name }}</a>
+              {% endif %}
             </li>
+            {% for page in pages.all limit: theme.nav_items %}
+              <li class="header-page-link">{{ page | link_to }}</li>
+            {% endfor %}
+            <li class="header-page-link"><a href="/contact">Contact</a></li>
           </ul>
         </nav>
+      </div>
     </header>
     <main class="content" id="main">
       <div class="wrapper">
@@ -118,7 +98,19 @@
               {% if theme.image_sets.lookbook_images.size > 0 %}
                 <div class="lookbook-gallery">
                   {% for image in theme.image_sets.lookbook_images %}
-                    <img alt="" class="lazy lookbook-gallery-image" src="{{ image.url | constrain: '100','' }}" data-src="{{ image.url | constrain: '760','' }}" data-srcset="{{ image.url | constrain: '1520','' }} 2x, {{ image.url | constrain: '760','' }} 1x">
+                    <img
+                      alt="Lookbook image {{ forloop.index }}"
+                      class="blur-up lookbook-gallery-image lazyload"
+                      src="{{ image.url | constrain: 20 }}"
+                      data-srcset="
+                        {{ image.url | constrain: 400 }} 400w,
+                        {{ image.url | constrain: 600 }} 600w,
+                        {{ image.url | constrain: 800 }} 800w,
+                        {{ image.url | constrain: 800 }} 1600w,
+                        {{ image.url | constrain: 800 }} 2000w
+                      "
+                      data-sizes="auto"
+                    >
                   {% endfor %}
                 </div>
               {% endif %}
@@ -228,6 +220,17 @@
     <footer class="footer">
       <div class="wrapper">
         <div class="footer-store-name">{{ store.name }}</div>
+        <ul class="footer__pages">
+          <li><a href="/">{{ pages.home.name }}</a></li>
+          <li><a href="/products">{{ pages.products.name }}</a></li>
+          {% for page in pages.all %}
+            <li>{{ page | link_to }}</li>
+          {% endfor %}
+          <li><a href="/contact">{{ pages.contact.name }}</a></li>
+          {% if store.website != blank %}
+            <li><a href="{{ store.website }}">Back to site</a></li>
+          {% endif %}
+        </ul>
         {% if theme.instagram_url != blank
           or theme.tiktok_url != blank
           or theme.twitter_url != blank
@@ -275,11 +278,79 @@
                 <li><a href="{{ theme.bandcamp_url }}" title="Bandcamp"><svg class="bandcamp-icon" aria-hidden="true" width="20" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 12"><path d="M13.624378 11.7500561H0L6.375622 0H20z" fill-rule="nonzero"/></svg></a></li>
               {% endif %}
             </ul>
+
           </nav>
         {% endif %}
         <div class="footer-store-credit">{{ powered_by_big_cartel }}</div>
       </div>
     </footer>
+    <div id="navigation-modal" class="navigation-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="navigation-modal__content">
+        <div class="navigation-modal__header">
+          <button type="button" class="icon-button navigation-modal__close" title="Close navigation">
+            <svg aria-hidden="true" fill="currentColor" width="15" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="9.2 12.3 12.5 12.5">
+              <path d="m21.4 14.4-4.1 4.1 4 4.1c.6.5.6 1.3 0 1.8-.4.5-1.2.5-1.7 0l-4.1-4.1-4.1 4.1c-.5.5-1.3.5-1.8 0s-.5-1.3 0-1.8l4.1-4.1-4.1-4.1c-.5-.5-.5-1.3 0-1.8s1.3-.5 1.8 0l4.1 4.1 4.1-4c.5-.6 1.3-.6 1.8 0 .5.4.5 1.2 0 1.7Z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="navigation-modal__main">
+          <nav aria-label="Primary navigation">
+            <ul class="navigation-modal__list">
+              {% if categories.active != blank %}
+                <li class="navigation-modal__categories">
+                  <button class="navigation-modal__categories-toggle" aria-label="Open category navigation" aria-controls="category-list" aria-expanded="false">
+                    <div>Shop</div>
+                    <svg aria-hidden="true" fill="currentColor" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
+                  </button>
+                  <div class="category-list" id="category-list" aria-hidden="true">
+                    {% if categories.active != blank %}
+                      <ul class="dropdown-list categories-list">
+                        <li><a href="/products">All products</a></li>
+                        {% for category in categories.active %}
+                          <li>{{ category | link_to }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </div>
+                </li>
+              {% else %}
+                <li>
+                  <a href="/products">{{ pages.products.name }}</a>
+                </li>
+              {% endif %}
+
+              {% for page in pages.all %}
+                <li>{{ page | link_to }}</li>
+              {% endfor %}
+              <li><a href="/contact">{{ pages.contact.name }}</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    {% if theme.show_search %}
+      <div class="search-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="search-modal__content">
+          <div class="search-modal__wrapper">
+            <button class="search-modal__close" aria-label="Close search dialog" data-dismiss="modal" type="button">
+              <svg class="search-modal__close-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 17 17">
+                <path d="M17 1.4L15.6 0 8.5 7.1 1.4 0 0 1.4l7.1 7.1L0 15.6 1.4 17l7.1-7.1 7.1 7.1 1.4-1.4-7.1-7.1z"/>
+              </svg>
+            </button>
+            <form class="search-modal__form" name="search" action="/products" method="get" accept-charset="utf8" role="search">
+              <input type="hidden" name="utf8" value='✓'>
+              <label class="search-modal__label" for="search-input">Search products</label>
+              <input class="search-modal__input" id="search-input" name="search" type="search" autocomplete="off" />
+              <button type="submit" class="search-modal__submit" aria-label="Submit search form">
+                <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" height="22" width="22" viewBox="0 0 30 30">
+                  <path d="M26.1 24.7l-5.9-5.9c1.3-1.6 2-3.6 2-5.8 0-5.1-4.1-9.2-9.2-9.2S3.9 8 3.9 13.1s4.1 9.2 9.2 9.2c2.2 0 4.2-.8 5.8-2l5.9 5.9 1.3-1.5zM5.9 13.1c0-4 3.2-7.2 7.2-7.2s7.2 3.2 7.2 7.2-3.2 7.2-7.2 7.2-7.2-3.2-7.2-7.2z"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endif %}
     <script>
       const themeOptions = {
         showSoldOutOptions: {{ theme.show_sold_out_product_options }},

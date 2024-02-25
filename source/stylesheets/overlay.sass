@@ -1,0 +1,76 @@
+.navigation-modal
+  transition: opacity 0.2s, visibility 0s 0.2s
+  height: 100%
+  left: 0
+  opacity: 0
+  position: fixed
+  top: 0
+  visibility: hidden
+  width: 100%
+  z-index: 1000
+  overscroll-behavior: contain
+  background: var(--background-color)
+  display: none
+
+  &[aria-hidden="false"]
+    display: block
+    transition: opacity 0.2s
+    opacity: 1
+    visibility: visible
+
+  &__content
+    height: 100%
+    overflow-y: scroll
+    padding: 0 0 90px
+
+  &__header
+    padding: 20px
+    display: flex
+    align-items: center
+    justify-content: flex-end
+
+  &__close
+    cursor: pointer
+    color: var(--text-color)
+    height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 0px
+    width: 40px
+
+    svg
+      fill: currentColor
+
+  &__main
+    padding: 0 24px
+
+  &__list
+    text-align: left
+    font-size: 1.25rem
+    display: flex
+    flex-direction: column
+    gap: 24px
+    margin: 16px 0 32px
+
+    a
+      color: var(--text-color)
+
+      &:hover
+        text-decoration: underline
+
+
+.navigation-modal__categories-toggle
+  display: flex
+  align-items: center
+  gap: 8px
+
+  svg
+    width: 14px
+
+.category-list
+  display: block
+
+  &[aria-hidden="true"]
+    display: none
+

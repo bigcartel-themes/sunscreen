@@ -36,14 +36,16 @@
 .featured-category
   display: flex
   background-color: var(--accent-background-color)
-  margin-bottom: 50px
-  padding: 80px
+  margin-bottom: 40px
+  padding: 60px
+  gap: 60px
 
   @media screen and (max-width: $break-small)
     flex-direction: column
     height: auto
-    padding: 50px
     max-height: none
+    padding: 30px
+    gap: 30px
 
 .featured-category-info
   display: flex
@@ -52,14 +54,7 @@
   justify-content: center
   flex: 1
   font-size: 1.7em
-  padding-right: 50px
-
-  @media screen and (max-width: $break-small)
-    padding-bottom: 0
-    padding-right: 0
-
-.featured-category-name
-  margin-bottom: 30px
+  gap: 50px
 
 a.featured-category-button
   font-size: 1rem
@@ -74,7 +69,7 @@ a.featured-category-button
     display: none
 
     @media screen and (max-width: $break-small)
-      margin: 50px auto 0
+      margin: 20px auto 20px
       display: grid
 
 .featured-category-products

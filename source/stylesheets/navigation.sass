@@ -1,203 +1,221 @@
-.header-nav-container
-  transition: background .2s ease
-  background: var(--background-color)
-  padding: 10px 0
-  position: relative
-  z-index: 10
+.header-columns
+  display: grid
+  grid-template-columns: 1fr auto 1fr
+  align-items: center
+  justify-content: space-between
+  gap: 24px
 
   @media screen and (max-width: $break-small)
-    padding: 10px 0
+    gap: 16px
 
-  &.fixed
-    background: var(--accent-background-color)
-    left: 0
-    padding: 10px 0
-    position: fixed
-    top: 0
-    width: 100%
-    z-index: 20
+  .header-left
+    .open-nav-menu
+      display: none
 
-    @media screen and (max-width: $break-extra-small)
-      padding: 10px 20px
+    @media screen and (max-width: $break-small)
+      .open-search
+        display: none
 
-.dropdown-search
+      .open-nav-menu
+        display: flex
 
-  &:hover, &:focus, &:focus-within
-    background-color: var(--accent-background-color)
+  .header-center
 
-.search-form
-  display: flex
-  justify-content: center
-  align-items: center
-  cursor: pointer
-  height: 60px
-  margin: 0 auto
-  padding: 0 30px
-  position: relative
-  width: 235px
+  .header-right
+    justify-content: flex-end
+    display: flex
+    gap: 16px
 
-  input
-    border: 0
-    background: none
-    font: inherit
-    padding: 6px
-    text-align: center
-    width: 150px
+    .open-search
+      display: none
 
-    &::-webkit-input-placeholder
-      color: var(--text-color)
+    @media screen and (max-width: $break-small)
+      gap: 4px
 
-    &:-moz-placeholder
-      color: var(--text-color)
+      .open-nav-menu
+        display: none
 
-    &:-ms-input-placeholder
-      color: var(--text-color)
+      .open-search
+        display: flex
+        margin-left: auto
 
-  button.search-button
-    +transform(translateY(-50%))
-    background: none
-    border: none
-    color: var(--text-color)
-    padding: 6px
-    position: absolute
-    right: 10px
-    top: 50%
-    width: auto
+  .open-nav-menu
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 40px
+    width: 40px
+    position: relative
+
+    span
+      border-radius: 2px
+      transform: rotate(0deg)
+      display: block
+      background: currentColor
+      width: 100%
+      height: 2px
+      position: absolute
+      width: 24px
+
+      &:nth-child(1)
+        top: 12px
+
+      &:nth-child(2), &:nth-child(3)
+        top: 50%
+
+      &:nth-child(4)
+        bottom: 10px
+
+  .open-search
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    outline-offset: 4px
 
     svg
-      display: block
-      fill: currentColor
+      height: 22px
+      width: 22px
 
-    &:hover, &:focus
-      color: var(--link-hover-color)
+  .header-cart
+    display: flex
+    align-items: center
+    justify-content: flex-end
 
-.main-nav
-  position: relative
+    &__link
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 40px
+      height: 40px
+      position: relative
 
-.nav, .horizontal-nav-links
-  margin: 0
-  padding: 0
-  list-style: none
+      svg
+        height: 24px
+        width: 24px
 
-.nav
-  display: flex
-  align-items: center
-  justify-content: center
-  gap: 20px
-
-  @media screen and (max-width: $break-extra-small)
-    justify-content: space-around
-    width: 100%
-
-.nav-menu-item
-  position: relative
-
-.open-dropdown, .nav-menu-link
-  display: flex
-  font-size: 1.5em
-  padding: 5px 25px
-  position: relative
-  text-decoration: none
-  align-items: center
-  gap: 8px
-
-  &:hover, &:focus
+.open-search, .open-nav-menu
+  &:hover
     color: var(--link-hover-color)
 
-  @media screen and (max-width: $break-extra-small)
-    padding: 5px 10px
-
-  .dropdown-arrow
-    width: 10px
-
-.horizontal-nav-links
-  +transform-origin(100% 0%)
-  +transform(translateX(-50%) scaleY(0.75))
-  box-shadow: var(--shadow-elevation-medium)
-  background: var(--background-color)
-  border: 1px solid #{'rgba(var(--text-color-rgb), .2)'}
-  left: 50%
-  min-width: 300px
-  max-height: 70vh
-  opacity: 0
-  overflow: auto
+.cart-count
   position: absolute
-  top: 100%
-  z-index: 0
+  top: 0
+  right: -2px
+  border-radius: 50%
+  background: var(--button-background-color)
+  color: var(--button-text-color)
+  display: flex
+  font-weight: 500
+  align-items: center
+  justify-content: center
+  font-size: 13px
+  padding: 2px
+  height: 18px
+  width: 18px
+
+.header-navigation
+  @media screen and (max-width: $break-small)
+    display: none
+
+.header-pages
+  display: flex
+  column-gap: 32px
+  row-gap: 4px
+  font-size: 1.2em
+  flex-wrap: wrap
+  list-style: none
+  margin: 0
+  padding: 0
+  text-align: center
+  flex-direction: row
+  justify-content: center
+
+.category-nav
+  position: relative
+
+.header-page-link
+  a, .category-nav-heading
+    display: flex
+    position: relative
+    align-items: center
+    gap: 8px
+    outline-offset: 4px
+    border-radius: 0
+
+  .category-nav-arrow
+    width: 12px
+
+  @media (hover: hover)
+    a:hover
+      text-decoration: underline
+
+    .category-nav-heading:hover
+      color: var(--link-hover-color)
+
+      .category-nav-page
+        text-underline-offset: 4px
+        text-decoration: underline
+
+.category-dropdown
+  +transform-origin(100% 0%)
+  +transform(scaleY(0.75))
+  background: var(--background-color)
+  border-radius: var(--border-radius)
+  border: 1px solid var(--text-color)
+  left: -20px
+  margin: 0 auto
+  min-width: 250px
+  opacity: 0
+  overflow-y: scroll
+  padding: 15px
+  font-size: 1rem
+  position: absolute
+  text-align: left
   visibility: hidden
+  height: auto
+  max-height: 50vh
+  z-index: 3
+  top: calc(100% + 8px)
+  scrollbar-width: thin
+  scrollbar-color: #{"rgba(var(--text-color-rgb),.5)"} transparent
+  scrollbar-gutter: stable
+  box-shadow: var(--menu-box-shadow)
 
   &[aria-hidden="false"]
     transition: transform 0.3s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out
-    +transform(scale(1) translateY(0) translateX(-50%))
-    visibility: visible
-    opacity: 1
+    +transform(scale(1))
     transition-delay: 0s
+    opacity: 1
+    visibility: visible
 
-    &::-webkit-scrollbar
-      height: .375rem
-      width: .75rem
+  &::-webkit-scrollbar
+    height: .375rem
+    width: .75rem
 
-    &::-webkit-scrollbar-track
-      background-color: transparent
+  &::-webkit-scrollbar-track
+    background-color: transparent
 
-    &::-webkit-scrollbar-thumb
-      border-radius: .375rem
-      border: 3px solid transparent
-      background-color: #{"rgba(var(--text-color-rgb),.5)"}
-      background-clip: content-box
+  &::-webkit-scrollbar-thumb
+    border-radius: .375rem
+    border: 3px solid transparent
+    background-color: #{"rgba(var(--text-color-rgb),.5)"}
+    background-clip: content-box
 
-    @media screen and (max-width: $break-small)
-      transition: none
-      +transform(none)
+.dropdown-list
+  list-style: none
+  margin: 0
+  padding: 0
+  position: relative
+  z-index: 4
 
-  @media screen and (max-width: $break-small)
-    +transform(none)
-    transition: opacity .15s
-    +transform-origin(0)
-    -webkit-overflow-scrolling: touch
-    overscroll-behavior: contain
-    box-shadow: none
-    border: 0
-    left: 0
-    font-size: 1.1em
-    max-width: 100%
-    padding-bottom: 40px
-    padding-top: 96px
-    position: fixed
-    top: 0
-    width: 100%
-    min-height: 100vh
-    min-height: 100dvh
-    height: 100vh
-    height: 100dvh
-    z-index: 101
-
-.horizontal-nav-link
-  position: static
-
-  a
+  li
     display: block
-    padding: 20px 10px
-    text-decoration: none
 
-    @media screen and (max-width: $break-small)
-      padding: 12px 60px
+    a
+      display: block
+      padding: 8px
 
-    &:hover, &:focus
-      background-color: var(--accent-background-color)
-      text-decoration: underline
-
-.close-nav-menu
-  display: none
-  padding: 8px
-  position: fixed
-  right: 20px
-  top: 20px
-  color: var(--text-color)
-
-  svg
-    height: 20px
-    width: 20px
-
-  @media screen and (max-width: $break-small)
-    display: block
+      &:hover
+        text-decoration: underline

@@ -212,7 +212,8 @@
       "variable": "lookbook_page_name",
       "label": "Lookbook Page Name",
       "type": "text",
-      "description": "Create a custom page for your lookbook, then enter the page name in this field"
+      "description": "Create a custom page for your lookbook, then enter the page name in this field",
+      "default": "Lookbook"
     },
     {
       "variable": "welcome_text",
@@ -242,6 +243,13 @@
       "options": "0..100",
       "default": 12,
       "description": "The number of items featured on the Home page"
+    },
+    {
+      "variable": "all_products_button_text",
+      "label": "All products button text",
+      "type": "text",
+      "description": "Displays underneath featured items and links to your Product Page",
+      "default": "All Products"
     },
     {
       "variable": "max_products_per_row",
@@ -278,6 +286,14 @@
       "options": "1..100",
       "default": 48,
       "description": "The number of products displayed per page"
+    },
+    {
+      "variable": "nav_items",
+      "label": "Navigation items",
+      "type": "select",
+      "options": "0..4",
+      "default": 2,
+      "description": "The number of custom page links show in the main navigation"
     },
     {
       "variable": "money_format",
@@ -356,6 +372,19 @@
       "type": "boolean",
       "default": false,
       "description": "Displays the secondary product image when hovering over thumbnails"
+    },
+    {
+      "variable": "border_radius",
+      "label": "Rounded corners",
+      "type": "select",
+      "options": [
+        ["Off", "0"],
+        ["Small", "2px"],
+        ["Medium", "4px"],
+        ["Large", "8px"]
+      ],
+      "default": "4px",
+      "description": "Controls the rounded corner style on images and other site elements"
     },
     {
       "variable": "instagram_url",

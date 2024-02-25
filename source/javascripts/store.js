@@ -35,26 +35,3 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("load", () => {
   document.body.classList.remove("transition-preloader");
 });
-
-
-
-API.onError = function(errors) {
-  var errorList = $('.error-list');
-  $.each(errors, function(index, error) {
-    errorList.append('<div class="error-list-item">').html(error);
-  });
-  $('.error-modal').show();
-}
-
-var nav_position = $('.header-nav-container').offset().top;
-var header_nav_height = $('.header-nav-container').outerHeight();
-
-$(window).on("scroll", function(e) {
-  if ($(window).scrollTop() > nav_position) {
-    $('.header-nav-container').addClass("fixed");
-    $('body').css('padding-top',header_nav_height+'px');
-  } else {
-     $('.header-nav-container').removeClass("fixed");
-     $('body').css('padding-top',0);
-  }
-});
