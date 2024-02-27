@@ -1,12 +1,12 @@
 .header-columns
   display: grid
-  grid-template-columns: 1fr auto 1fr
+  grid-template-columns: 1fr 2fr 1fr
   align-items: center
   justify-content: space-between
   gap: 24px
 
   @media screen and (max-width: $break-small)
-    gap: 16px
+    gap: 12px
 
   .header-left
     .open-nav-menu
@@ -24,7 +24,7 @@
   .header-right
     justify-content: flex-end
     display: flex
-    gap: 16px
+    gap: 12px
 
     .open-search
       display: none

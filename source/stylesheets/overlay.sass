@@ -24,7 +24,7 @@
     padding: 0 0 90px
 
   &__header
-    padding: 20px
+    padding: 24px 16px
     display: flex
     align-items: center
     justify-content: flex-end
@@ -41,6 +41,8 @@
 
     svg
       fill: currentColor
+      height: 18px
+      width: 18px
 
   &__main
     padding: 0 24px
@@ -60,17 +62,20 @@
         text-decoration: underline
 
 
-.navigation-modal__categories-toggle
-  display: flex
-  align-items: center
-  gap: 8px
+.navigation-modal__categories
+  &-toggle
+    display: flex
+    align-items: center
+    gap: 8px
 
-  svg
-    width: 14px
+    svg
+      width: 14px
 
-.category-list
-  display: block
+  .category-list
+    display: block
+    margin-top: 8px
+    margin-left: 8px
 
-  &[aria-hidden="true"]
-    display: none
+    &[aria-hidden="true"]
+      display: none
 
