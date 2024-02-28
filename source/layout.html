@@ -34,7 +34,7 @@
           <div class="header-center">
             {% if theme.logo != blank %}
               <a class="store-link" href="/">
-                <img alt="{{ store.name | escape }} Home" class="store-logo" src="{{ theme.images.logo.url | constrain: 1508, 1508 }}">
+                <img alt="{{ store.name | escape }} Home" src="{{ theme.images.logo.url | constrain: '1120', '180' }}" srcset="{{ theme.images.logo.url | constrain: '1120', '180' }} 2x, {{ theme.images.logo.url | constrain: '560', '90' }} 1x">
               </a>
             {% else %}
               <a class="store-link" href="/" title="{{ store.name | escape }} Home">{{ store.name }}</a>
@@ -106,8 +106,8 @@
                         {{ image.url | constrain: 400 }} 400w,
                         {{ image.url | constrain: 600 }} 600w,
                         {{ image.url | constrain: 800 }} 800w,
-                        {{ image.url | constrain: 800 }} 1600w,
-                        {{ image.url | constrain: 800 }} 2000w
+                        {{ image.url | constrain: 1600 }} 1600w,
+                        {{ image.url | constrain: 2000 }} 2000w
                       "
                       data-sizes="auto"
                     >
@@ -151,12 +151,11 @@
                             {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
                             data-srcset="
                               {{ product.image | product_image_url | constrain: 240 }} 240w,
-                              {{ product.image | product_image_url | constrain: 320 }} 320w,
                               {{ product.image | product_image_url | constrain: 400 }} 400w,
-                              {{ product.image | product_image_url | constrain: 540 }} 540w,
                               {{ product.image | product_image_url | constrain: 600 }} 600w,
                               {{ product.image | product_image_url | constrain: 800 }} 800w,
-                              {{ product.image | product_image_url | constrain: 960 }} 960w
+                              {{ product.image | product_image_url | constrain: 960 }} 960w,
+                              {{ product.image | product_image_url | constrain: 1200 }} 1200w
                             "
                             data-sizes="auto"
                           >
@@ -171,12 +170,11 @@
                               {% unless theme.grid_image_style == 'default' %}data-aspectratio="{{ aspect_ratio }}"{% endunless %}
                               data-srcset="
                                 {{ product.images[1] | product_image_url | constrain: 240 }} 240w,
-                                {{ product.images[1] | product_image_url | constrain: 320 }} 320w,
                                 {{ product.images[1] | product_image_url | constrain: 400 }} 400w,
-                                {{ product.images[1] | product_image_url | constrain: 540 }} 540w,
                                 {{ product.images[1] | product_image_url | constrain: 600 }} 600w,
                                 {{ product.images[1] | product_image_url | constrain: 800 }} 800w,
-                                {{ product.images[1] | product_image_url | constrain: 960 }} 960w
+                                {{ product.images[1] | product_image_url | constrain: 960 }} 960w,
+                                {{ product.images[1] | product_image_url | constrain: 1200 }} 1200w
                               "
                               data-sizes="auto"
                             >
@@ -278,7 +276,6 @@
                 <li><a href="{{ theme.bandcamp_url }}" title="Bandcamp"><svg class="bandcamp-icon" aria-hidden="true" width="20" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 12"><path d="M13.624378 11.7500561H0L6.375622 0H20z" fill-rule="nonzero"/></svg></a></li>
               {% endif %}
             </ul>
-
           </nav>
         {% endif %}
         <div class="footer-store-credit">{{ powered_by_big_cartel }}</div>
@@ -322,6 +319,9 @@
                 <li>{{ page | link_to }}</li>
               {% endfor %}
               <li><a href="/contact">{{ pages.contact.name }}</a></li>
+              {% if store.website != blank %}
+                <li><a href="{{ store.website }}">Back to site</a></li>
+              {% endif %}
             </ul>
           </nav>
         </div>

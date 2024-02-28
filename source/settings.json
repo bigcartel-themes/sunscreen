@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "images": [
     {
       "variable": "logo",
@@ -40,13 +40,13 @@
             "colors": {
               "background_color": "#FFFFFF",
               "accent_background_color": "#F7F8FC",
-              "text_color": "#3B7530",
+              "text_color": "#1C4D12",
               "button_text_color": "#FFFFFF",
-              "button_background_color": "#3B7530",
-              "button_hover_background_color": "#1C4D12",
-              "link_hover_color": "#1C4D12",
-              "shop_name_text_color": "#3B7530",
-              "welcome_header_text_color": "#3B7530"
+              "button_background_color": "#1C4D12",
+              "button_hover_background_color": "#3B7530",
+              "link_hover_color": "#3B7530",
+              "shop_name_text_color": "#1C4D12",
+              "welcome_header_text_color": "#1C4D12"
             }
           }
         ]
@@ -161,7 +161,7 @@
     {
       "variable": "text_color",
       "label": "Text",
-      "default": "#3B7530"
+      "default": "#1C4D12"
     },
     {
       "variable": "button_text_color",
@@ -171,27 +171,27 @@
     {
       "variable": "button_background_color",
       "label": "Button Background",
-      "default": "#3B7530"
+      "default": "#1C4D12"
     },
     {
       "variable": "button_hover_background_color",
       "label": "Button Hover Background",
-      "default": "#1C4D12"
+      "default": "#3B7530"
     },
     {
       "variable": "link_hover_color",
       "label": "Link Hover",
-      "default": "#1C4D12"
+      "default": "#3B7530"
     },
     {
       "variable": "shop_name_text_color",
       "label": "Shop Name Text",
-      "default": "#3B7530"
+      "default": "#1C4D12"
     },
     {
       "variable": "welcome_header_text_color",
       "label": "Welcome Text",
-      "default": "#3B7530"
+      "default": "#1C4D12"
     }
   ],
   "options": [

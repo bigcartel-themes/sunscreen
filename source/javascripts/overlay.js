@@ -58,15 +58,12 @@ closeNavBtn?.addEventListener('click', closeNavigation);
 const toggleCategoryList = () => {
   const categoryList = document.querySelector('.category-list');
   if (categoryList) {
-    // toggle the aria-hidden attribute on it:
     const isHidden = categoryList.getAttribute('aria-hidden') === 'true';
     categoryList.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
 
-    // also toggle the aria-expanded attribute on the button:
     toggleCategoryListBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
   }
 };
 
 const toggleCategoryListBtn = document.querySelector('.navigation-modal__categories-toggle');
 toggleCategoryListBtn?.addEventListener('click', toggleCategoryList);
-

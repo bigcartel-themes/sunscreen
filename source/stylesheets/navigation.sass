@@ -19,8 +19,6 @@
       .open-nav-menu
         display: flex
 
-  .header-center
-
   .header-right
     justify-content: flex-end
     display: flex
@@ -96,6 +94,8 @@
         width: 24px
 
 .open-search, .open-nav-menu
+  transition: color .2s linear
+
   &:hover
     color: var(--link-hover-color)
 
@@ -143,6 +143,7 @@
     gap: 8px
     outline-offset: 4px
     border-radius: 0
+    transition: color .2s linear
 
   .category-nav-arrow
     width: 12px

@@ -1,6 +1,6 @@
 // Search
 const searchModal = document.querySelector('.search-modal');
-const searchBtn = document.querySelector('.open-search');
+const searchBtns = document.querySelectorAll('.open-search');
 const closeSearchBtn = document.querySelector('.search-modal__close');
 const inputField = document.querySelector('.search-modal__input');
 const focusableSearchElements = searchModal?.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -68,8 +68,12 @@ const focusInputField = () => {
 };
 
 const focusSearchButton = () => {
-  searchBtn.focus();
+  searchBtns?.forEach(btn => {
+    if (btn.offsetParent !== null) {
+      btn.focus();
+    }
+  });
 };
 
-searchBtn?.addEventListener('click', openSearch);
+searchBtns?.forEach(btn => btn.addEventListener('click', openSearch));
 closeSearchBtn?.addEventListener('click', closeSearch);

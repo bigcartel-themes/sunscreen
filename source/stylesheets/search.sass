@@ -19,7 +19,6 @@
   &__content
     background-color: var(--background-color)
     border-bottom: 1px solid var(--text-color)
-    color: var(--text-color)
     text-align: center
     display: grid
     grid-template-rows: 1fr
@@ -77,13 +76,13 @@
     width: 48px
     height: 48px
     margin-left: auto
-    color: var(--text-color)
+    transition: color .2s linear
 
     &-icon
       height: 20px
       width: 20px
 
-    &:hover, &:focus
+    &:hover
       color: var(--link-hover-color)
 
   &__label

@@ -125,18 +125,15 @@
         pointer-events: none
 
   .qty-button
-    +appearance(none)
-    color: var(--text-color)
+    transition: color .2s linear
     display: flex
     align-items: center
     justify-content: center
     border: none
-    background: none
-    cursor: pointer
     height: 44px
     width: 36px
 
-    &:hover, &:focus
+    &:hover
       color: var(--link-hover-color)
 
     svg
@@ -144,7 +141,6 @@
       height: 16px
 
   .cart-remove-item--link
-    +appearance(none)
     display: inline-block
     height: auto
     padding: .5em
