@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "images": [
     {
       "variable": "logo",
@@ -20,6 +20,121 @@
       "description": "Adds a gallery to the specified Lookbook page"
     }
   ],
+  "preset_styles": {
+    "preview": {
+      "title_font": "primary_font",
+      "body_font": "primary_font",
+      "text_color": "text_color",
+      "background_color": "background_color"
+    },
+    "presets": [
+      {
+        "group_name": "Classic",
+        "styles": [
+          {
+            "style_name": "Classic #1",
+            "fonts": {
+              "shop_name_font": "Work Sans",
+              "primary_font": "Work Sans"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "accent_color": "#F7F8FC",
+              "text_color": "#1C4D12",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#1C4D12",
+              "button_hover_background_color": "#3B7530",
+              "link_hover_color": "#3B7530",
+              "shop_name_text_color": "#1C4D12",
+              "welcome_header_text_color": "#1C4D12"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Elegant",
+        "styles": [
+          {
+            "style_name": "Elegant #1",
+            "fonts": {
+              "shop_name_font": "Marcellus",
+              "primary_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#141415",
+              "accent_color": "#3D3D3D",
+              "text_color": "#F8F8F8",
+              "button_text_color": "#3D3D3D",
+              "button_background_color": "#F8F8F8",
+              "button_hover_background_color": "#C6C6C6",
+              "link_hover_color": "#C6C6C6",
+              "shop_name_text_color": "#F8F8F8",
+              "welcome_header_text_color": "#F8F8F8"
+            }
+          },
+          {
+            "style_name": "Elegant #2",
+            "fonts": {
+              "shop_name_font": "Prata",
+              "primary_font": "Source Sans Pro"
+            },
+            "colors": {
+              "background_color": "#F8F8F8",
+              "accent_color": "#DBD1D1",
+              "text_color": "#0F1B27",
+              "button_text_color": "#0F1B27",
+              "button_background_color": "#DBD1D1",
+              "button_hover_background_color": "#C7B3B3",
+              "link_hover_color": "#8A5A5A",
+              "shop_name_text_color": "#0F1B27",
+              "welcome_header_text_color": "#0F1B27"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Playful",
+        "styles": [
+          {
+            "style_name": "Playful #1",
+            "fonts": {
+              "shop_name_font": "Quicksand",
+              "primary_font": "Quicksand"
+            },
+            "colors": {
+              "background_color": "#FFFBFD",
+              "accent_color": "#FFE9F4",
+              "text_color": "#243588",
+              "button_text_color": "#FFFBFD",
+              "button_background_color": "#243588",
+              "button_hover_background_color": "#0C143B",
+              "link_hover_color": "#0C143B",
+              "shop_name_text_color": "#243588",
+              "welcome_header_text_color": "#243588"
+            }
+          },
+          {
+            "style_name": "Playful #2",
+            "fonts": {
+              "shop_name_font": "Chewy",
+              "primary_font": "Delius"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "accent_color": "#F6FF20",
+              "text_color": "#0B0423",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#F90081",
+              "button_hover_background_color": "#D1006C",
+              "link_hover_color": "#F90081",
+              "shop_name_text_color": "#0B0423",
+              "welcome_header_text_color": "#0B0423"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "fonts": [
     {
       "variable": "shop_name_font",
