@@ -64,7 +64,7 @@
         </div>
       {% endfor %}
     </div>
-    {% if theme.all_products_button_text != blank %}<a class="button centered-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
+    {% if theme.all_products_button_text != blank %}<a class="button centered-button all-products-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
   {% endif %}
 
 {% else %}
@@ -150,7 +150,7 @@
             </div>
           </div>
           {% if paginate.pages > 1 %}
-            {% if theme.all_products_button_text != blank %}<a class="button centered-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
+            {% if theme.all_products_button_text != blank %}<a class="button centered-button all-products-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
           {% endif %}
         {% else %}
           <div class="message-banner message-banner--centered message-banner--no-bg">No products found.</div>

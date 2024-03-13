@@ -1,51 +1,35 @@
-
+#contact #main .wrapper
+  max-width: 660px
 
 .contact-form
-  margin: 0 auto
-  max-width: 700px
+  display: flex
+  flex-direction: column
+  gap: 24px
 
-.contact-form-group
-  display: block
-  margin: 0 auto
-  margin-bottom: 40px
-  max-width: 660px
-  position: relative
+.contact-form-block
+  display: flex
+  flex-direction: column
+  gap: 8px
+
+.contact-label
+  font-weight: normal
+
+input, textarea
+  border-radius: var(--border-radius)
+  background: var(--background-color)
+  border: 1px solid var(--text-color)
+  font-weight: normal
   width: 100%
+  font-size: 1rem
+  padding: 12px
 
-  &.contact-recaptcha
-    margin-bottom: 0
-
-  .contact-form-label
-    display: block
-    font-weight: 500
-    margin-bottom: 4px
-
-  input, textarea
-    border: 1px solid var(--text-color)
-    height: 58px
-    padding: 12px
-    position: relative
-    width: 100%
-
-  textarea
-    height: 200px
-
-  .send-message-button
-    margin-top: 60px
-
-    @media screen and (max-width: $break-small)
-      margin-top: 50px
-      max-width: 100%
+textarea
+  min-height: 220px
+  resize: vertical
 
 .recaptcha-note
+  font-size: .925rem
   text-align: center
-  font-size: 14px
-  line-height: 1.5em
-  margin-top: 20px
 
   a
     text-decoration: underline
-
-.send-message-button
-  display: block
-  margin: 0 auto

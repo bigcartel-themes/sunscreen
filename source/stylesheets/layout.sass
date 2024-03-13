@@ -1,26 +1,12 @@
-
-
-*
-  box-sizing: border-box
-
-html.standalone-page
-  height: 100%
-  min-height: 100%
-  position: relative
-  width: 100%
-
 body
   +flexbox
   +flex-direction(column)
   background-color: var(--background-color)
   color: var(--text-color)
   font-family: var(--primary-font)
+  font-size: 16px
   height: 100%
   min-height: 100vh
-
-  &.no-scroll
-    overflow: hidden
-    position: relative
 
 a.skip-link
   +transition(all .3s)
@@ -44,19 +30,6 @@ a, a:visited
   &:hover, &:focus
     color: var(--link-hover-color)
 
-a[href], label[for], select, button, .pointer
-  cursor: pointer
-
-button, input, textarea, select
-  +appearance(none)
-  background: none
-  border: none
-  border-radius: 0
-  color: var(--text-color)
-  font-family: var(--primary-font)
-  font-size: 16px
-  padding: 0
-
 .button, a.button
   +transition(all .2s linear)
   background-color: var(--button-background-color)
@@ -76,7 +49,7 @@ button, input, textarea, select
     cursor: not-allowed
 
   &.centered-button
-    margin: 60px auto
+    margin: 0 auto
 
   &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
     background-color: var(--button-hover-background-color)
@@ -108,23 +81,12 @@ h1, h2, h3, h4, h5, h6
   text-align: center
 
 h1
-  font-size: 40px
-  line-height: 50px
+  font-size: 2.25em
+  line-height: 1.3
   margin-bottom: 55px
 
-.error-container
-  +flexbox
-  +justify-content(center)
-  +align-items(center)
-  background-color: var(--accent-background-color)
-  padding: 20px
-  margin: 0 auto 30px
-  max-width: 760px
-
-  .error-list
-    list-style: none
-    margin: 0
-    padding: 0
+  @media screen and (max-width: $break-small)
+    font-size: 2em
 
 .wrapper
   margin: 0 auto
@@ -138,14 +100,10 @@ h1
 #product .content .wrapper
   padding: 0 20px
 
-  @media screen and (max-width: $break-small)
-    padding: 0
-
 #cart .content .wrapper, #contact .content .wrapper
   padding: 0 20px
 
 .custom-content
-  line-height: 1.5em
   margin: 0 auto
   max-width: 760px
   width: 100%
@@ -185,14 +143,82 @@ h1
   &:last-child
     margin-bottom: 0
 
+.mobile-header
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 20px 0
+
+  .open-mobile-navigation
+    height: 36px
+    min-width: 36px
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+    position: relative
+    left: -8px
+
+    &:hover
+      color: var(--link-hover-color)
+
+    svg
+      width: 24px
+      height: 24px
+
+  &__icons
+    margin-left: auto
+    display: flex
+    align-items: center
+    gap: 24px
+
+    button, a
+      height: 36px
+      min-width: 36px
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-shrink: 0
+
+      &:hover
+        color: var(--link-hover-color)
+
+    .open-search
+      width: 36px
+
+      svg
+        fill: currentColor
+        height: 20px
+        width: 20px
+
+    svg
+      flex-shrink: 0
+      height: 24px
+      width: 24px
+
+  .cart-link
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 8px
+    font-weight: bold
+    font-size: 1.25em
+
+  .wrapper
+    display: flex
+    align-items: center
+
+  @media screen and (min-width: $break-medium + 1)
+    display: none
+
 .header
-  margin-bottom: 80px
+  margin-bottom: 60px
 
   @media screen and (max-width: $break-small)
     margin-bottom: 50px
 
 .header-store-link
-  display: flex
+  display: inline-flex
   align-items: center
   justify-content: center
   text-align: center
@@ -201,7 +227,14 @@ h1
   word-break: break-word
   color: var(--shop-name-text-color)
   font-size: 3em
-  margin: 60px auto 40px
+  margin: 50px auto 40px
+
+  @media screen and (max-width: $break-medium)
+    font-size: 2.5em
+
+  @media screen and (max-width: $break-small)
+    font-size: 2.25em
+    margin: 25px auto 20px
 
 .store-logo
   max-height: var(--logo-max-height)
@@ -209,104 +242,52 @@ h1
   @media screen and (max-width: $break-small)
     max-height: var(--logo-max-height-mobile)
 
-.header-nav-container
-  background: var(--background-color)
-  padding: 10px 0
-  position: relative
-  z-index: 10
-
-  &.fixed
-    left: 0
-    padding: 20px 0
-    position: fixed
-    top: 0
-    width: 100%
-    z-index: 20
-
-    @media screen and (max-width: $break-small)
-      padding: 15px 10px
-
-.dropdown-search
-
-  &:hover, &:focus, &:focus-within
-    background-color: var(--accent-background-color)
-
-.search-form
-  +flexbox
-  +justify-content(center)
-  +align-items(center)
-  cursor: pointer
-  height: 60px
-  margin: 0 auto
-  padding: 0 30px
-  position: relative
-  width: 235px
-
-  input
-    border: 0
-    background-color: none
-    color: var(--text-color)
-    padding: 6px
-    text-align: center
-    width: 150px
-
-    &::-webkit-input-placeholder
-      color: var(--text-color)
-
-    &:-moz-placeholder
-      color: var(--text-color)
-
-    &:-ms-input-placeholder
-      color: var(--text-color)
-
-  button.search-button
-    +transform(translateY(-50%))
-    background: none
-    border: none
-    padding: 6px
-    position: absolute
-    right: 10px
-    top: 50%
-    width: auto
-
-    svg
-      display: block
-      fill: var(--text-color)
-
-    &:hover, &:focus
-      svg
-        fill: var(--link-hover-color)
-
-.cart-item-count
-  font-size: 15px
-  min-width: 40px
-  position: absolute
-  right: -18px
-  text-align: left
-  top: -4px
-
-  @media screen and (max-width: $break-small)
-    right: -40px
-
-  &.no-items
-    opacity: 0
-    visibility: hidden
-
 header, footer
   +flexbox
   +flex-direction(column)
   text-align: center
+  flex-shrink: 0
+
+#main
+  flex: 1
 
 footer
-  padding: 100px 0
+  padding: 100px 0 60px
 
   @media screen and (max-width: $break-small)
-    padding: 75px 0
+    padding: 60px 0 40px
+
+  .wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+    row-gap: 40px
 
 .footer-store-name
-  font-size: 20px
+  font-size: 1.5em
   line-height: 30px
-  margin-bottom: 5px
+
+.footer-nav-links
+  width: 100%
+
+  ul
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 24px
+    row-gap: 8px
+    flex-wrap: wrap
+
+    a
+      display: block
+
+      &:hover
+        color: var(--link-hover-color)
+        text-decoration: underline
+
+    @media screen and (max-width: $break-small)
+      flex-direction: column
+      row-gap: 24px
 
 .footer-store-credit
   font-size: 14px
@@ -320,7 +301,6 @@ footer
   outline-offset: 4px
   padding: 2px 0
   text-decoration: none
-  margin-top: 30px
 
   &:hover
     text-decoration: none
@@ -336,6 +316,7 @@ footer
 
 .select
   border: 1px solid var(--text-color)
+  border-radius: var(--border-radius)
   color: var(--text-color)
   font-family: var(--primary-font)
   height: 60px
@@ -350,8 +331,6 @@ footer
     color: var(--text-color)
     font-family: var(--primary-font)
     height: 100%
-    letter-spacing: 1px
-    line-height: 60px
     padding: 0 66px 0 16px
     position: relative
     width: 100%
@@ -417,3 +396,30 @@ footer
   &--errors
     background-color: var(--error-background-color)
     color: var(--error-text-color)
+
+.social-icons
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-wrap: wrap
+  gap: 20px
+
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 4px
+
+    svg
+      display: block
+      fill: currentColor
+      height: 22px
+      width: 22px
+
+.blur-up
+  transition: filter .2s
+  filter: blur(5px)
+  transform: translate3d(0, 0, 0)
+
+  &.lazyloaded
+    filter: blur(0)

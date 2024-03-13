@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.7.0",
+  "version": "1.6.2",
   "images": [
     {
       "variable": "logo",
@@ -214,11 +214,19 @@
       "type": "select",
       "options": [
         ["Small", "120"],
-        ["Medium", "180"],
-        ["Large", "240"]
+        ["Medium", "160"],
+        ["Large", "200"]
       ],
       "default": "120",
       "description": "Controls the maximum height of your logo"
+    },
+    {
+      "variable": "nav_items",
+      "label": "Navigation items",
+      "type": "select",
+      "options": "0..4",
+      "default": 2,
+      "description": "The number of custom page links show in the main navigation"
     },
     {
       "variable": "lookbook_page_name",
@@ -313,7 +321,7 @@
       "variable": "show_related_products",
       "label": "Show related products",
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Displays related products on the Product page"
     },
     {

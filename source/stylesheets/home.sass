@@ -4,6 +4,7 @@
   color: var(--welcome-header-text-color)
   position: relative
   align-items: center
+  padding: 0 20px
   margin-bottom: 80px
 
   &.stacked
@@ -18,7 +19,9 @@
       z-index: 2
 
   @media screen and (max-width: $break-small)
+    border-radius: 0
     margin-bottom: 50px
+    padding: 0
 
 .welcome-message
   font-size: 3em
@@ -34,6 +37,9 @@
   display: block
   margin: 0 auto
   width: 100%
+
+  @media screen and (max-width: $break-small)
+    border-radius: 0
 
 .featured-category
   display: flex
@@ -117,3 +123,9 @@ a.featured-category-button
 
     &:hover
       z-index: 3
+
+#home .product-list-container
+  padding: 0 20px
+
+a.button.all-products-button
+  margin-top: 48px
