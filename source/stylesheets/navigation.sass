@@ -18,7 +18,7 @@
     width: 100%
 
 .nav-menu-item
-  color: $text-color
+  color: var(--text-color)
   margin: 0 2px
   position: relative
 
@@ -26,7 +26,7 @@
     margin: 0
 
   > a
-    color: $text-color
+    color: var(--text-color)
     display: block
     font-size: 25px
     padding: 5px 25px
@@ -40,8 +40,7 @@
 .horizontal-nav-links
   +transform-origin(100% 0%)
   +transform(translateX(-50%) scaleY(0.75))
-  box-shadow: 0 30px 40px -10px rgba(0,0,0,0.20)
-  background: $background-color
+  background: var(--background-color)
   left: 50%
   line-height: 1.25em
   min-width: 300px
@@ -52,6 +51,23 @@
   top: 100%
   z-index: 0
   visibility: hidden
+  scrollbar-width: thin
+  scrollbar-color: #{"rgba(var(--text-color-rgb),.5)"} transparent
+  scrollbar-gutter: stable
+  box-shadow: var(--menu-box-shadow)
+
+  &::-webkit-scrollbar
+    height: .375rem
+    width: .75rem
+
+  &::-webkit-scrollbar-track
+    background-color: transparent
+
+  &::-webkit-scrollbar-thumb
+    border-radius: .375rem
+    border: 3px solid transparent
+    background-color: #{"rgba(var(--text-color-rgb),.5)"}
+    background-clip: content-box
 
   @media screen and (max-width: $break-small)
     +transform(none)
@@ -74,7 +90,7 @@
 
   a
     +transition(.1s linear all)
-    color: $text-color
+    color: var(--text-color)
     display: block
     padding: 20px 10px
     text-decoration: none
@@ -83,16 +99,16 @@
       padding: 20px 60px
 
   &:hover, &:focus
-    background-color: $accent-color
+    background-color: var(--accent-background-color)
 
     a
-      color: $link-hover-color
+      color: var(--link-hover-color)
       text-decoration: underline
 
 .nav li:focus > a,
 .nav li:hover > a,
 .nav li:focus-within > a
-  color: $link-hover-color
+  color: var(--link-hover-color)
 
 ul.show-menu
   +transition(all 0.3s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out)

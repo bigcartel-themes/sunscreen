@@ -12,9 +12,9 @@ html.standalone-page
 body
   +flexbox
   +flex-direction(column)
-  background-color: $background-color
-  color: $text-color
-  font-family: $primary-font
+  background-color: var(--background-color)
+  color: var(--text-color)
+  font-family: var(--primary-font)
   height: 100%
   min-height: 100vh
 
@@ -24,9 +24,9 @@ body
 
 a.skip-link
   +transition(all .3s)
-  background: $background-color
-  border: 1px solid $text-color
-  color: $text-color
+  background: var(--background-color)
+  border: 1px solid var(--text-color)
+  color: var(--text-color)
   left: 25px
   padding: 15px 20px
   position: absolute
@@ -38,11 +38,11 @@ a.skip-link
     top: 20px
 
 a, a:visited
-  color: $text-color
+  color: var(--text-color)
   text-decoration: none
 
   &:hover, &:focus
-    color: $link-hover-color
+    color: var(--link-hover-color)
 
 a[href], label[for], select, button, .pointer
   cursor: pointer
@@ -52,53 +52,56 @@ button, input, textarea, select
   background: none
   border: none
   border-radius: 0
-  color: $text-color
-  font-family: $primary-font
+  color: var(--text-color)
+  font-family: var(--primary-font)
   font-size: 16px
   padding: 0
 
 .button, a.button
   +transition(all .2s linear)
-  background-color: $button-background-color
-  color: $button-text-color
-  height: 60px
-  line-height: 60px
+  background-color: var(--button-background-color)
+  border-radius: var(--border-radius)
+  color: var(--button-text-color)
+  min-height: 60px
+  display: flex
+  align-items: center
+  justify-content: center
   max-width: 275px
-  padding: 0 40px
+  padding: 16px 20px
   text-align: center
+  white-space: pre-wrap
   width: 100%
 
-  &.minimal-button
+  &:disabled, &.disabled
+    cursor: not-allowed
+
+  &.centered-button
+    margin: 60px auto
+
+  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
+    background-color: var(--button-hover-background-color)
+    color: var(--button-text-color)
+
+    @media (hover: hover)
+      +transform(scale(1.02, 1.02))
+
+  &--minimal
     +transform(none)
     background: none
-    color: $text-color
+    color: var(--text-color)
     border: none
-    font-size: 14px
     padding: 0
+    text-decoration: underline
+    text-underline-offset: 4px
 
     &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
       +transform(none)
       box-shadow: none
       background: none
-      color: $link-hover-color
-      text-decoration: underline
-
-  &:disabled, &.disabled
-    cursor: not-allowed
-    opacity: .3
-
-  &.centered-button
-    display: block
-    margin: 60px auto
-
-  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
-    background-color: $button-hover-background-color
-    +transform(scale(1.02, 1.02))
-    color: $button-text-color
-
+      color: var(--link-hover-color)
 
 h1, h2, h3, h4, h5, h6
-  color: $text-color
+  color: var(--text-color)
   font-weight: normal
   margin: 0
   padding: 0
@@ -113,7 +116,7 @@ h1
   +flexbox
   +justify-content(center)
   +align-items(center)
-  background-color: $accent-color
+  background-color: var(--accent-background-color)
   padding: 20px
   margin: 0 auto 30px
   max-width: 760px
@@ -142,23 +145,31 @@ h1
   padding: 0 20px
 
 .custom-content
-  font-size: 20px
   line-height: 1.5em
   margin: 0 auto
   max-width: 760px
   width: 100%
 
-  @media screen and (max-width: $break-small)
-    font-size: 16px
+  p
+    margin: revert
 
-  ul, ol
-    padding-left: 1em
+  &>:first-child
+    margin-top: 0
+
+  &>:last-child
+    margin-bottom: 0
+
+  ol, ul
+    margin: 1em
+
+  ul
+    list-style: disc
+
+  ol
+    list-style: decimal
 
   a
     text-decoration: underline
-
-  img, iframe
-    max-width: 100%
 
 .lookbook-gallery
   text-align: center
@@ -185,10 +196,10 @@ h1
   align-items: center
   justify-content: center
   text-align: center
-  font-family: $shop-name-font
+  font-family: var(--shop-name-font)
   overflow-wrap: break-word
   word-break: break-word
-  color: $shop-name-text-color
+  color: var(--shop-name-text-color)
   font-size: 3em
   margin: 60px auto 40px
 
@@ -199,7 +210,7 @@ h1
     max-height: var(--logo-max-height-mobile)
 
 .header-nav-container
-  background: $background-color
+  background: var(--background-color)
   padding: 10px 0
   position: relative
   z-index: 10
@@ -218,7 +229,7 @@ h1
 .dropdown-search
 
   &:hover, &:focus, &:focus-within
-    background-color: $accent-color
+    background-color: var(--accent-background-color)
 
 .search-form
   +flexbox
@@ -234,19 +245,19 @@ h1
   input
     border: 0
     background-color: none
-    color: $text-color
+    color: var(--text-color)
     padding: 6px
     text-align: center
     width: 150px
 
     &::-webkit-input-placeholder
-      color: $text-color
+      color: var(--text-color)
 
     &:-moz-placeholder
-      color: $text-color
+      color: var(--text-color)
 
     &:-ms-input-placeholder
-      color: $text-color
+      color: var(--text-color)
 
   button.search-button
     +transform(translateY(-50%))
@@ -260,11 +271,11 @@ h1
 
     svg
       display: block
-      fill: $text-color
+      fill: var(--text-color)
 
     &:hover, &:focus
       svg
-        fill: $link-hover-color
+        fill: var(--link-hover-color)
 
 .cart-item-count
   font-size: 15px
@@ -324,9 +335,9 @@ footer
     width: 80px
 
 .select
-  border: 1px solid $text-color
-  color: $text-color
-  font-family: $primary-font
+  border: 1px solid var(--text-color)
+  color: var(--text-color)
+  font-family: var(--primary-font)
   height: 60px
   max-width: 100%
   padding: 0
@@ -336,8 +347,8 @@ footer
 
   select
     border: 0
-    color: $text-color
-    font-family: $primary-font
+    color: var(--text-color)
+    font-family: var(--primary-font)
     height: 100%
     letter-spacing: 1px
     line-height: 60px
@@ -355,25 +366,25 @@ footer
   svg
     +all-transitions
     +transform(translateY(-50%))
-    fill: $text-color
+    fill: var(--text-color)
     position: absolute
     right: 20px
     top: 50%
     z-index: 1
 
   &:hover, &:active, &:focus, &:focus-within
-    background-color: $accent-color
-    color: $text-color
-    border-color: $text-color
+    background-color: var(--accent-background-color)
+    color: var(--text-color)
+    border-color: var(--text-color)
 
     select
-      color: $text-color
+      color: var(--text-color)
 
       option:disabled
         color: graytext
 
     svg
-      fill: $text-color
+      fill: var(--text-color)
 
 .visually-hidden
   border: 0
@@ -384,3 +395,25 @@ footer
   padding: 0
   position: absolute
   width: 1px
+
+.message-banner
+  border-radius: var(--border-radius)
+  background-color: var(--announcement-background-color)
+  color: var(--announcement-text-color)
+  padding: 16px
+  margin: 0 auto 32px
+  text-align: center
+  width: 100%
+  max-width: 760px
+
+  &--centered
+    text-align: center
+
+  &--no-bg
+    color: var(--text-color)
+    background: none
+    padding: 0
+
+  &--errors
+    background-color: var(--error-background-color)
+    color: var(--error-text-color)

@@ -51,17 +51,14 @@
       text-align: left
 
   &__status
-    text-transform: uppercase
-    font-size: .825rem
+    font-size: .925rem
     line-height: normal
-    font-weight: 500
     display: inline-block
-    padding: 4px 6px
+    padding: 4px 8px
     margin-left: 8px
-    color: var(--secondary-text-color)
-    border: 1px solid var(--secondary-text-color)
-    border-radius: var(--border-radius)
-    letter-spacing: 1.1px
+    color: var(--product-status-text-color)
+    background: var(--product-status-background-color)
+    border-radius: var(--border-radius-sm)
 
   &__pricing
     display: flex
@@ -91,15 +88,15 @@
     a
       text-decoration: underline
 
-.all-similar-products
+.all-related-products
   display: none
 
-.similar-products
-  background-color: $accent-color
-  margin-top: 100px
-  padding: 100px 0
+.related-products-container
+  background-color: var(--accent-background-color)
+  margin-top: 60px
+  padding: 60px 0
 
-  .similar-product
+  .related-product
     width: 33.33%
 
 #instant-checkout-button

@@ -1,23 +1,42 @@
 \:root
-  --logo-max-height: #{"{{ theme.logo_image_height | append: 'px' }}"}
-  --logo-max-height-mobile: 120px
+  --background-color: #{'{{ theme.background_color }}'}
 
-$text-color: #{"{{ theme.text_color }}"}
-$link-hover-color: #{"{{ theme.link_hover_color }}"}
-$background-color: #{"{{ theme.background_color }}"}
-$accent-color: #{"{{ theme.accent_color }}"}
-$welcome-header-text-color: #{"{{ theme.welcome_header_text_color }}"}
-$shop-name-text-color: #{"{{ theme.shop_name_text_color }}"}
+  --shop-name-text-color: #{'{{ theme.shop_name_text_color }}'}
 
-$button-text-color: #{"{{ theme.button_text_color }}"}
-$button-background-color: #{"{{ theme.button_background_color }}"}
-$button-hover-background-color: #{"{{ theme.button_hover_background_color }}"}
+  --text-color: #{'{{ theme.text_color }}'}
+  --link-hover-color: #{'{{ theme.link_hover_color }}'}
 
-$break-extra-large: 1500px
-$break-large: 1200px
-$break-medium: 1023px
-$break-small: 767px
-$break-extra-small: 640px
+  --accent-background-color: #{'{{ theme.accent_background_color }}'}
 
-$shop-name-font: #{"{{ theme.shop_name_font | font_family }}"}
-$primary-font: #{"{{ theme.primary_font | font_family }}"}
+  --border-color: #{'rgba(var(--text-color-rgb), .4)'}
+
+  --welcome-header-text-color: #{'{{ theme.welcome_header_text_color }}'}
+
+  --button-background-color: #{'{{ theme.button_background_color }}'}
+  --button-hover-background-color: #{'{{ theme.button_hover_background_color }}'}
+  --button-text-color: #{'{{ theme.button_text_color }}'}
+
+  --error-background-color: #950f1e
+  --error-text-color: #FFFFFF
+
+  --shadow-color: #{'rgba(var(--text-color-rgb), 0.15)'}
+  --menu-box-shadow: 0px 0.4px 0.5px var(--shadow-color), 0px 1.3px 1.5px -0.8px var(--shadow-color), 0px 3.4px 3.8px -1.7px var(--shadow-color), 0px 8.2px 9.2px -2.5px var(--shadow-color)
+
+  --announcement-background-color: #{'{{ theme.accent_background_color }}'}
+  --announcement-text-color: #{'{{ theme.text_color }}'}
+
+  --product-status-background-color: var(--button-background-color)
+  --product-status-text-color: var(--button-text-color)
+
+  --shop-name-font: #{'{{ theme.shop_name_font | font_family }}'}
+  --primary-font: #{'{{ theme.primary_font | font_family }}'}
+
+  --border-radius: #{'{{ theme.border_radius }}'}
+  --border-radius-sm: 2px
+  --spacing-unit: 16px
+
+$break-extra-large: 1200px
+$break-large: 945px
+$break-medium: 800px
+$break-small: 668px
+$break-extra-small: 500px
