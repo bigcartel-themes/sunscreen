@@ -1,11 +1,13 @@
-// Search
+let activeSearchBtn;
+
 const searchModal = document.querySelector('.search-modal');
-const searchBtn = document.querySelector('.open-search');
+const searchBtns = document.querySelectorAll('.open-search');
 const closeSearchBtn = document.querySelector('.search-modal__close');
 const inputField = document.querySelector('.search-modal__input');
 const focusableSearchElements = searchModal?.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
 
-const openSearch = () => {
+const openSearch = (event) => {
+  activeSearchBtn = event.currentTarget;
   if (searchModal && inputField) {
     document.addEventListener("click", clickOutsideToClose);
     document.addEventListener('keydown', closeSearchOnEscape);
@@ -20,10 +22,8 @@ const trapSearchFocus = () => {
   const firstFocusableElement = focusableSearchElements[0];
   const lastFocusableElement = focusableSearchElements[focusableSearchElements.length - 1];
 
-  // Focus first element
   firstFocusableElement.focus();
 
-  // Trap focus inside modal
   searchModal.addEventListener('keydown', (event) => {
     if (event.key === 'Tab' || event.keyCode === 9) {
       if (event.shiftKey) {
@@ -68,8 +68,8 @@ const focusInputField = () => {
 };
 
 const focusSearchButton = () => {
-  searchBtn.focus();
+  activeSearchBtn.focus();
 };
 
-searchBtn?.addEventListener('click', openSearch);
+searchBtns.forEach(btn => btn.addEventListener('click', openSearch));
 closeSearchBtn?.addEventListener('click', closeSearch);

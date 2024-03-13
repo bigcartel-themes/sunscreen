@@ -35,30 +35,3 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("load", () => {
   document.body.classList.remove("transition-preloader");
 });
-
-const headerNavContainer = document.querySelector('.header-nav-container');
-let navPosition = headerNavContainer.offsetTop;
-let headerNavHeight = getComputedStyle(headerNavContainer).height;
-
-const checkNavVisibility = () => {
-  const computedStyle = getComputedStyle(headerNavContainer);
-  return computedStyle.display !== 'none';
-};
-
-const handleScroll = () => {
-  if (!checkNavVisibility()) {
-    document.body.style.paddingTop = 0;
-    headerNavContainer.classList.remove("fixed");
-    return;
-  }
-
-  if (window.pageYOffset >= navPosition) {
-    headerNavContainer.classList.add("fixed");
-    document.body.style.paddingTop = headerNavHeight;
-  } else {
-    headerNavContainer.classList.remove("fixed");
-    document.body.style.paddingTop = 0;
-  }
-};
-
-window.addEventListener("scroll", handleScroll);
