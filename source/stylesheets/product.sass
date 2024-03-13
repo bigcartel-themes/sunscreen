@@ -1,123 +1,95 @@
-@import 'variables'
+.product-container
+  display: grid
+  grid-template-columns: 1fr 400px
+  column-gap: 48px
+  row-gap: 40px
 
+  @media screen and (max-width: $break-large)
+    grid-template-columns: 1fr 330px
+    column-gap: 32px
 
-.product-page-content
-  margin: 0 auto
-  max-width: 800px
-  width: 100%
-
-.primary-product-image-container
-  margin-bottom: 50px
-
-.primary-product-image
-  display: block
-  width: 100%
-
-.secondary-product-image-container
-  margin-top: 50px
-
-.secondary-product-image
-  display: block
-  margin-bottom: 50px
-  width: 100%
-
-  &:last-child
-    margin-bottom: 0
-
-.product-page-details
-
-  &::after
-    content: ""
-    clear: both
-    display: table
-
-  @media screen and (max-width: $break-small)
-    padding: 0 20px
-
-  &.inactive
-    .product-page-titles
-      float: none
-      max-width: 100%
-
-    .product-description
-      float: none
-      max-width: 100%
-
-.product-page-titles
-  float: left
-  max-width: calc(100% - 350px)
-  width: 100%
-
-  @media screen and (max-width: $break-small)
-    float: none
-    max-width: 100%
-
-h1.product-name
-  font-size: 25px
-  line-height: 36px
-  margin-bottom: 8px
-  text-align: left
-
-.product-description
-  clear: left
-  float: left
-  font-size: 20px
-  line-height: 1.5em
-  margin-top: 30px
-  max-width: calc(100% - 350px)
-
-  @media screen and (max-width: $break-small)
-    float: none
-    font-size: 16px
-    max-width: 100%
-
-  ul, ol
-    padding-left: 1em
-
-  a
-    text-decoration: underline
-
-  img, iframe
-    max-width: 100%
-
-.product-form
-  float: right
-  max-width: 290px
-  width: 100%
-
-  @media screen and (max-width: $break-small)
-    float: none
-    margin-left: 0
-    margin-top: 50px
-    max-width: 100%
-
-    .add-to-cart-button
-      max-width: 100%
-
-  select span, select span option
-    display: none
-    opacity: 0
-    visibility: hidden
+  @media screen and (max-width: $break-medium)
+    grid-template-columns: minmax(0, 1fr)
 
 .reset-selection-button-container
   text-align: center
   width: 100%
 
-button.reset-selection-button
-  display: none
-  font-size: 14px
-  height: auto
-  max-width: 100%
-  line-height: normal
-  margin: 20px auto 0
-  padding: 4px
-  width: auto
+  button.reset-selection-button
+    display: none
 
-.product-quantity
-  display: none
+.product-form
+  width: 100%
 
-.add-to-cart-button
-  max-width: 100%
+  button
+    max-width: 100%
+
+  @media screen and (max-width: $break-large)
+    max-width: 100%
+
+.product-selects
+  margin-bottom: 20px
+
+.product-option-groups
+  display: flex
+  flex-direction: column
+  gap: 16px
+
+.product-detail
+  display: flex
+  flex-direction: column
+  row-gap: 36px
+
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 4px
+
+    h1
+      margin: 0
+      text-align: left
+
+  &__status
+    text-transform: uppercase
+    font-size: .825rem
+    line-height: normal
+    font-weight: 500
+    display: inline-block
+    padding: 4px 6px
+    margin-left: 8px
+    color: var(--secondary-text-color)
+    border: 1px solid var(--secondary-text-color)
+    border-radius: var(--border-radius)
+    letter-spacing: 1.1px
+
+  &__pricing
+    display: flex
+    align-items: center
+    font-size: 1.2em
+
+  &__description
+
+    p
+      margin: revert
+
+    &>:first-child
+      margin-top: 0
+
+    &>:last-child
+      margin-bottom: 0
+
+    ol, ul
+      margin: 1em
+
+    ul
+      list-style: disc
+
+    ol
+      list-style: decimal
+
+    a
+      text-decoration: underline
 
 .all-similar-products
   display: none
@@ -130,21 +102,5 @@ button.reset-selection-button
   .similar-product
     width: 33.33%
 
-  @media screen and (max-width: $break-medium)
-    margin-top: 50px
-    padding: 50px 20px
-
-    .similar-product
-      padding-bottom: 50px
-      width: 100%
-
-.similar-products-header
-  font-size: 25px
-  margin-bottom: 40px
-  text-align: center
-
 #instant-checkout-button
   margin-top: 12px
-
-.similar-product-list
-  margin-bottom: 0

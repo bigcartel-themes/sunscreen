@@ -1,4 +1,6 @@
-@import 'flexbox'
+\:root
+  --logo-max-height: #{"{{ theme.logo_image_height | append: 'px' }}"}
+  --logo-max-height-mobile: 120px
 
 $text-color: #{"{{ theme.text_color }}"}
 $link-hover-color: #{"{{ theme.link_hover_color }}"}
@@ -19,33 +21,3 @@ $break-extra-small: 640px
 
 $shop-name-font: #{"{{ theme.shop_name_font | font_family }}"}
 $primary-font: #{"{{ theme.primary_font | font_family }}"}
-
-@mixin all-transitions
-  +transition(.2s linear)
-
-@mixin transition($transition...)
-  -webkit-transition: #{$transition}
-  transition: #{$transition}
-
-@mixin transform($str...)
-  -webkit-transform: $str
-  transform: $str
-
-@mixin transform-origin($str...)
-  -webkit-transform-origin: $str
-  transform-origin: $str
-
-@mixin appearance($str...)
-  -webkit-appearance: none
-  appearance: none
-
-@mixin keyframes($animation...)
-  @-webkit-keyframes #{$animation}
-    @content
-
-  @keyframes #{$animation}
-    @content
-
-@mixin animation($str...)
-  -webkit-animation: $str
-  animation: $str

@@ -1,4 +1,4 @@
-@import 'variables'
+
 
 .contact-form
   margin: 0 auto
@@ -16,30 +16,19 @@
     margin-bottom: 0
 
   .contact-form-label
-    +transition(all 150ms)
-    background-color: transparent
-    color: $text-color
-    cursor: text
-    font-size: 20px
-    left: 0
-    position: absolute
-    top: 20px
+    display: block
+    font-weight: 500
+    margin-bottom: 4px
 
   input, textarea
-    +transition(all .3s)
-    background-color: transparent
-    border: 0
-    border-bottom: 1px solid $text-color
-    font-size: 25px
-    height: 70px
-    outline: 0
-    padding: 30px 0 10px
+    border: 1px solid $text-color
+    height: 58px
+    padding: 12px
     position: relative
     width: 100%
 
-    @media screen and (max-width: $break-small)
-      font-size: 20px
-      padding-top: 20px
+  textarea
+    height: 200px
 
   .send-message-button
     margin-top: 60px
@@ -48,11 +37,8 @@
       margin-top: 50px
       max-width: 100%
 
-.focused .contact-form-label
-  transform: translateY(-125%)
-  font-size: 16px
-
 .recaptcha-note
+  text-align: center
   font-size: 14px
   line-height: 1.5em
   margin-top: 20px

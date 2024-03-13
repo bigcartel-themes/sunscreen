@@ -1,4 +1,4 @@
-@import 'variables'
+
 
 *
   box-sizing: border-box
@@ -180,26 +180,23 @@ h1
   @media screen and (max-width: $break-small)
     margin-bottom: 50px
 
-a.store-link
-  color: $shop-name-text-color
-  display: block
+.header-store-link
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
   font-family: $shop-name-font
-  font-size: 50px
-  margin: 100px auto 80px
-  max-width: 754px
-  width: 100%
-
-  @media screen and (max-width: $break-small)
-    margin: 50px auto
+  overflow-wrap: break-word
+  word-break: break-word
+  color: $shop-name-text-color
+  font-size: 3em
+  margin: 60px auto 40px
 
 .store-logo
-  display: block
-  margin: 0 auto
-  max-width: 100%
-  max-height: 400px
+  max-height: var(--logo-max-height)
 
   @media screen and (max-width: $break-small)
-    max-height: 200px
+    max-height: var(--logo-max-height-mobile)
 
 .header-nav-container
   background: $background-color
@@ -326,52 +323,11 @@ footer
     padding-top: 1px
     width: 80px
 
-.flash-message
-  display: none
-
-.has-flash-message .flash-message
-  +flexbox
-  +align-items(center)
-  +justify-content(center)
-  background-color: $accent-color
-  color: $text-color
-  left: 0
-  line-height: 26px
-  padding: 14px 20px
-  position: relative
-  top: 0
-  width: 100%
-  z-index: 9
-
-  .flash-message-text
-    text-align: center
-    width: calc(100% - 100px)
-
-    @media screen and (max-width: $break-small)
-      width: calc(100% - 50px)
-
-  .flash-message-close
-    +transform(translateY(-50%))
-    cursor: pointer
-    padding: 4px
-    position: absolute
-    right: 16px
-    top: 50%
-
-    svg
-      display: block
-      fill: $text-color
-
-    &:hover, &:focus
-      svg
-        fill: $link-hover-color
-
 .select
   border: 1px solid $text-color
   color: $text-color
   font-family: $primary-font
   height: 60px
-  margin-bottom: 15px
   max-width: 100%
   padding: 0
   position: relative
