@@ -58,6 +58,9 @@ a, a:visited
   &.centered-button
     margin: 0 auto
 
+    @media screen and (max-width: $break-small)
+      max-width: 100%
+
   &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
     background-color: var(--button-hover-background-color)
     color: var(--button-text-color)
