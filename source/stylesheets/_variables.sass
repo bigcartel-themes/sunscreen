@@ -1,51 +1,44 @@
-@import 'flexbox'
+\:root
+  --background-color: #{'{{ theme.background_color }}'}
 
-$text-color: #{"{{ theme.text_color }}"}
-$link-hover-color: #{"{{ theme.link_hover_color }}"}
-$background-color: #{"{{ theme.background_color }}"}
-$accent-color: #{"{{ theme.accent_color }}"}
-$welcome-header-text-color: #{"{{ theme.welcome_header_text_color }}"}
-$shop-name-text-color: #{"{{ theme.shop_name_text_color }}"}
+  --shop-name-text-color: #{'{{ theme.shop_name_text_color }}'}
 
-$button-text-color: #{"{{ theme.button_text_color }}"}
-$button-background-color: #{"{{ theme.button_background_color }}"}
-$button-hover-background-color: #{"{{ theme.button_hover_background_color }}"}
+  --text-color: #{'{{ theme.text_color }}'}
+  --link-hover-color: #{'{{ theme.link_hover_color }}'}
 
-$break-extra-large: 1500px
-$break-large: 1200px
-$break-medium: 1023px
-$break-small: 767px
-$break-extra-small: 640px
+  --accent-background-color: #{'{{ theme.accent_background_color }}'}
 
-$shop-name-font: #{"{{ theme.shop_name_font | font_family }}"}
-$primary-font: #{"{{ theme.primary_font | font_family }}"}
+  --border-color: #{'rgba(var(--text-color-rgb), .4)'}
 
-@mixin all-transitions
-  +transition(.2s linear)
+  --welcome-header-text-color: #{'{{ theme.welcome_header_text_color }}'}
 
-@mixin transition($transition...)
-  -webkit-transition: #{$transition}
-  transition: #{$transition}
+  --button-background-color: #{'{{ theme.button_background_color }}'}
+  --button-hover-background-color: #{'{{ theme.button_hover_background_color }}'}
+  --button-text-color: #{'{{ theme.button_text_color }}'}
 
-@mixin transform($str...)
-  -webkit-transform: $str
-  transform: $str
+  --error-background-color: #950f1e
+  --error-text-color: #FFFFFF
 
-@mixin transform-origin($str...)
-  -webkit-transform-origin: $str
-  transform-origin: $str
+  --shadow-color: #{'rgba(var(--text-color-rgb), 0.15)'}
 
-@mixin appearance($str...)
-  -webkit-appearance: none
-  appearance: none
+  --menu-box-shadow: 0px 1px 0.8px var(--shadow-color), 0px 1.6px 1.2px -1.7px var(--shadow-color), 0px 6.1px 4.6px -3.3px var(--shadow-color)
 
-@mixin keyframes($animation...)
-  @-webkit-keyframes #{$animation}
-    @content
+  --announcement-background-color: #{'{{ theme.accent_background_color }}'}
+  --announcement-text-color: #{'{{ theme.text_color }}'}
 
-  @keyframes #{$animation}
-    @content
+  --product-status-background-color: var(--button-background-color)
+  --product-status-text-color: var(--button-text-color)
 
-@mixin animation($str...)
-  -webkit-animation: $str
-  animation: $str
+  --shop-name-font: #{'{{ theme.shop_name_font | font_family }}'}
+  --primary-font: #{'{{ theme.primary_font | font_family }}'}
+
+  --border-radius: #{'{{ theme.border_radius }}'}
+  --border-radius-sm: 2px
+  --spacing-unit: 16px
+  --logo-max-height: #{"{{ theme.logo_image_height | append: 'px' }}"}
+
+$break-extra-large: 1200px
+$break-large: 945px
+$break-medium: 800px
+$break-small: 668px
+$break-extra-small: 500px
