@@ -59,6 +59,11 @@ a.product-list-link
 
 .product-list-image-container
   border-radius: var(--border-radius)
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr
+  place-content: center
+  grid-template-areas: "image"
   margin: 0
   overflow: hidden
   padding-bottom: 100%
@@ -80,6 +85,8 @@ a.product-list-link
   z-index: 1
 
   &.grid-default
+    object-fit: contain
+    grid-area: image
     position: relative
 
   &.grid-cover
