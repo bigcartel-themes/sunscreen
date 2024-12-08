@@ -11,6 +11,9 @@
   --active-slide-border-width-offset: #{-2px}
   --arrow-background-color: var(--background-color)
   --arrow-color: var(--text-color)
+  --main-image-width: #{'{{ theme.product_page_main_image_width }}' }
+  --thumb-size: #{'max(50%, {{ theme.product_page_main_image_width }})'}
+  --thumb-gap: #{'{{ theme.product_page_main_image_width | remove: "%" | times: 0.16 | round }}px'}
   --gap-width: 16px
   --num-images: 5
 
@@ -26,8 +29,9 @@
 
     img
       display: block
-      width: 100%
+      max-width: var(--main-image-width)
       height: auto
+      margin: 0 auto
 
   .splide__slide:not(.is-active)
     height: 0
@@ -74,7 +78,7 @@
 
   &--list
     display: flex
-    gap: var(--gap-width)
+    gap: clamp(8px, var(--thumb-gap), var(--thumb-gap))
     list-style: none
     flex: 1
     padding: 0 calc(var(--gap-width) / 2)
@@ -152,9 +156,10 @@
 
       img
         border-radius: var(--border-radius)
-        height: 100%
-        width: 100%
+        height: var(--thumb-size)
+        width: var(--thumb-size)
         object-fit: cover
+        margin: 0 auto
 
 a.gallery-link
   cursor: zoom-in
@@ -236,6 +241,7 @@ a.gallery-link
 
       .splide__slide
         width: calc((100% / 2) - 8px)
+        margin: 0 auto
 
         &:not(:first-child)
           &:before

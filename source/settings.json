@@ -391,6 +391,18 @@
       "description": "Controls the rounded corner style on images and other site elements"
     },
     {
+      "variable": "product_page_main_image_width",
+      "label": "Product pages main image width",
+      "type": "select",
+      "options": [
+        ["Full width", "100%"],
+        ["Reduced width", "75%"],
+        ["Smallest width", "50%"]
+      ],
+      "default": "100%",
+      "description": "Width of the main products on product pages"
+    },
+    {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
