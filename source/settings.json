@@ -5,7 +5,7 @@
     {
       "variable": "logo",
       "label": "Logo",
-      "description": "Adds your logo to the header"
+      "description": "Recommend transparent background at least 320px high"
     },
     {
       "variable": "welcome_image",
@@ -24,7 +24,7 @@
     "preview": {
       "title_font": "primary_font",
       "body_font": "primary_font",
-      "text_color": "text_color",
+      "text_color": "primary_text_color",
       "background_color": "background_color"
     },
     "presets": [
@@ -40,7 +40,7 @@
             "colors": {
               "background_color": "#FFFFFF",
               "accent_background_color": "#F7F8FC",
-              "text_color": "#1C4D12",
+              "primary_text_color": "#1C4D12",
               "button_text_color": "#FFFFFF",
               "button_background_color": "#1C4D12",
               "button_hover_background_color": "#3B7530",
@@ -63,7 +63,7 @@
             "colors": {
               "background_color": "#141415",
               "accent_background_color": "#3D3D3D",
-              "text_color": "#F8F8F8",
+              "primary_text_color": "#F8F8F8",
               "button_text_color": "#3D3D3D",
               "button_background_color": "#F8F8F8",
               "button_hover_background_color": "#C6C6C6",
@@ -81,7 +81,7 @@
             "colors": {
               "background_color": "#F8F8F8",
               "accent_background_color": "#DBD1D1",
-              "text_color": "#0F1B27",
+              "primary_text_color": "#0F1B27",
               "button_text_color": "#0F1B27",
               "button_background_color": "#DBD1D1",
               "button_hover_background_color": "#C7B3B3",
@@ -104,7 +104,7 @@
             "colors": {
               "background_color": "#FFFBFD",
               "accent_background_color": "#FFE9F4",
-              "text_color": "#243588",
+              "primary_text_color": "#243588",
               "button_text_color": "#FFFBFD",
               "button_background_color": "#243588",
               "button_hover_background_color": "#0C143B",
@@ -122,7 +122,7 @@
             "colors": {
               "background_color": "#FFFFFF",
               "accent_background_color": "#F6FF20",
-              "text_color": "#0B0423",
+              "primary_text_color": "#0B0423",
               "button_text_color": "#FFFFFF",
               "button_background_color": "#F90081",
               "button_hover_background_color": "#D1006C",
@@ -159,7 +159,7 @@
       "default": "#F7F8FC"
     },
     {
-      "variable": "text_color",
+      "variable": "primary_text_color",
       "label": "Text",
       "default": "#1C4D12"
     },
@@ -474,18 +474,18 @@
     "body_font": "{{ primary_font }}",
     "body_font_size": "16px",
     "secondary_font_size": "16px",
-    "step_border_color": "{{ text_color }}",
+    "step_border_color": "{{ primary_text_color }}",
     "step_border_width": "2px",
     "step_border_style": "solid",
     "step_border_radius": "0px",
-    "step_inactive_header_color": " {{ text_color }}",
+    "step_inactive_header_color": " {{ primary_text_color }}",
     "step_header_font": "{{ primary_font }}",
     "step_background_color": "{{ background_color }}",
     "content_background_color": "{{ background_color }}",
     "content_header_background_color": "{{ background_color }}",
-    "content_header_color": "{{ text_color }}",
+    "content_header_color": "{{ primary_text_color }}",
     "content_horizontal_padding": "0px",
-    "content_color": "{{ text_color }}",
+    "content_color": "{{ primary_text_color }}",
     "content_header_font_size": "18px",
     "content_border_color": "transparent",
     "content_border_radius": "0px",
@@ -518,18 +518,18 @@
     "button_background_color": "{{ button_background_color }}",
     "button_hover_background_color": "{{ button_hover_background_color }}",
     "button_text_transform": "none",
-    "link_color": "{{ text_color }}",
+    "link_color": "{{ primary_text_color }}",
     "link_font_size": "16px",
-    "link_hover_color": "{{ text_color }}",
-    "step_header_color": "{{ text_color }}",
+    "link_hover_color": "{{ primary_text_color }}",
+    "step_header_color": "{{ primary_text_color }}",
     "step_header_font_size": "22px",
-    "summary_color": "{{ text_color }}",
+    "summary_color": "{{ primary_text_color }}",
     "summary_font_size": "16px",
-    "summary_secondary_color": "{{ text_color }}",
-    "summary_item_border_color": "{{ text_color }}",
-    "summary_item_list_border_color": "{{ text_color }}",
+    "summary_secondary_color": "{{ primary_text_color }}",
+    "summary_item_border_color": "{{ primary_text_color }}",
+    "summary_item_list_border_color": "{{ primary_text_color }}",
     "summary_submit_background_color": "{{ background_color }}",
-    "summary_submit_border_color": "{{ text_color }}",
+    "summary_submit_border_color": "{{ primary_text_color }}",
     "summary_submit_border_width": "4px"
   }
 }

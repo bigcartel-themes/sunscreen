@@ -2,7 +2,7 @@ body
   +flexbox
   +flex-direction(column)
   background-color: var(--background-color)
-  color: var(--text-color)
+  color: var(--primary-text-color)
   font-family: var(--primary-font)
   font-size: 16px
   height: 100%
@@ -17,8 +17,8 @@ body
 a.skip-link
   +transition(all .3s)
   background: var(--background-color)
-  border: 1px solid var(--text-color)
-  color: var(--text-color)
+  border: 1px solid var(--primary-text-color)
+  color: var(--primary-text-color)
   left: 25px
   padding: 15px 20px
   position: absolute
@@ -30,7 +30,7 @@ a.skip-link
     top: 20px
 
 a, a:visited
-  color: var(--text-color)
+  color: var(--primary-text-color)
   text-decoration: none
   text-underline-offset: 4px
 
@@ -71,7 +71,7 @@ a, a:visited
   &--minimal
     +transform(none)
     background: none
-    color: var(--text-color)
+    color: var(--primary-text-color)
     border: none
     padding: 0
     text-decoration: underline
@@ -84,7 +84,7 @@ a, a:visited
       color: var(--link-hover-color)
 
 h1, h2, h3, h4, h5, h6
-  color: var(--text-color)
+  color: var(--primary-text-color)
   font-weight: normal
   margin: 0
   padding: 0
@@ -370,9 +370,9 @@ footer
     width: 80px
 
 .select
-  border: 1px solid var(--text-color)
+  border: 1px solid var(--primary-text-color)
   border-radius: var(--border-radius)
-  color: var(--text-color)
+  color: var(--primary-text-color)
   font-family: var(--primary-font)
   height: 60px
   max-width: 100%
@@ -383,7 +383,7 @@ footer
 
   select
     border: 0
-    color: var(--text-color)
+    color: var(--primary-text-color)
     font-family: var(--primary-font)
     height: 100%
     padding: 0 66px 0 16px
@@ -400,7 +400,7 @@ footer
   svg
     +all-transitions
     +transform(translateY(-50%))
-    fill: var(--text-color)
+    fill: var(--primary-text-color)
     position: absolute
     right: 20px
     top: 50%
@@ -408,17 +408,17 @@ footer
 
   &:hover, &:active, &:focus, &:focus-within
     background-color: var(--accent-background-color)
-    color: var(--text-color)
-    border-color: var(--text-color)
+    color: var(--primary-text-color)
+    border-color: var(--primary-text-color)
 
     select
-      color: var(--text-color)
+      color: var(--primary-text-color)
 
       option:disabled
         color: graytext
 
     svg
-      fill: var(--text-color)
+      fill: var(--primary-text-color)
 
 .visually-hidden
   border: 0
@@ -444,7 +444,7 @@ footer
     text-align: center
 
   &--no-bg
-    color: var(--text-color)
+    color: var(--primary-text-color)
     background: none
     padding: 0
 
