@@ -215,7 +215,9 @@
       "options": [
         ["Small", "80"],
         ["Medium", "100"],
-        ["Large", "120"]
+        ["Large", "120"],
+        ["Extra Large", "140"],
+        ["XX Large", "160"]
       ],
       "default": "100",
       "description": "Controls the maximum height of your logo"
