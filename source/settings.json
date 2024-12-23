@@ -1,6 +1,6 @@
 {
   "name": "Sunscreen",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "images": [
     {
       "variable": "logo",
@@ -48,6 +48,42 @@
               "shop_name_text_color": "#1C4D12",
               "welcome_header_text_color": "#1C4D12"
             }
+          },
+          {
+            "style_name": "Classic #2",
+            "fonts": {
+              "shop_name_font": "DM Sans",
+              "primary_font": "Lato"
+            },
+            "colors": {
+              "background_color": "#F9F9F9",
+              "accent_background_color": "#FFFFFF",
+              "primary_text_color": "#2A2A2C",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#203BE1",
+              "button_hover_background_color": "#152E91",
+              "link_hover_color": "#152E91",
+              "shop_name_text_color": "#203BE1",
+              "welcome_header_text_color": "#2A2A2C"
+            }
+          },
+          {
+            "style_name": "Classic #3",
+            "fonts": {
+              "shop_name_font": "Cabin",
+              "primary_font": "Open Sans"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "accent_background_color": "#F8F8FA",
+              "primary_text_color": "#333333",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#374DCA",
+              "button_hover_background_color": "#273896",
+              "link_hover_color": "#273896",
+              "shop_name_text_color": "#333333",
+              "welcome_header_text_color": "#333333"
+            }
           }
         ]
       },
@@ -89,6 +125,24 @@
               "shop_name_text_color": "#0F1B27",
               "welcome_header_text_color": "#0F1B27"
             }
+          },
+          {
+            "style_name": "Elegant #3",
+            "fonts": {
+              "shop_name_font": "Cormorant",
+              "primary_font": "Lora"
+            },
+            "colors": {
+              "background_color": "#F5F4F0",
+              "accent_background_color": "#E8E7E3",
+              "primary_text_color": "#232323",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#555555",
+              "button_hover_background_color": "#232323",
+              "link_hover_color": "#555555",
+              "shop_name_text_color": "#232323",
+              "welcome_header_text_color": "#232323"
+            }
           }
         ]
       },
@@ -129,6 +183,24 @@
               "link_hover_color": "#F90081",
               "shop_name_text_color": "#0B0423",
               "welcome_header_text_color": "#0B0423"
+            }
+          },
+          {
+            "style_name": "Playful #3",
+            "fonts": {
+              "shop_name_font": "Poppins",
+              "primary_font": "Concert One"
+            },
+            "colors": {
+              "background_color": "#FDF8F4",
+              "accent_background_color": "#FBE8E1",
+              "primary_text_color": "#8A2525",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#F46262",
+              "button_hover_background_color": "#CC4A4A",
+              "link_hover_color": "#CC4A4A",
+              "shop_name_text_color": "#8A2525",
+              "welcome_header_text_color": "#8A2525"
             }
           }
         ]
