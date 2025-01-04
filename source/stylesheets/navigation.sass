@@ -60,7 +60,7 @@
   +transform(scaleY(0.75))
   background: var(--background-color)
   border-radius: var(--border-radius)
-  border: 1px solid #{"rgba(var(--primary-text-color-rgb),.5)"}
+  border: 1px solid color-mix(in srgb, var(--primary-text-color) 50%, white)
   left: -20px
   margin: 0 auto
   min-width: 250px
@@ -76,7 +76,7 @@
   z-index: 3
   top: calc(100% + 4px)
   scrollbar-width: thin
-  scrollbar-color: #{"rgba(var(--primary-text-color-rgb),.5)"} transparent
+  scrollbar-color: color-mix(in srgb, var(--primary-text-color) 50%, white) transparent
   scrollbar-gutter: stable
   box-shadow: var(--menu-box-shadow)
 
@@ -97,7 +97,7 @@
   &::-webkit-scrollbar-thumb
     border-radius: .375rem
     border: 3px solid transparent
-    background-color: #{"rgba(var(--primary-text-color-rgb),.5)"}
+    background-color: color-mix(in srgb, var(--primary-text-color) 50%, white)
     background-clip: content-box
 
 .dropdown-list
@@ -118,7 +118,7 @@
         text-decoration: underline
 
 #mobile-navigation
-  background: #{'rgba(var(--background-color-rgb), .8)'}
+  background: color-mix(in srgb, var(--primary-text-color) 20%, white)
   opacity: 0
   visibility: hidden
   width: 100%
