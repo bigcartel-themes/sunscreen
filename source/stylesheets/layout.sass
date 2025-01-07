@@ -74,8 +74,11 @@ a, a:visited
     color: var(--primary-text-color)
     border: none
     padding: 0
-    text-decoration: underline
-    text-underline-offset: 4px
+    text-decoration: none
+    
+    &:hover
+      text-decoration: underline
+      text-underline-offset: 4px
 
     &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
       +transform(none)
