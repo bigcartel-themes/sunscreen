@@ -209,9 +209,8 @@
           {% endcomment %}
           {% assign final_permalinks_array = final_product_permalinks | split: ',' %}
           {% if final_permalinks_array.size > 0 %}
-            <aside class="related-products-container" data-num-products="{{ related_products_limit }}" role="complementary" aria-label="{{ theme.related_products_header | default: 'Related Products' }}">
+            <aside class="related-products-container" data-num-products="{{ related_products_limit }}" role="complementary" aria-label="{{ theme.related_products_header | default: 'You might also like' }}">
               <div class="wrapper">
-                <div class="all-related-products" style="display: none"></div>
                 <div class="related-products-header">
                   <h2 class="related-products-title">{{ theme.related_products_header | default: 'You might also like' }}</h2>
                 </div>
