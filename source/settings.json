@@ -338,6 +338,14 @@
       "description": "The number of items featured on the Home page"
     },
     {
+      "variable": "featured_order",
+      "label": "Featured products order",
+      "type": "select",
+      "options": "product_orders",
+      "default": "position",
+      "description": "The order of products on the Home page"
+    },
+    {
       "variable": "all_products_button_text",
       "label": "All products button text",
       "type": "text",
