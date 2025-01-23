@@ -26,8 +26,11 @@
   --announcement-background-color: #{'{{ theme.accent_background_color }}'}
   --announcement-text-color: #{'{{ theme.primary_text_color }}'}
 
-  --product-status-background-color: var(--button-background-color)
-  --product-status-text-color: var(--button-text-color)
+  --product-status-background-color: #{"{{ theme.product_status_background_color }}"}
+  --product-status-text-color: #{"{{ theme.product_status_text_color }}"}
+  --product-status-background-color-secondary: #{"{{ theme.product_status_background_color_secondary }}"}
+  --product-status-text-color-secondary: #{"{{ theme.product_status_text_color_secondary }}"}
+
 
   --shop-name-font: #{'{{ theme.shop_name_font | font_family }}'}
   --primary-font: #{'{{ theme.primary_font | font_family }}'}

@@ -46,7 +46,11 @@
               "button_hover_background_color": "#3B7530",
               "link_hover_color": "#3B7530",
               "shop_name_text_color": "#1C4D12",
-              "welcome_header_text_color": "#1C4D12"
+              "welcome_header_text_color": "#1C4D12",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#1C4D12",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           },
           {
@@ -64,7 +68,11 @@
               "button_hover_background_color": "#152E91",
               "link_hover_color": "#152E91",
               "shop_name_text_color": "#203BE1",
-              "welcome_header_text_color": "#2A2A2C"
+              "welcome_header_text_color": "#2A2A2C",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#203BE1",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           },
           {
@@ -82,7 +90,11 @@
               "button_hover_background_color": "#273896",
               "link_hover_color": "#273896",
               "shop_name_text_color": "#333333",
-              "welcome_header_text_color": "#333333"
+              "welcome_header_text_color": "#333333",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#374DCA",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           }
         ]
@@ -105,6 +117,10 @@
               "button_hover_background_color": "#C6C6C6",
               "link_hover_color": "#C6C6C6",
               "shop_name_text_color": "#F8F8F8",
+              "welcome_header_text_color": "#F8F8F8",
+              "product_status_text_color": "#F8F8F8",
+              "product_status_background_color": "#E15C2A",
+              "product_status_text_color_secondary": "#FFFFFF",
               "welcome_header_text_color": "#F8F8F8"
             }
           },
@@ -123,6 +139,10 @@
               "button_hover_background_color": "#C7B3B3",
               "link_hover_color": "#8A5A5A",
               "shop_name_text_color": "#0F1B27",
+              "welcome_header_text_color": "#0F1B27",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#9D3A3E",
+              "product_status_text_color_secondary": "#FFFFFF",
               "welcome_header_text_color": "#0F1B27"
             }
           },
@@ -141,7 +161,11 @@
               "button_hover_background_color": "#232323",
               "link_hover_color": "#555555",
               "shop_name_text_color": "#232323",
-              "welcome_header_text_color": "#232323"
+              "welcome_header_text_color": "#232323",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#E67E22",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           }
         ]
@@ -164,7 +188,11 @@
               "button_hover_background_color": "#0C143B",
               "link_hover_color": "#0C143B",
               "shop_name_text_color": "#243588",
-              "welcome_header_text_color": "#243588"
+              "welcome_header_text_color": "#243588",
+              "product_status_text_color": "#FFFBFD",
+              "product_status_background_color": "#243588",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           },
           {
@@ -182,7 +210,11 @@
               "button_hover_background_color": "#D1006C",
               "link_hover_color": "#F90081",
               "shop_name_text_color": "#0B0423",
-              "welcome_header_text_color": "#0B0423"
+              "welcome_header_text_color": "#0B0423",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#F90081",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           },
           {
@@ -200,7 +232,11 @@
               "button_hover_background_color": "#CC4A4A",
               "link_hover_color": "#CC4A4A",
               "shop_name_text_color": "#8A2525",
-              "welcome_header_text_color": "#8A2525"
+              "welcome_header_text_color": "#8A2525",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#F46262",
+              "product_status_text_color_secondary": "#FFFFFF",
+              "product_status_background_color_secondary": "#9A9A9A",
             }
           }
         ]
@@ -264,6 +300,27 @@
       "variable": "welcome_header_text_color",
       "label": "Welcome text",
       "default": "#1C4D12"
+    },
+    {
+      "variable": "product_status_text_color",
+      "label": "Product status text (primary)",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "product_status_background_color",
+      "label": "Product status background (primary)",
+      "default": "#1C4D12"
+    },
+    {
+      "variable": "product_status_text_color_secondary",
+      "label": "Product status text (secondary)",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "product_status_background_color_secondary",
+      "label": "Product status background (secondary)",
+      "default": "#9A9A9A"
+    },
     }
   ],
   "options": [
