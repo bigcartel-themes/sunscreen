@@ -472,12 +472,8 @@
       "variable": "related_products_order",
       "label": "Related products order",
       "type": "select",
-      "options": [
-        ["Top Selling", "sales"],
-        ["Newest", "newest"],
-        ["Most views", "views"]
-      ],
-      "default": "sales",
+      "options": "product_orders",
+      "default": "top-selling",
       "description": "The order of related products on the Product pages",
       "requires": [
         "show_related_products eq true"
