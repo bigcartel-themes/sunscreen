@@ -374,7 +374,7 @@
     },
     {
       "variable": "featured_items_type",
-      "label": "Featured products type",
+      "label": "Featured items type",
       "type": "select",
       "options": ["Categories", "Products"],
       "default": "Products",
@@ -382,7 +382,7 @@
     },
     {
       "variable": "featured_items",
-      "label": "Featured products",
+      "label": "Featured items",
       "type": "select",
       "options": "0..100",
       "default": 12,
