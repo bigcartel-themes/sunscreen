@@ -245,18 +245,25 @@
           <ul>
             <li><a href="/">{{ pages.home.name }}</a></li>
             <li><a href="/products">{{ pages.products.name }}</a></li>
-            {% for page in pages.all %}
-              <li>{{ page | link_to }}</li>
-            {% endfor %}
             <li><a href="/contact">{{ pages.contact.name }}</a></li>
+            <li><a href="/cart">{{ pages.cart.name }} (<span class="cart-num-items">{{ cart.item_count }}</span>)</a></li>
           </ul>
         </nav>
-        {% if theme.show_categories_in_footer %}
+        {% if theme.show_categories_in_footer and categories.active.size > 0 %}
           <nav class="footer-nav-links footer-nav-links--categories" aria-label="Footer categories">
             <ul>
               {% for category in categories.active %}
                 <li>{{ category | link_to }}</li>
               {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+        {% if pages.all.size > 0 %}
+          <nav class="footer-nav-links footer-nav-links--pages" aria-label="Footer pages">
+            <ul>
+            {% for page in pages.all %}
+              <li>{{ page | link_to }}</li>
+            {% endfor %}
             </ul>
           </nav>
         {% endif %}
