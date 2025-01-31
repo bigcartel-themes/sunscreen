@@ -57,121 +57,121 @@
           {
             "style_name": "Classic #2",
             "fonts": {
-              "shop_name_font": "DM Sans",
-              "primary_font": "Lato"
+              "shop_name_font": "Petrona",
+              "primary_font": "Source Sans Pro"
             },
             "colors": {
-              "background_color": "#F9F9F9",
-              "accent_background_color": "#FFFFFF",
-              "primary_text_color": "#2A2A2C",
-              "button_text_color": "#FFFFFF",
-              "button_background_color": "#203BE1",
-              "button_hover_background_color": "#152E91",
-              "link_hover_color": "#152E91",
-              "shop_name_text_color": "#203BE1",
-              "welcome_header_text_color": "#2A2A2C",
-              "product_status_text_color": "#FFFFFF",
-              "product_status_background_color": "#203BE1",
+              "background_color": "#1A2632",
+              "accent_background_color": "#243242",
+              "primary_text_color": "#FFFFFF",
+              "button_text_color": "#1A2632",
+              "button_background_color": "#93C5FD",
+              "button_hover_background_color": "#60A5FA",
+              "link_hover_color": "#93C5FD",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
+              "product_status_text_color": "#1A2632",
+              "product_status_background_color": "#93C5FD",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#203BE1"
+              "product_status_background_color_secondary": "#3D4B59",
+              "inventory_status_text_color": "#93C5FD"
             }
           },
           {
             "style_name": "Classic #3",
             "fonts": {
-              "shop_name_font": "Cabin",
-              "primary_font": "Open Sans"
+              "shop_name_font": "Merriweather",
+              "primary_font": "Fira Sans"
             },
             "colors": {
-              "background_color": "#FFFFFF",
-              "accent_background_color": "#F8F8FA",
-              "primary_text_color": "#333333",
+              "background_color": "#F8F9FA",
+              "accent_background_color": "#FFFFFF",
+              "primary_text_color": "#2D3748",
               "button_text_color": "#FFFFFF",
-              "button_background_color": "#374DCA",
-              "button_hover_background_color": "#273896",
-              "link_hover_color": "#273896",
-              "shop_name_text_color": "#333333",
-              "welcome_header_text_color": "#333333",
+              "button_background_color": "#2C5282",
+              "button_hover_background_color": "#2D3748",
+              "link_hover_color": "#2C5282",
+              "shop_name_text_color": "#2D3748",
+              "welcome_header_text_color": "#2D3748",
               "product_status_text_color": "#FFFFFF",
-              "product_status_background_color": "#374DCA",
+              "product_status_background_color": "#2C5282",
               "product_status_text_color_secondary": "#FFFFFF",
               "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#F39C12"
+              "inventory_status_text_color": "#C53030"
             }
           }
         ]
       },
       {
-        "group_name": "Elegant",
+        "group_name": "Bold",
         "styles": [
           {
-            "style_name": "Elegant #1",
+            "style_name": "Bold #1",
             "fonts": {
-              "shop_name_font": "Marcellus",
-              "primary_font": "Lato"
+              "shop_name_font": "Bebas Neue",
+              "primary_font": "Roboto"
             },
             "colors": {
-              "background_color": "#141415",
-              "accent_background_color": "#3D3D3D",
-              "primary_text_color": "#F8F8F8",
-              "button_text_color": "#3D3D3D",
-              "button_background_color": "#F8F8F8",
-              "button_hover_background_color": "#C6C6C6",
-              "link_hover_color": "#C6C6C6",
-              "shop_name_text_color": "#F8F8F8",
-              "welcome_header_text_color": "#F8F8F8",
-              "product_status_text_color": "#F8F8F8",
-              "product_status_background_color": "#E15C2A",
+              "background_color": "#7D0CFF",
+              "accent_background_color": "#6600D9",
+              "primary_text_color": "#FFFFFF",
+              "button_text_color": "#7D0CFF",
+              "button_background_color": "#00FF94",
+              "button_hover_background_color": "#33FFA8",
+              "link_hover_color": "#00FF94",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
+              "product_status_text_color": "#7D0CFF",
+              "product_status_background_color": "#00FF94",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#E15C2A"
+              "product_status_background_color_secondary": "#9B3DFF",
+              "inventory_status_text_color": "#00FF94"
             }
           },
           {
-            "style_name": "Elegant #2",
+            "style_name": "Bold #2",
             "fonts": {
-              "shop_name_font": "Prata",
-              "primary_font": "Source Sans Pro"
+              "shop_name_font": "Racing Sans One",
+              "primary_font": "Outfit"
             },
             "colors": {
-              "background_color": "#F8F8F8",
-              "accent_background_color": "#DBD1D1",
-              "primary_text_color": "#0F1B27",
-              "button_text_color": "#0F1B27",
-              "button_background_color": "#DBD1D1",
-              "button_hover_background_color": "#C7B3B3",
-              "link_hover_color": "#8A5A5A",
-              "shop_name_text_color": "#0F1B27",
-              "welcome_header_text_color": "#0F1B27",
-              "product_status_text_color": "#FFFFFF",
-              "product_status_background_color": "#9D3A3E",
+              "background_color": "#006D3D",
+              "accent_background_color": "#005530",
+              "primary_text_color": "#FFFFFF",
+              "button_text_color": "#006D3D",
+              "button_background_color": "#FFC700",
+              "button_hover_background_color": "#FFD640",
+              "link_hover_color": "#FFC700",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
+              "product_status_text_color": "#006D3D",
+              "product_status_background_color": "#FFC700",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#9D3A3E"
+              "product_status_background_color_secondary": "#008F50",
+              "inventory_status_text_color": "#FFC700"
             }
           },
           {
-            "style_name": "Elegant #3",
+            "style_name": "Bold #3",
             "fonts": {
-              "shop_name_font": "Cormorant",
-              "primary_font": "Lora"
+              "shop_name_font": "Syne",
+              "primary_font": "League Spartan"
             },
             "colors": {
-              "background_color": "#F5F4F0",
-              "accent_background_color": "#E8E7E3",
-              "primary_text_color": "#232323",
-              "button_text_color": "#FFFFFF",
-              "button_background_color": "#555555",
-              "button_hover_background_color": "#232323",
-              "link_hover_color": "#555555",
-              "shop_name_text_color": "#232323",
-              "welcome_header_text_color": "#232323",
-              "product_status_text_color": "#FFFFFF",
-              "product_status_background_color": "#E67E22",
+              "background_color": "#E02020",
+              "accent_background_color": "#C71C1C",
+              "primary_text_color": "#FFFFFF",
+              "button_text_color": "#E02020",
+              "button_background_color": "#FFFFFF",
+              "button_hover_background_color": "#F5F5F5",
+              "link_hover_color": "#FFFFFF",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
+              "product_status_text_color": "#E02020",
+              "product_status_background_color": "#FFFFFF",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#E67E22"
+              "product_status_background_color_secondary": "#FF4D4D",
+              "inventory_status_text_color": "#FFFFFF"
             }
           }
         ]
@@ -182,70 +182,218 @@
           {
             "style_name": "Playful #1",
             "fonts": {
-              "shop_name_font": "Quicksand",
-              "primary_font": "Quicksand"
+              "shop_name_font": "Bubblegum Sans",
+              "primary_font": "Nunito"
             },
             "colors": {
-              "background_color": "#FFFBFD",
-              "accent_background_color": "#FFE9F4",
-              "primary_text_color": "#243588",
-              "button_text_color": "#FFFBFD",
-              "button_background_color": "#243588",
-              "button_hover_background_color": "#0C143B",
-              "link_hover_color": "#0C143B",
-              "shop_name_text_color": "#243588",
-              "welcome_header_text_color": "#243588",
-              "product_status_text_color": "#FFFBFD",
-              "product_status_background_color": "#243588",
+              "background_color": "#39B0CA",
+              "accent_background_color": "#4DBFD8",
+              "primary_text_color": "#FFFFFF",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#1A4D57",
+              "button_hover_background_color": "#265F6B",
+              "link_hover_color": "#FFE337",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#1A4D57",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#A531C8"
+              "product_status_background_color_secondary": "#4DBFD8",
+              "inventory_status_text_color": "#FFE337"
             }
           },
           {
             "style_name": "Playful #2",
             "fonts": {
-              "shop_name_font": "Chewy",
-              "primary_font": "Delius"
+              "shop_name_font": "Sniglet",
+              "primary_font": "Mali"
             },
             "colors": {
-              "background_color": "#FFFFFF",
-              "accent_background_color": "#F6FF20",
-              "primary_text_color": "#0B0423",
+              "background_color": "#9747FF",
+              "accent_background_color": "#A666FF",
+              "primary_text_color": "#FFFFFF",
               "button_text_color": "#FFFFFF",
-              "button_background_color": "#F90081",
-              "button_hover_background_color": "#D1006C",
-              "link_hover_color": "#F90081",
-              "shop_name_text_color": "#0B0423",
-              "welcome_header_text_color": "#0B0423",
+              "button_background_color": "#4A237F",
+              "button_hover_background_color": "#5C2C9F",
+              "link_hover_color": "#FFE337",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
               "product_status_text_color": "#FFFFFF",
-              "product_status_background_color": "#F90081",
+              "product_status_background_color": "#4A237F",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#39B5DD"
+              "product_status_background_color_secondary": "#B585FF",
+              "inventory_status_text_color": "#FFE337"
             }
           },
           {
             "style_name": "Playful #3",
             "fonts": {
-              "shop_name_font": "Poppins",
-              "primary_font": "Concert One"
+              "shop_name_font": "Patrick Hand",
+              "primary_font": "Varela Round"
             },
             "colors": {
-              "background_color": "#FDF8F4",
-              "accent_background_color": "#FBE8E1",
-              "primary_text_color": "#8A2525",
+              "background_color": "#CEFF1A",
+              "accent_background_color": "#D8FF4D",
+              "primary_text_color": "#2D2D2D",
               "button_text_color": "#FFFFFF",
-              "button_background_color": "#F46262",
-              "button_hover_background_color": "#CC4A4A",
-              "link_hover_color": "#CC4A4A",
-              "shop_name_text_color": "#8A2525",
-              "welcome_header_text_color": "#8A2525",
+              "button_background_color": "#FF3366",
+              "button_hover_background_color": "#FF6689",
+              "link_hover_color": "#FF3366",
+              "shop_name_text_color": "#2D2D2D",
+              "welcome_header_text_color": "#2D2D2D",
               "product_status_text_color": "#FFFFFF",
-              "product_status_background_color": "#F46262",
+              "product_status_background_color": "#FF3366",
+              "product_status_text_color_secondary": "#2D2D2D",
+              "product_status_background_color_secondary": "#D8FF4D",
+              "inventory_status_text_color": "#FF3366"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Earthy",
+        "styles": [
+          {
+            "style_name": "Earthy #1",
+            "fonts": {
+              "shop_name_font": "Bitter",
+              "primary_font": "Source Sans Pro"
+            },
+            "colors": {
+              "background_color": "#F4EDE4",
+              "accent_background_color": "#EBE2D6",
+              "primary_text_color": "#3A2E27",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#A35829",
+              "button_hover_background_color": "#8B4513",
+              "link_hover_color": "#A35829",
+              "shop_name_text_color": "#3A2E27",
+              "welcome_header_text_color": "#3A2E27",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#A35829",
+              "product_status_text_color_secondary": "#3A2E27",
+              "product_status_background_color_secondary": "#E2D5C3",
+              "inventory_status_text_color": "#A35829"
+            }
+          },
+          {
+            "style_name": "Earthy #2",
+            "fonts": {
+              "shop_name_font": "Heading Pro Trial",
+              "primary_font": "Avenir Next"
+            },
+            "colors": {
+              "background_color": "#264536",
+              "accent_background_color": "#1D3327",
+              "primary_text_color": "#F1EBE4",
+              "button_text_color": "#264536",
+              "button_background_color": "#E5B95F",
+              "button_hover_background_color": "#D4A63D",
+              "link_hover_color": "#E5B95F",
+              "shop_name_text_color": "#F1EBE4",
+              "welcome_header_text_color": "#F1EBE4",
+              "product_status_text_color": "#264536",
+              "product_status_background_color": "#E5B95F",
+              "product_status_text_color_secondary": "#F1EBE4",
+              "product_status_background_color_secondary": "#3D6B54",
+              "inventory_status_text_color": "#E5B95F"
+            }
+          },
+          {
+            "style_name": "Earthy #3",
+            "fonts": {
+              "shop_name_font": "Canela",
+              "primary_font": "Acumin Pro"
+            },
+            "colors": {
+              "background_color": "#FCF5ED",
+              "accent_background_color": "#F5EBE0",
+              "primary_text_color": "#9B4819",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#D7725D",
+              "button_hover_background_color": "#DE8A77",
+              "link_hover_color": "#D7725D",
+              "shop_name_text_color": "#9B4819",
+              "welcome_header_text_color": "#9B4819",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#D7725D",
+              "product_status_text_color_secondary": "#9B4819",
+              "product_status_background_color_secondary": "#E8D5C4",
+              "inventory_status_text_color": "#D7725D"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Dreamy",
+        "styles": [
+          {
+            "style_name": "Dreamy #1",
+            "fonts": {
+              "shop_name_font": "Fraunces",
+              "primary_font": "Karla"
+            },
+            "colors": {
+              "background_color": "#F5E6FF",
+              "accent_background_color": "#EBD6FF",
+              "primary_text_color": "#7B4B94",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#9B6BB5",
+              "button_hover_background_color": "#AB84C2",
+              "link_hover_color": "#9B6BB5",
+              "shop_name_text_color": "#7B4B94",
+              "welcome_header_text_color": "#7B4B94",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#9B6BB5",
+              "product_status_text_color_secondary": "#7B4B94",
+              "product_status_background_color_secondary": "#E0C3F7",
+              "inventory_status_text_color": "#9B6BB5"
+            }
+          },
+          {
+            "style_name": "Dreamy #2",
+            "fonts": {
+              "shop_name_font": "Cormorant Garamond",
+              "primary_font": "Quicksand"
+            },
+            "colors": {
+              "background_color": "#004E89",
+              "accent_background_color": "#003C69",
+              "primary_text_color": "#FFFFFF",
+              "button_text_color": "#004E89",
+              "button_background_color": "#FFB5DA",
+              "button_hover_background_color": "#FFC9E5",
+              "link_hover_color": "#FFB5DA",
+              "shop_name_text_color": "#FFFFFF",
+              "welcome_header_text_color": "#FFFFFF",
+              "product_status_text_color": "#004E89",
+              "product_status_background_color": "#FFB5DA",
               "product_status_text_color_secondary": "#FFFFFF",
-              "product_status_background_color_secondary": "#9A9A9A",
-              "inventory_status_text_color": "#BF360C"
+              "product_status_background_color_secondary": "#0067B3",
+              "inventory_status_text_color": "#FFB5DA"
+            }
+          },
+          {
+            "style_name": "Dreamy #3",
+            "fonts": {
+              "shop_name_font": "Abril Fatface",
+              "primary_font": "DM Sans"
+            },
+            "colors": {
+              "background_color": "#DCEDF5",
+              "accent_background_color": "#CDE5F0",
+              "primary_text_color": "#2E5E75",
+              "button_text_color": "#FFFFFF",
+              "button_background_color": "#78B7D1",
+              "button_hover_background_color": "#93C5DA",
+              "link_hover_color": "#78B7D1",
+              "shop_name_text_color": "#2E5E75",
+              "welcome_header_text_color": "#2E5E75",
+              "product_status_text_color": "#FFFFFF",
+              "product_status_background_color": "#78B7D1",
+              "product_status_text_color_secondary": "#2E5E75",
+              "product_status_background_color_secondary": "#B7DEF0",
+              "inventory_status_text_color": "#FF9E80"
             }
           }
         ]
