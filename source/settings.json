@@ -555,7 +555,11 @@
       "type": "select",
       "options": "product_orders",
       "default": "position",
-      "description": "The order of products on the Home page"
+      "description": "The order of products on the Home page",
+      "requires": [
+        "featured_items_type eq Products",
+        "featured_items gt 0"
+      ]
     },
     {
       "variable": "all_products_button_text",
