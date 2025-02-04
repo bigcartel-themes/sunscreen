@@ -93,7 +93,7 @@
 
 .related-products-container
   background-color: var(--accent-background-color)
-  margin-top: 60px
+  margin-top: 120px
   padding: 60px 0
 
 .related-products-title
@@ -102,3 +102,24 @@
 
 #instant-checkout-button
   margin-top: 12px
+
+.inventory-status-message
+  color: var(--inventory-status-text-color)
+  margin: 10px 0 auto
+  text-align: center
+  padding: 8px 0
+  font-weight: 500
+
+.related-product-list.product-list
+  --columns: 4
+  justify-content: center
+
+  @media screen and (max-width: $break-medium)
+    justify-content: flex-start
+
+  @media screen and (max-width: $break-large)
+    --columns: 3
+    --gap: calc(var(--spacing-unit) * 2)
+  
+  @media screen and (max-width: $break-small)
+    --columns: #{"{{ theme.max_products_per_row_mobile }}"}
