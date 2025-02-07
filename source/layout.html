@@ -248,6 +248,11 @@
           <ul>
             <li><a href="/">{{ pages.home.name }}</a></li>
             <li><a href="/products">{{ pages.products.name }}</a></li>
+            {% if theme.show_custom_pages_in_footer and pages.all.size <= 2 %}
+              {% for page in pages.all %}
+                <li>{{ page | link_to }}</li>
+              {% endfor %}
+            {% endif %}
             <li><a href="/contact">{{ pages.contact.name }}</a></li>
             <li><a href="/cart">{{ pages.cart.name }} (<span class="cart-num-items">{{ cart.item_count }}</span>)</a></li>
           </ul>
@@ -261,7 +266,7 @@
             </ul>
           </nav>
         {% endif %}
-        {% if pages.all.size > 0 %}
+        {% if theme.show_custom_pages_in_footer and pages.all.size >= 3 %}
           <nav class="footer-nav-links footer-nav-links--pages" aria-label="Footer pages">
             <ul>
             {% for page in pages.all %}
