@@ -695,7 +695,9 @@
       "type": "boolean",
       "default": true,
       "description": "Shows sold out product options in the Product page dropdowns",
-      "requires": "inventory"
+      "requires": [
+        "inventory"
+      ]
     },
     {
       "variable": "lookbook_page_name",
