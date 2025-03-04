@@ -39,7 +39,6 @@ function updateInventoryMessage(optionId = null) {
 
   if (
     !themeOptions?.showLowInventoryMessages ||
-    themeOptions.showInventoryBars ||
     !messageElement
   ) {
     return;
