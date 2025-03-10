@@ -3,7 +3,8 @@
 //= require javascripts/store
 //= require javascripts/cart
 //= require javascripts/navigation
-//= require javascripts/product-option-groups.js
-//= require javascripts/product-carousel.js
-//= require javascripts/product.js
-//= require javascripts/search.js
+//= require javascripts/product-option-groups
+//= require javascripts/product-carousel
+//= require javascripts/product
+//= require javascripts/search
+//= require javascripts/home-carousel

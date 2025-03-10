@@ -10,10 +10,15 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "Adds a welcome image to the Home page"
+      "description": "Minimum size of 900 x 500px recommended"
     }
   ],
   "image_sets": [
+    {
+      "variable": "slideshow",
+      "label": "Slideshow",
+      "description": "Adds slideshow to the homepage. Use same-sized images, minimum 900 x 500px. Overrides weclome image if both are set."
+    },
     {
       "variable": "lookbook_images",
       "label": "Lookbook images",
@@ -532,6 +537,44 @@
       "label": "Welcome text",
       "type": "text",
       "description": "Displays a welcome message on the Home page"
+    },
+    {
+      "variable": "homepage_slideshow_autoplay",
+      "label": "Auto-play homepage slideshow",
+      "type": "boolean",
+      "default": true,
+      "description": "Automatically advances slides in the homepage slideshow"
+    },
+    {
+      "variable": "homepage_slideshow_speed",
+      "label": "Slideshow speed",
+      "type": "select",
+      "options": [
+        ["Slowest", 6000],
+        ["Slower", 5000],
+        ["Normal", 4000],
+        ["Faster", 3500],
+        ["Fastest", 3000]
+      ],
+      "default": 4000,
+      "description": "Controls how quickly slides advance in the auto-playing slideshow",
+      "requires": [
+        "homepage_slideshow_autoplay eq true"
+      ]
+    },
+    {
+      "variable": "welcome_overlay_opacity",
+      "label": "Welcome overlay opacity",
+      "type": "select",
+      "options": [
+        ["Brightest", "-0.50"],
+        ["Brighter", "-0.25"],
+        ["None", "0"],
+        ["Darker", "0.25"],
+        ["Darkest", "0.50"]
+      ],
+      "default": "0",
+      "description": "Adjust the home page slideshow or welcome image to enhance the legibility of your hero text and button"
     },
     {
       "variable": "featured_header",
