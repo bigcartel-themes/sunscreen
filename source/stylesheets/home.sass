@@ -64,8 +64,14 @@
   height: 100%
   margin: 0 auto
   display: block
-  opacity: #{"{{ theme.welcome_overlay_opacity }}"}
-  background: black
+  // Background color based on brightening or darkening
+  background: #{"{% if theme.welcome_overlay_effect == 'very_bright' or theme.welcome_overlay_effect == 'bright' %} white {% else %} black {% endif %}"}
+  // Handle each specific case
+  opacity: #{"{% if theme.welcome_overlay_effect == 'very_bright' %} 0.8 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_effect == 'bright' %} 0.3 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_effect == 'none' %} 0 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_effect == 'dark' %} 0.4 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_effect == 'very_dark' %} 0.7 {% endif %}"}
 
 .featured-category
   display: flex
@@ -173,9 +179,15 @@ a.button.all-products-button
       width: 100%
       // Important: Make height only cover the slide image, not the pagination area
       height: 100%
-      background: black
-      opacity: #{"{{ theme.welcome_overlay_opacity }}"}
       z-index: 2
+      // Background color based on brightening or darkening
+      background: #{"{% if theme.welcome_overlay_effect == 'very_bright' or theme.welcome_overlay_effect == 'bright' %} white {% else %} black {% endif %}"}
+      // Handle each specific case
+      opacity: #{"{% if theme.welcome_overlay_effect == 'very_bright' %} 0.8 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_effect == 'bright' %} 0.3 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_effect == 'none' %} 0 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_effect == 'dark' %} 0.4 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_effect == 'very_dark' %} 0.7 {% endif %}"}
 
   .slideshow-image
     border-radius: var(--border-radius)
