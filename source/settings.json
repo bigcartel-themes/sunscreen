@@ -512,7 +512,7 @@
     },
     {
       "variable": "logo_image_height",
-      "label": "Logo image height",
+      "label": "Logo image size",
       "type": "select",
       "options": [
         ["Small", "80"],
@@ -522,7 +522,7 @@
         ["XX Large", "160"]
       ],
       "default": "100",
-      "description": "Controls the maximum height of your logo"
+      "description": "Controls the maximum size of your logo"
     },
     {
       "variable": "nav_items",

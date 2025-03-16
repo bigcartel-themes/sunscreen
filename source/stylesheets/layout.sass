@@ -278,12 +278,18 @@ h1
     .header-left, .header-right
       display: none
 
-.store-name.text
-  max-width: 700px
-  width: 100%
+.store-name
+  &.text
+    max-width: 700px
+    width: 100%
 
-  @media screen and (max-width: $break-medium)
-    max-width: 100%
+    @media screen and (max-width: $break-medium)
+      max-width: 100%
+  
+  &.image
+    display: flex
+    align-items: center
+    justify-content: center
 
 a.header-store-link
   display: inline-flex
@@ -294,20 +300,32 @@ a.header-store-link
   overflow-wrap: break-word
   word-break: break-word
   color: var(--shop-name-text-color)
-  font-size: 2.75em
-  outline-offset: 4px
-
-  @media screen and (max-width: $break-medium)
-    font-size: 2.5em
-
-  @media screen and (max-width: $break-small)
-    font-size: 2.25em
+  
+  &.header-store-link--text
+    font-size: 2.75em
+    
+    @media screen and (max-width: $break-medium)
+      font-size: 2.5em
+    
+    @media screen and (max-width: $break-small)
+      font-size: 2.25em
+  
+  &.header-store-link--logo
+    display: flex
+    align-items: center
 
 .store-logo
-  max-height: var(--logo-max-height)
-
-  @media screen and (max-width: $break-medium)
-    max-height: var(--logo-max-height)
+  display: block
+  object-fit: contain
+  width: auto
+  // Desktop - ensure minimum size while respecting settings
+  height: clamp(80px, calc(var(--logo-max-height-numeric) * 1px), 300px)
+  max-width: clamp(200px, calc(var(--logo-max-height-numeric) * 2.5 * 1px), 750px)
+  
+  // Small screens
+  @media screen and (max-width: $break-small)
+    height: clamp(50px, calc(var(--logo-max-height-numeric) * 0.75 * 1px), 120px)
+    max-width: clamp(160px, calc(var(--logo-max-height-numeric) * 1.85 * 1px), 300px)
 
 header, footer
   +flexbox

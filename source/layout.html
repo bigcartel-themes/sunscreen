@@ -61,9 +61,9 @@
             {% endif %}
           </div>
           <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
-            <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.header_logo != blank %}logo{% else %}text{% endif %}">
+            <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.logo != blank %}logo{% else %}text{% endif %}">
               {% if theme.logo != blank %}
-                {% assign logo_image_height_1x = theme.logo_image_height %}
+                {% assign logo_image_height_1x = theme.logo_image_height | times: 3 %}
                 {% assign logo_image_height_2x = logo_image_height_1x | times: 2 %}
                 <img
                   class="store-logo"
