@@ -65,13 +65,13 @@
   margin: 0 auto
   display: block
   // Background color based on brightening or darkening
-  background: #{"{% if theme.welcome_overlay_effect == 'very_bright' or theme.welcome_overlay_effect == 'bright' %} white {% else %} black {% endif %}"}
+  background: #{"{% if theme.welcome_overlay_opacity == 'very_bright' or theme.welcome_overlay_opacity == 'bright' %} white {% else %} black {% endif %}"}
   // Handle each specific case
-  opacity: #{"{% if theme.welcome_overlay_effect == 'very_bright' %} 0.8 {% endif %}"}
-  opacity: #{"{% if theme.welcome_overlay_effect == 'bright' %} 0.3 {% endif %}"}
-  opacity: #{"{% if theme.welcome_overlay_effect == 'none' %} 0 {% endif %}"}
-  opacity: #{"{% if theme.welcome_overlay_effect == 'dark' %} 0.4 {% endif %}"}
-  opacity: #{"{% if theme.welcome_overlay_effect == 'very_dark' %} 0.7 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_opacity == 'very_bright' %} 0.8 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_opacity == 'bright' %} 0.3 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_opacity == 'none' %} 0 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_opacity == 'dark' %} 0.4 {% endif %}"}
+  opacity: #{"{% if theme.welcome_overlay_opacity == 'very_dark' %} 0.7 {% endif %}"}
 
 .featured-category
   display: flex
@@ -181,13 +181,13 @@ a.button.all-products-button
       height: 100%
       z-index: 2
       // Background color based on brightening or darkening
-      background: #{"{% if theme.welcome_overlay_effect == 'very_bright' or theme.welcome_overlay_effect == 'bright' %} white {% else %} black {% endif %}"}
+      background: #{"{% if theme.welcome_overlay_opacity == 'very_bright' or theme.welcome_overlay_opacity == 'bright' %} white {% else %} black {% endif %}"}
       // Handle each specific case
-      opacity: #{"{% if theme.welcome_overlay_effect == 'very_bright' %} 0.8 {% endif %}"}
-      opacity: #{"{% if theme.welcome_overlay_effect == 'bright' %} 0.3 {% endif %}"}
-      opacity: #{"{% if theme.welcome_overlay_effect == 'none' %} 0 {% endif %}"}
-      opacity: #{"{% if theme.welcome_overlay_effect == 'dark' %} 0.4 {% endif %}"}
-      opacity: #{"{% if theme.welcome_overlay_effect == 'very_dark' %} 0.7 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_opacity == 'very_bright' %} 0.8 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_opacity == 'bright' %} 0.3 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_opacity == 'none' %} 0 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_opacity == 'dark' %} 0.4 {% endif %}"}
+      opacity: #{"{% if theme.welcome_overlay_opacity == 'very_dark' %} 0.7 {% endif %}"}
 
   .slideshow-image
     border-radius: var(--border-radius)
