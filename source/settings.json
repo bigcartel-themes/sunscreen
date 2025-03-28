@@ -597,7 +597,7 @@
       "variable": "featured_items",
       "label": "Featured items",
       "type": "select",
-      "options": "0..100",
+      "options": "0..48",
       "default": 12,
       "description": "The number of items featured on the Home page"
     },
@@ -750,6 +750,21 @@
       "requires": [
         "inventory"
       ]
+    },
+    {
+      "variable": "show_sold_out_product_prices",
+      "label": "Show prices for sold out products",
+      "type": "boolean",
+      "default": true,
+      "description": "Show the price of sold out products on product grids and product pages",
+      "requires": ["inventory"]
+    },
+    {
+      "variable": "show_coming_soon_product_prices",
+      "label": "Show prices for coming soon products",
+      "type": "boolean",
+      "default": true,
+      "description": "Show the price of coming soon products on product grids and product pages"
     },
     {
       "variable": "lookbook_page_name",

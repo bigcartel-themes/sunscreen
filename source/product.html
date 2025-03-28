@@ -114,15 +114,23 @@
 
   <section class="product-detail">
     <div class="product-detail__header">
+      {% assign hide_price = false %}
+      {% if product.status == 'sold-out' and theme.show_sold_out_product_prices == false or product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
+        {% assign hide_price = true %}
+      {% endif %}
+
       {% capture product_pricing %}
-        {% if product.variable_pricing %}
+        {% if product.variable_pricing and hide_price == false %}
           {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
-        {% else %}
+        {% elsif hide_price == false %}
           {{ product.default_price | money: theme.money_format }}
         {% endif %}
       {% endcapture %}
       <h1 class="page-title page-title--left product-detail__title">{{ product.name }}</h1>
-      <div class="product-detail__pricing">{{ product_pricing }} {% if product_status != blank %}<div class="product-detail__status">{{ product_status }}</div>{% endif %}</div>
+      <div class="product-detail__pricing">
+        {% if product_pricing != blank %}{{ product_pricing | strip }}{% endif %}
+        {% if product_status != blank %}<div class="product-detail__status">{{ product_status }}</div>{% endif %}
+      </div>
     </div>
     {% if product.status == "active" and theme.show_bnpl_messaging %}
       <div id="payment-processor-messaging">
