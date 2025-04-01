@@ -115,10 +115,14 @@
                 <a href="/products">{{ pages.products.name }}</a>
               {% endif %}
             </li>
-            {% for page in pages.all limit: theme.nav_items %}
+
+            {% if theme.nav_page_display == 'all' or theme.nav_page_display == 'pages_only' %}
+              {% for page in pages.all limit: theme.nav_items %}
               <li class="header-page-link">{{ page | link_to }}</li>
-            {% endfor %}
-            {% if theme.nav_items < 3 %}
+              {% endfor %}
+            {% endif %}
+
+            {% if theme.nav_page_display == 'all' or theme.nav_page_display == 'contact_only' %}
               <li class="header-page-link"><a href="/contact">{{ pages.contact.name }}</a></li>
             {% endif %}
           </ul>
