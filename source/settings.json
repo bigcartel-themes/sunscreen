@@ -495,31 +495,6 @@
   ],
   "options": [
     {
-      "variable": "announcement_message_text",
-      "label": "Announcement text",
-      "section": "messaging",
-      "max_length": 500,
-      "type": "text",
-      "description": "Displays an announcement message on the top of every page"
-    },
-    {
-      "variable": "maintenance_message",
-      "label": "Maintenance mode message",
-      "section": "messaging",
-      "type": "text",
-      "max_length": 2048,
-      "description": "A message visitors see when your shop is in Maintenance Mode",
-      "default": "We're working on our shop right now.<br /><br />Please check back soon."
-    },
-    {
-      "variable": "contact_text",
-      "label": "Contact page text",
-      "section": "messaging",
-      "type": "text",
-      "max_length": 1024,
-      "description": "Displays a message on your contact page"
-    },
-    {
       "variable": "logo_image_height",
       "label": "Logo image size",
       "section": "global_navigation",
@@ -560,6 +535,62 @@
         "nav_page_display neq contact_only",
         "nav_page_display neq none"
       ]
+    },
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "section": "global_navigation",
+      "type": "boolean",
+      "default": true,
+      "description": "Displays a search field in the Shop dropdown menu"
+    },
+    {
+      "variable": "max_products_per_row",
+      "label": "Maximum products per row",
+      "section": "global_navigation",
+      "type": "select",
+      "options": "1..4",
+      "default": 3,
+      "description": "The maximum number of products displayed per row on larger screens"
+    },
+    {
+      "variable": "max_products_per_row_mobile",
+      "label": "Maximum products per row (mobile)",
+      "section": "global_navigation",
+      "type": "select",
+      "options": "1..2",
+      "default": 2,
+      "description": "The number of products displayed per row on smaller screens"
+    },
+    {
+      "variable": "grid_image_style",
+      "label": "Product grid image style",
+      "section": "global_navigation",
+      "type": "select",
+      "options": [
+        ["Normal", "default"],
+        ["Fit to square", "contain"],
+        ["Crop to square", "cover"]
+      ],
+      "default": "cover",
+      "description": "Sets the display of images in the product grid"
+    },
+    {
+      "variable": "products_per_page",
+      "label": "Products per page",
+      "section": "global_navigation",
+      "type": "select",
+      "options": "1..100",
+      "default": 48,
+      "description": "The number of products displayed per page"
+    },
+    {
+      "variable": "secondary_image_on_hover",
+      "label": "Show secondary image on hover",
+      "section": "global_navigation",
+      "type": "boolean",
+      "default": false,
+      "description": "Displays the secondary product image when hovering over thumbnails in Product grids"
     },
     {
       "variable": "welcome_text",
@@ -657,46 +688,6 @@
       "default": "All Products"
     },
     {
-      "variable": "max_products_per_row",
-      "label": "Maximum products per row",
-      "section": "global_navigation",
-      "type": "select",
-      "options": "1..4",
-      "default": 3,
-      "description": "The maximum number of products displayed per row on larger screens"
-    },
-    {
-      "variable": "max_products_per_row_mobile",
-      "label": "Maximum products per row (mobile)",
-      "section": "global_navigation",
-      "type": "select",
-      "options": "1..2",
-      "default": 2,
-      "description": "The number of products displayed per row on smaller screens"
-    },
-    {
-      "variable": "grid_image_style",
-      "label": "Product grid image style",
-      "section": "global_navigation",
-      "type": "select",
-      "options": [
-        ["Normal", "default"],
-        ["Fit to square", "contain"],
-        ["Crop to square", "cover"]
-      ],
-      "default": "cover",
-      "description": "Sets the display of images in the product grid"
-    },
-    {
-      "variable": "products_per_page",
-      "label": "Products per page",
-      "section": "global_navigation",
-      "type": "select",
-      "options": "1..100",
-      "default": 48,
-      "description": "The number of products displayed per page"
-    },
-    {
       "variable": "show_related_products",
       "label": "Show related products",
       "section": "product_page",
@@ -741,14 +732,6 @@
       ]
     },
     {
-      "variable": "show_search",
-      "label": "Show search",
-      "section": "global_navigation",
-      "type": "boolean",
-      "default": true,
-      "description": "Displays a search field in the Shop dropdown menu"
-    },
-    {
       "variable": "product_image_zoom",
       "label": "Enable product image zoom",
       "section": "product_page",
@@ -783,14 +766,6 @@
       "description": "Choose to hide or show thumbnails on the mobile Product page carousel"
     },
     {
-      "variable": "secondary_image_on_hover",
-      "label": "Show secondary image on hover",
-      "section": "global_navigation",
-      "type": "boolean",
-      "default": false,
-      "description": "Displays the secondary product image when hovering over thumbnails in Product grids"
-    },
-    {
       "variable": "show_sold_out_product_options",
       "label": "Show sold out product options",
       "section": "product_page",
@@ -800,44 +775,6 @@
       "requires": [
         "inventory"
       ]
-    },
-    {
-      "variable": "lookbook_page_name",
-      "label": "Lookbook Page Name",
-      "section": "general",
-      "type": "text",
-      "description": "Create a custom page for your lookbook, then enter the page name in this field"
-    },
-    {
-      "variable": "show_sold_out_product_prices",
-      "label": "Show prices for sold out products",
-      "section": "general",
-      "type": "boolean",
-      "default": true,
-      "description": "Show the price of sold out products on product grids and product pages",
-      "requires": ["inventory"]
-    },
-    {
-      "variable": "show_coming_soon_product_prices",
-      "label": "Show prices for coming soon products",
-      "section": "general",
-      "type": "boolean",
-      "default": true,
-      "description": "Show the price of coming soon products on product grids and product pages"
-    },
-    {
-      "variable": "border_radius",
-      "label": "Rounded corners",
-      "section": "general",
-      "type": "select",
-      "options": [
-        ["Off", "0"],
-        ["Small", "2px"],
-        ["Medium", "4px"],
-        ["Large", "8px"]
-      ],
-      "default": "4px",
-      "description": "Controls the rounded corner style on images and other site elements"
     },
     {
       "variable": "show_low_inventory_messages",
@@ -940,6 +877,69 @@
       "requires": [
         "feature:theme_bnpl_messaging neq opted_out"
       ]
+    },
+    {
+      "variable": "lookbook_page_name",
+      "label": "Lookbook Page Name",
+      "section": "general",
+      "type": "text",
+      "description": "Create a custom page for your lookbook, then enter the page name in this field"
+    },
+    {
+      "variable": "show_sold_out_product_prices",
+      "label": "Show prices for sold out products",
+      "section": "general",
+      "type": "boolean",
+      "default": true,
+      "description": "Show the price of sold out products on product grids and product pages",
+      "requires": ["inventory"]
+    },
+    {
+      "variable": "show_coming_soon_product_prices",
+      "label": "Show prices for coming soon products",
+      "section": "general",
+      "type": "boolean",
+      "default": true,
+      "description": "Show the price of coming soon products on product grids and product pages"
+    },
+    {
+      "variable": "border_radius",
+      "label": "Rounded corners",
+      "section": "general",
+      "type": "select",
+      "options": [
+        ["Off", "0"],
+        ["Small", "2px"],
+        ["Medium", "4px"],
+        ["Large", "8px"]
+      ],
+      "default": "4px",
+      "description": "Controls the rounded corner style on images and other site elements"
+    },
+    {
+      "variable": "announcement_message_text",
+      "label": "Announcement text",
+      "section": "messaging",
+      "max_length": 500,
+      "type": "text",
+      "description": "Displays an announcement message on the top of every page"
+    },
+    {
+      "variable": "maintenance_message",
+      "label": "Maintenance mode message",
+      "section": "messaging",
+      "type": "text",
+      "max_length": 2048,
+      "description": "A message visitors see when your shop is in Maintenance Mode",
+      "default": "We're working on our shop right now.<br /><br />Please check back soon."
+    },
+    {
+      "variable": "contact_text",
+      "label": "Contact page text",
+      "section": "messaging",
+      "type": "text",
+      "max_length": 1024,
+      "description": "Displays a message on your contact page"
     },
     {
       "variable": "money_format",
