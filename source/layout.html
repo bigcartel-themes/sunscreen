@@ -115,10 +115,14 @@
                 <a href="/products">{{ pages.products.name }}</a>
               {% endif %}
             </li>
-            {% for page in pages.all limit: theme.nav_items %}
+
+            {% if theme.nav_page_display == 'all' or theme.nav_page_display == 'pages_only' %}
+              {% for page in pages.all limit: theme.nav_items %}
               <li class="header-page-link">{{ page | link_to }}</li>
-            {% endfor %}
-            {% if theme.nav_items < 3 %}
+              {% endfor %}
+            {% endif %}
+
+            {% if theme.nav_page_display == 'all' or theme.nav_page_display == 'contact_only' %}
               <li class="header-page-link"><a href="/contact">{{ pages.contact.name }}</a></li>
             {% endif %}
           </ul>
@@ -352,7 +356,7 @@
         {% if theme.footer_text != blank and theme.footer_text_position == "end" %}
           <div class="footer-custom-content">{{ theme.footer_text }} </div>
         {% endif %}
-        <div class="footer-store-credit">{{ powered_by_big_cartel }}</div>
+        <div class="footer-store-credit" data-bc-hook="credit">{{ powered_by_big_cartel }}</div>
       </div>
     </footer>
     <div id="mobile-navigation" aria-hidden="true" role="dialog" aria-modal="true">
