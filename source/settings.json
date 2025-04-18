@@ -500,11 +500,12 @@
       "section": "global_navigation",
       "type": "select",
       "options": [
-        ["Small", "80"],
-        ["Medium", "100"],
-        ["Large", "120"],
-        ["Extra Large", "140"],
-        ["XX Large", "160"]
+        ["Extra Small", "75"],
+        ["Small", "100"],
+        ["Medium", "150"],
+        ["Large", "200"],
+        ["Extra Large", "250"],
+        ["XX Large", "300"]
       ],
       "default": "100",
       "description": "Controls the maximum size of your logo"
