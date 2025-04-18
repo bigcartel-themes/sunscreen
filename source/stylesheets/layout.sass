@@ -318,14 +318,9 @@ a.header-store-link
   display: block
   object-fit: contain
   width: auto
-  // Desktop - ensure minimum size while respecting settings
-  height: clamp(80px, calc(var(--logo-max-height-numeric) * 1px), 300px)
-  max-width: clamp(200px, calc(var(--logo-max-height-numeric) * 2.5 * 1px), 750px)
-  
-  // Small screens
-  @media screen and (max-width: $break-small)
-    height: clamp(50px, calc(var(--logo-max-height-numeric) * 0.75 * 1px), 120px)
-    max-width: clamp(160px, calc(var(--logo-max-height-numeric) * 1.85 * 1px), 300px)
+  max-height: calc(var(--logo-max-height-numeric) * 1px)
+  max-width: 90%
+  margin: 0 auto
 
 header, footer
   +flexbox

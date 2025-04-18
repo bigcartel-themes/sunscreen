@@ -1,12 +1,12 @@
 {
   "name": "Sunscreen",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "images": [
     {
       "variable": "logo",
       "label": "Logo",
       "section": "global_navigation",
-      "description": "Recommend transparent background at least 320px high"
+      "description": "Recommend a rectangular image with a transparent background with minimum size of 900x300"
     },
     {
       "variable": "welcome_image",
@@ -500,11 +500,12 @@
       "section": "global_navigation",
       "type": "select",
       "options": [
-        ["Small", "80"],
-        ["Medium", "100"],
-        ["Large", "120"],
-        ["Extra Large", "140"],
-        ["XX Large", "160"]
+        ["Extra Small", "75"],
+        ["Small", "100"],
+        ["Medium", "150"],
+        ["Large", "200"],
+        ["Extra Large", "250"],
+        ["XX Large", "300"]
       ],
       "default": "100",
       "description": "Controls the maximum size of your logo"
@@ -873,11 +874,15 @@
       "section": "product_page",
       "type": "boolean",
       "default": true,
-      "description": "Show payment options prior to checkout on product and cart pages. Requires paid plan.",
+      "description": "Show payment options prior to checkout on product and cart pages. <a href='https://www.bigcartel.com/resources/help/article/boost-sales-and-conversions-with-buy-now-pay-later-payments' target='_blank'>Learn more</a>",
       "requires": [
         "feature:theme_bnpl_messaging eq visible"
       ],
-      "plan_type": "paid"
+      "requires_upsell": {
+        "unless": "feature:buy_now_pay_later",
+        "default": false,
+        "analytics_label": "BNPL"
+      }
     },
     {
       "variable": "lookbook_page_name",

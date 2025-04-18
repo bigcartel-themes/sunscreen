@@ -63,8 +63,8 @@
           <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
             <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.logo != blank %}logo{% else %}text{% endif %}">
               {% if theme.logo != blank %}
-                {% assign logo_image_height_1x = theme.logo_image_height | times: 3 %}
-                {% assign logo_image_height_2x = logo_image_height_1x | times: 2 %}
+                {% assign logo_image_height_1x = theme.logo_image_height %}
+                {% assign logo_image_height_2x = theme.logo_image_height | times: 2 %}
                 <img
                   class="store-logo"
                   srcset="{{ theme.images.logo.url | constrain: '', logo_image_height_1x }}, {{ theme.images.logo.url | constrain: '', logo_image_height_2x }} 2x"
@@ -356,7 +356,7 @@
         {% if theme.footer_text != blank and theme.footer_text_position == "end" %}
           <div class="footer-custom-content">{{ theme.footer_text }} </div>
         {% endif %}
-        <div class="footer-store-credit" data-bc-hook="credit">{{ powered_by_big_cartel }}</div>
+        <div class="footer-store-credit" data-bc-hook="credit">{{ big_cartel_credit_logo }}</div>
       </div>
     </footer>
     <div id="mobile-navigation" aria-hidden="true" role="dialog" aria-modal="true">
