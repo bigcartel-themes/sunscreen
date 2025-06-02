@@ -48,19 +48,19 @@
           </button>
           <div class="mobile-header__icons">
             {% if theme.show_search %}
-              <button class="nav-button open-search" type="button" aria-haspopup="dialog" aria-controls="search-modal" title="Open search menu">
+              <button class="nav-button open-search" type="button" aria-haspopup="dialog" aria-controls="search-modal" title="{{ t['navigation.search'] }}">
                 <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 22.91 23.12">
                   <path d="M0 9.35c0 5.16 4.2 9.35 9.35 9.35 2.04 0 3.9-.66 5.44-1.76l5.77 5.78c.27.27.62.4 1 .4.8 0 1.35-.6 1.35-1.38 0-.38-.14-.71-.39-.96l-5.73-5.77c1.21-1.57 1.92-3.53 1.92-5.66C18.7 4.2 14.51 0 9.35 0S0 4.2 0 9.35Zm2 0C2 5.3 5.29 2 9.35 2s7.35 3.29 7.35 7.35-3.29 7.35-7.35 7.35S2 13.41 2 9.35Z" class="cls-1"/>
                 </svg>
               </button>
             {% endif %}
-            <a class="cart-link" href="/cart" aria-label="View cart, {{ cart.item_count | pluralize: 'Item', 'Items' }}">
+            <a class="cart-link" href="/cart" aria-label="{{ t['cart.view_cart'] }}, {{ cart.item_count | pluralize: t['navigation.item'], t['navigation.items'] }}">
               <svg aria-hidden="true" fill="currentColor" width="23" height="20" viewBox="0 0.5 22.28 20.03">
                 <path d="M0 1.4375C0 0.929688 0.390625 0.5 0.9375 0.5H2.69531C3.55469 0.5 4.33594 1.00781 4.6875 1.75H20.7422C21.7578 1.75 22.5 2.72656 22.2266 3.74219L20.625 9.67969C20.3125 10.9297 19.1797 11.75 17.9297 11.75H6.64062L6.875 12.8828C6.95312 13.3125 7.34375 13.625 7.77344 13.625H19.0625C19.5703 13.625 20 14.0547 20 14.5625C20 15.1094 19.5703 15.5 19.0625 15.5H7.77344C6.44531 15.5 5.27344 14.5625 5.03906 13.2344L3.00781 2.64844C2.96875 2.49219 2.85156 2.375 2.69531 2.375H0.9375C0.390625 2.375 0 1.98438 0 1.4375ZM5 18.625C5 17.9609 5.35156 17.375 5.9375 17.0234C6.48438 16.6719 7.22656 16.6719 7.8125 17.0234C8.35938 17.375 8.75 17.9609 8.75 18.625C8.75 19.3281 8.35938 19.9141 7.8125 20.2656C7.22656 20.6172 6.48438 20.6172 5.9375 20.2656C5.35156 19.9141 5 19.3281 5 18.625ZM18.125 16.75C18.7891 16.75 19.375 17.1406 19.7266 17.6875C20.0781 18.2734 20.0781 19.0156 19.7266 19.5625C19.375 20.1484 18.7891 20.5 18.125 20.5C17.4219 20.5 16.8359 20.1484 16.4844 19.5625C16.1328 19.0156 16.1328 18.2734 16.4844 17.6875C16.8359 17.1406 17.4219 16.75 18.125 16.75Z"></path>
               </svg>
               <span class="cart-value" aria-hidden="true">{{ cart.item_count }}</span>
-              <span class="visually-hidden">View cart</span>
-              <span class="cart-num-items-hidden visually-hidden">{{ cart.item_count | pluralize: 'item', 'items' }}</span>
+              <span class="visually-hidden">{{ t['cart.view_cart'] }}</span>
+              <span class="cart-num-items-hidden visually-hidden">{{ cart.item_count | pluralize: t['navigation.item'], t['navigation.items'] }}</span>
             </a>
           </div>
         </div>
@@ -69,7 +69,7 @@
         <div class="header-columns">
           <div class="header-left">
             {% if theme.show_search %}
-              <button class="nav-button open-search" type="button" aria-haspopup="dialog" aria-controls="search-modal" title="Open search menu">
+              <button class="nav-button open-search" type="button" aria-haspopup="dialog" aria-controls="search-modal" title="{{ t['navigation.search'] }}">
                 <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 22.91 23.12">
                   <path d="M0 9.35c0 5.16 4.2 9.35 9.35 9.35 2.04 0 3.9-.66 5.44-1.76l5.77 5.78c.27.27.62.4 1 .4.8 0 1.35-.6 1.35-1.38 0-.38-.14-.71-.39-.96l-5.73-5.77c1.21-1.57 1.92-3.53 1.92-5.66C18.7 4.2 14.51 0 9.35 0S0 4.2 0 9.35Zm2 0C2 5.3 5.29 2 9.35 2s7.35 3.29 7.35 7.35-3.29 7.35-7.35 7.35S2 13.41 2 9.35Z" class="cls-1"/>
                 </svg>
@@ -94,13 +94,13 @@
           </div>
           <div class="header-right">
             <div class="header-cart">
-              <a class="cart-link" href="/cart" aria-label="View cart, {{ cart.item_count | pluralize: 'Item', 'Items' }}">
+              <a class="cart-link" href="/cart" aria-label="{{ t['cart.view_cart'] }}, {{ cart.item_count | pluralize: t['navigation.item'], t['navigation.items'] }}">
                 <svg aria-hidden="true" fill="currentColor" width="23" height="20" viewBox="0 0.5 22.28 20.03">
                   <path d="M0 1.4375C0 0.929688 0.390625 0.5 0.9375 0.5H2.69531C3.55469 0.5 4.33594 1.00781 4.6875 1.75H20.7422C21.7578 1.75 22.5 2.72656 22.2266 3.74219L20.625 9.67969C20.3125 10.9297 19.1797 11.75 17.9297 11.75H6.64062L6.875 12.8828C6.95312 13.3125 7.34375 13.625 7.77344 13.625H19.0625C19.5703 13.625 20 14.0547 20 14.5625C20 15.1094 19.5703 15.5 19.0625 15.5H7.77344C6.44531 15.5 5.27344 14.5625 5.03906 13.2344L3.00781 2.64844C2.96875 2.49219 2.85156 2.375 2.69531 2.375H0.9375C0.390625 2.375 0 1.98438 0 1.4375ZM5 18.625C5 17.9609 5.35156 17.375 5.9375 17.0234C6.48438 16.6719 7.22656 16.6719 7.8125 17.0234C8.35938 17.375 8.75 17.9609 8.75 18.625C8.75 19.3281 8.35938 19.9141 7.8125 20.2656C7.22656 20.6172 6.48438 20.6172 5.9375 20.2656C5.35156 19.9141 5 19.3281 5 18.625ZM18.125 16.75C18.7891 16.75 19.375 17.1406 19.7266 17.6875C20.0781 18.2734 20.0781 19.0156 19.7266 19.5625C19.375 20.1484 18.7891 20.5 18.125 20.5C17.4219 20.5 16.8359 20.1484 16.4844 19.5625C16.1328 19.0156 16.1328 18.2734 16.4844 17.6875C16.8359 17.1406 17.4219 16.75 18.125 16.75Z"></path>
                 </svg>
                 <span class="cart-value" aria-hidden="true">{{ cart.item_count }}</span>
-                <span class="visually-hidden">View cart</span>
-                <span class="cart-num-items-hidden visually-hidden">{{ cart.item_count | pluralize: 'item', 'items' }}</span>
+                <span class="visually-hidden">{{ t['cart.view_cart'] }}</span>
+                <span class="cart-num-items-hidden visually-hidden">{{ cart.item_count | pluralize: t['navigation.item'], t['navigation.items'] }}</span>
               </a>
             </div>
           </div>
@@ -113,13 +113,13 @@
               {% if categories.active != blank %}
                 <div class="category-nav header-category-nav">
                   <button class="category-nav-heading" aria-label="Open category navigation" aria-controls="header-dropdown" aria-expanded="false">
-                    <div class="category-nav-page">Shop</div>
+                    <div class="category-nav-page">{{ t['navigation.shop'] }}</div>
                     <svg aria-hidden="true" fill="currentColor" class="category-nav-arrow" viewBox="0 0 15 7.6" enable-background="new 0 0 15 7.6"><path d="M15 1.1l-7.5 6.5-7.5-6.3 1-1.2 6.5 5.5 6.5-5.6z"/></svg>
                   </button>
                   <div class="category-dropdown" id="header-dropdown" aria-hidden="true">
                     {% if categories.active != blank %}
                       <ul class="dropdown-list categories-list">
-                        <li><a href="/products">All products</a></li>
+                        <li><a href="/products">{{ t['navigation.all_products'] }}</a></li>
                         {% for category in categories.active %}
                           <li>{{ category | link_to }}</li>
                         {% endfor %}
@@ -128,7 +128,7 @@
                   </div>
                 </div>
               {% else %}
-                <a href="/products">{{ pages.products.name }}</a>
+                <a href="/products">{{ t['navigation.products'] }}</a>
               {% endif %}
             </li>
 
@@ -139,7 +139,7 @@
             {% endif %}
 
             {% if theme.nav_page_display == 'all' or theme.nav_page_display == 'contact_only' %}
-              <li class="header-page-link"><a href="/contact">{{ pages.contact.name }}</a></li>
+              <li class="header-page-link"><a href="/contact">{{ t['navigation.contact'] }}</a></li>
             {% endif %}
           </ul>
         </div>
@@ -179,7 +179,7 @@
       </div>
       {% if page.full_url contains '/product/' %}
         {% if theme.show_related_products %}
-          {% assign related_products_header = theme.related_products_header | default: 'You might also like' %}
+          {% assign related_products_header = t['products.related_products'] %}
           {% assign related_products_collection = product.related_products %}
 
           {% if related_products_collection.size > 0 %}
@@ -194,15 +194,17 @@
                       {% assign related_product_status = '' %}
                       {% case related_product.status %}
                         {% when 'active' %}
-                          {% if related_product.on_sale %}{% assign related_product_status = 'On sale' %}{% endif %}
+                          {% if related_product.on_sale %}
+                            {% assign related_product_status = t['products.on_sale'] %}
+                          {% endif %}
                         {% when 'sold-out' %}
-                          {% assign related_product_status = 'Sold out' %}
+                          {% assign related_product_status = t['products.sold_out'] %}
                         {% when 'coming-soon' %}
-                          {% assign related_product_status = 'Coming soon' %}
+                          {% assign related_product_status = t['products.coming_soon'] %}
                       {% endcase %}
                       {% capture related_product_status_class %}{% if related_product.status == 'active' and related_product.on_sale %}status-primary{% else %}status-secondary{% endif %}{% endcapture %}
                       <div class="product-list-thumb {{ related_product.css_class }}">
-                        <a class="product-list-link{% if related_product.images[1] != blank and theme.secondary_image_on_hover == true %} product-list-link--show-secondary{% endif %}" href="{{ related_product.url }}" title="View {{ related_product.name | escape }}">
+                        <a class="product-list-link{% if related_product.images[1] != blank and theme.secondary_image_on_hover == true %} product-list-link--show-secondary{% endif %}" href="{{ related_product.url }}" title="{{ related_product.name | escape }}">
                           <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
                             <img
                               alt=""
@@ -266,15 +268,15 @@
         {% endif %}
     		<nav class="footer-nav-links footer-nav-links--main" aria-label="Footer main">
           <ul>
-            <li><a href="/">{{ pages.home.name }}</a></li>
-            <li><a href="/products">{{ pages.products.name }}</a></li>
+            <li><a href="/">{{ t['navigation.home'] }}</a></li>
+            <li><a href="/products">{{ t['navigation.products'] }}</a></li>
             {% if theme.show_custom_pages_in_footer and pages.all.size <= 2 %}
               {% for page in pages.all %}
                 <li>{{ page | link_to }}</li>
               {% endfor %}
             {% endif %}
-            <li><a href="/contact">{{ pages.contact.name }}</a></li>
-            <li><a href="/cart">{{ pages.cart.name }} (<span class="cart-num-items">{{ cart.item_count }}</span>)</a></li>
+            <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
+            <li><a href="/cart">{{ t['navigation.cart'] }} (<span class="cart-num-items">{{ cart.item_count }}</span>)</a></li>
           </ul>
         </nav>
         {% if theme.show_categories_in_footer and categories.active.size > 0 %}
@@ -385,8 +387,8 @@
 
           <nav aria-label="Browse products">
             <ul class="mobile-navigation__links">
-              <li><a href="/">{{ pages.home.name }} </a></li>
-              <li><a href="/products">{{ pages.products.name }}</a></li>
+              <li><a href="/">{{ t['navigation.home'] }} </a></li>
+              <li><a href="/products">{{ t['navigation.products'] }}</a></li>
               {% for category in categories.active %}
                 <li>{{ category | link_to }}</li>
               {% endfor %}
@@ -398,7 +400,7 @@
               {% for page in pages.all %}
                 <li>{{ page | link_to }}</li>
               {% endfor %}
-              <li><a href="/contact">{{ pages.contact.name }}</a></li>
+              <li><a href="/contact">{{ t['navigation.contact'] }}</a></li>
             </ul>
           </nav>
 
@@ -490,7 +492,7 @@
             </button>
             <form class="search-modal__form" name="search" action="/products" method="get" accept-charset="utf8" role="search">
               <input type="hidden" name="utf8" value='✓'>
-              <label class="search-modal__label" for="search-input">Search products</label>
+              <label class="search-modal__label" for="search-input">{{ t['navigation.search'] }}</label>
               <input class="search-modal__input" id="search-input" name="search" type="search" autocomplete="off" />
               <button type="submit" class="search-modal__submit" aria-label="Submit search form">
                 <svg class="search-modal__submit-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 22.91 23.12">
@@ -527,6 +529,11 @@
       const themeColors = {
         backgroundColor: '{{ theme.background_color }}',
         primaryTextColor: '{{ theme.primary_text_color }}',
+      };
+      const themeTranslations = {
+        cart: {
+          shareThisCartLinkCopySuccess: "{{ t['cart.share_this_cart_link_copy_success'] | replace: '"', '\"' | replace: "'", "\\'" }}"
+        }
       };
     </script>
     {% if theme.announcement_message_text != blank %}

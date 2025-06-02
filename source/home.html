@@ -111,17 +111,19 @@
                 {% assign product_status = '' %}
                 {% case product.status %}
                   {% when 'active' %}
-                    {% if product.on_sale %}{% assign product_status = 'On sale' %}{% endif %}
+                    {% if product.on_sale %}
+                      {% assign product_status = t['products.on_sale'] %}
+                    {% endif %}
                   {% when 'sold-out' %}
-                    {% assign product_status = 'Sold out' %}
+                    {% assign product_status = t['products.sold_out'] %}
                   {% when 'coming-soon' %}
-                    {% assign product_status = 'Coming soon' %}
+                    {% assign product_status = t['products.coming_soon'] %}
                 {% endcase %}
                 {% capture status_class %}{% if product.status == 'active' and product.on_sale %}status-primary{% else %}status-secondary{% endif %}{% endcapture %}
                 <div class="product-list-thumb {{ product.css_class }}">
                   <a
                     class="product-list-link{% if product.images[1] != blank and theme.secondary_image_on_hover == true %} product-list-link--show-secondary{% endif %}"
-                    href="{{ product.url }}" title="View {{ product.name | escape }}">
+                    href="{{ product.url }}" title="{{ product.name | escape }}">
                     <div class="product-list-image-container product-list-image-container-{{ theme.grid_image_style }}">
                       <img
                         alt=""
@@ -189,7 +191,7 @@
             {% if theme.all_products_button_text != blank %}<a class="button centered-button all-products-button" href="/products">{{ theme.all_products_button_text }}</a>{% endif %}
           {% endif %}
         {% else %}
-          <div class="message-banner message-banner--centered message-banner--no-bg">No products found.</div>
+          <div class="message-banner message-banner--centered message-banner--no-bg">{{ t['products.no_products'] }}</div>
         {% endif %}
       {% endpaginate %}
     </div>
