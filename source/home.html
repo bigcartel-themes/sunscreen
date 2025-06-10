@@ -58,7 +58,10 @@
 {% if theme.featured_items_type == 'Categories' %}
   {% if categories.active != blank and theme.featured_items > 0 %}
     <div class="home-featured-categories">
-      <h1 class="page-title">{{ theme.featured_header }}</h1>
+      {% assign featured_header = t['home.featured'] %}
+      {% if featured_header != blank %}
+        <h1 class="page-title">{{ featured_header }}</h1>
+      {% endif %}
       {% for category in categories.active limit:theme.featured_items %}
         <div class="featured-category">
           <div class="featured-category-info">
