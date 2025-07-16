@@ -81,7 +81,7 @@
         <div class="featured-category">
           <div class="featured-category-info">
             <div class="featured-category-name">{{ category.name }}</div>
-            <a class="featured-category-button button" href="{{ category.url }}">Shop Now</a>
+            <a class="featured-category-button button" href="{{ category.url }}">{{ t['navigation.shop'] }}</a>
           </div>
           <div class="featured-category-products">
             {% for product in category.products limit:2 %}
@@ -103,7 +103,7 @@
               </div>
             {% endfor %}
           </div>
-          <a class="featured-category-button mobile-button button" href="{{ category.url }}">Shop Now</a>
+          <a class="featured-category-button mobile-button button" href="{{ category.url }}">{{ t['navigation.shop'] }}</a>
         </div>
       {% endfor %}
     </div>
