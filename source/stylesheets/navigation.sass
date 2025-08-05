@@ -5,6 +5,9 @@
   z-index: 10
   transition: box-shadow .2s linear
 
+  *
+    text-transform: #{"{{ theme.nav_text_transform_header }}"}
+
   @media screen and (max-width: $break-medium)
     display: none
 
@@ -130,6 +133,9 @@
   position: fixed
   transition: opacity .1s ease, visibility .1s ease
   overscroll-behavior: contain
+
+  *
+    text-transform: #{"{{ theme.nav_text_transform_header }}"}
 
   @media screen and (max-width: $break-medium)
     &[aria-hidden="false"]
