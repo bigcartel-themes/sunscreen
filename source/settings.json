@@ -512,7 +512,7 @@
     },
     {
       "variable": "nav_page_display",
-      "label": "Number of custom pages in header",
+      "label": "Pages to show in your header",
       "section": "global_navigation",
       "type": "select",
       "options": [
@@ -529,13 +529,36 @@
       "label": "Navigation items",
       "section": "global_navigation",
       "type": "select",
-      "options": "0..5",
-      "default": 2,
-      "description": "The number of custom page links show in the main navigation",
+      "options": "0..100",
+      "default": 3,
+      "description": "The number of custom page links show in your header",
       "requires": [
         "nav_page_display neq contact_only",
         "nav_page_display neq none"
       ]
+    },
+    {
+      "variable": "nav_page_display_footer",
+      "label": "Pages to show in your footer",
+      "section": "global_navigation",
+      "type": "select",
+      "options": [
+        ["All pages", "all"],
+        ["Custom pages only", "pages_only"],
+        ["Contact page only", "contact_only"],
+        ["None", "none"]
+      ],
+      "default": "all",
+      "description": "Select which types of pages appear in your footer"
+    },
+    {
+      "variable": "nav_items_footer",
+      "label": "Custom page limit in footer and mobile header menu",
+      "section": "global_navigation",
+      "type": "select",
+      "options": "0..100",
+      "default": 100,
+      "description": "Maximum number of custom pages shown in your footer and mobile header menu"
     },
     {
       "variable": "nav_text_transform_header",
@@ -548,7 +571,7 @@
         ["Lowercase", "lowercase"]
       ],
       "default": "initial",
-      "description": "Controls the text case styling in your header"
+      "description": "Controls the text case styling in your main navigation"
     },
     {
       "variable": "nav_text_transform_footer",
@@ -630,6 +653,37 @@
         "unless": "feature:theme_hide_big_cartel_credit_eligible",
         "analytics_product_sub_area": "Hide Watermark"
       }
+    },
+    {
+      "variable": "show_categories_in_footer",
+      "label": "Show categories in footer",
+      "section": "global_navigation",
+      "type": "boolean",
+      "default": true,
+      "description": "Display product category links at the bottom of every page"
+    },
+    {
+      "variable": "footer_text",
+      "label": "Footer text",
+      "section": "global_navigation",
+      "type": "textarea",
+      "max_length": 2048,
+      "description": "Show a custom message in your shop's footer. Supports HTML for advanced customization."
+    },
+    {
+      "variable": "footer_text_position",
+      "label": "Footer text position",
+      "section": "global_navigation",
+      "type": "select",
+      "options": [
+        ["Start of footer", "start"],
+        ["End of footer", "end"]
+      ],
+      "default": "start",
+      "description": "Choose where to show your footer message",
+      "requires": [
+        "footer_text present"
+      ]
     },
     {
       "variable": "welcome_text",
@@ -861,45 +915,6 @@
       "requires": [
         "inventory",
         "show_low_inventory_messages eq true"
-      ]
-    },
-    {
-      "variable": "show_categories_in_footer",
-      "label": "Show categories in footer",
-      "section": "global_navigation",
-      "type": "boolean",
-      "default": true,
-      "description": "Display product category links at the bottom of every page"
-    },
-    {
-      "variable": "show_custom_pages_in_footer",
-      "label": "Show custom pages in footer",
-      "section": "global_navigation",
-      "type": "boolean",
-      "default": true,
-      "description": "Display links to your custom pages at the bottom of every page"
-    },
-    {
-      "variable": "footer_text",
-      "label": "Footer text",
-      "section": "global_navigation",
-      "type": "textarea",
-      "max_length": 2048,
-      "description": "Show a custom message in your shop's footer. Supports HTML for advanced customization."
-    },
-    {
-      "variable": "footer_text_position",
-      "label": "Footer text position",
-      "section": "global_navigation",
-      "type": "select",
-      "options": [
-        ["Start of footer", "start"],
-        ["End of footer", "end"]
-      ],
-      "default": "end",
-      "description": "Choose where to show your footer message",
-      "requires": [
-        "footer_text present"
       ]
     },
     {
@@ -1169,7 +1184,7 @@
       "section": "translations",
       "sub_section": "navigation",
       "type": "text",
-      "default": "Follow us",
+      "default": "Subscribe",
       "description": "Text for links to your Subscribe page if you are using the <a href='/account/payment-options'>Subscriptions Beta</a> feature",
       "requires": [ "translation_mode eq manual" ]
     },
