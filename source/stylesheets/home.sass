@@ -22,7 +22,7 @@
 
     .home-slideshow
       grid-area: 1 / 1
-      z-index: 1
+      z-index: 6
 
     .welcome-overlay
       grid-area: 1 / 1
@@ -242,18 +242,34 @@ a.button.all-products-button
     border-radius: var(--border-radius)
     width: 2em
     height: 3em
+    z-index: 15
+    opacity: 0
+    transition: opacity 0.2s
+    background: rgba(255, 255, 255, 0.5)
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15)
     // Position arrows to center on the image area, excluding pagination space
     top: calc(50% - 15px)
     transform: translateY(-50%)
+    
+    svg
+      fill: #262626
+      transition: fill 0.2s
+
+    &:hover svg
+      fill: #000
+
+    &:not(:disabled):hover
+      opacity: 1
+      background: rgba(255, 255, 255, 0.95)
 
   .splide__pagination
     z-index: 3
     background: var(--pagination-background)
     border-radius: 18px
     display: inline-flex
-    position: relative
-    margin-top: 8px
-    bottom: auto
+    position: absolute
+    bottom: -40px
     align-items: center
     justify-content: center
     transform: translateX(-50%)
@@ -275,3 +291,11 @@ a.button.all-products-button
       &.is-active
         background: var(--pagination-active-page)
         transform: scale(1.1)
+
+// Show arrows on hover of parent welcome container or slideshow itself - always, regardless of autoplay setting
+.home-welcome:hover,
+.home-welcome:focus-within,
+.home-slideshow:hover,
+.home-slideshow:focus-within
+  .splide__arrow:not(:disabled)
+    opacity: 0.8
