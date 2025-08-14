@@ -10,7 +10,7 @@
   position: relative
   align-items: center
   padding: 0 20px
-  margin-bottom: 60px
+  margin-bottom: 80px
 
   &.stacked
     grid-template-rows: 1fr
@@ -30,7 +30,7 @@
 
     .welcome-message
       grid-area: 1 / 1
-      z-index: 5
+      z-index: 7
       position: relative
 
   @media screen and (max-width: $break-small)
@@ -43,6 +43,8 @@
   text-align: center
   padding: 0 var(--spacing-unit)
   width: 100%
+  // Allow clicks to pass through when hero link is present
+  pointer-events: #{"{% if theme.hero_link != blank %} none {% else %} auto {% endif %}"}
 
   @media screen and (max-width: $break-medium)
     font-size: 2.5em
@@ -72,6 +74,8 @@
   opacity: #{"{% if theme.welcome_overlay_opacity == 'none' %} 0 {% endif %}"}
   opacity: #{"{% if theme.welcome_overlay_opacity == 'dark' %} 0.4 {% endif %}"}
   opacity: #{"{% if theme.welcome_overlay_opacity == 'very_dark' %} 0.7 {% endif %}"}
+  // Allow clicks to pass through when hero link is present
+  pointer-events: #{"{% if theme.hero_link != blank %} none {% else %} auto {% endif %}"}
 
 #main 
   .featured-container
@@ -299,3 +303,11 @@ a.button.all-products-button
 .home-slideshow:focus-within
   .splide__arrow:not(:disabled)
     opacity: 0.8
+
+// Hero clickable styling
+.hero-clickable
+  cursor: pointer
+
+  &:hover
+    opacity: 0.9
+    transition: opacity 0.2s ease

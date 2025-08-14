@@ -702,7 +702,10 @@
         ["Fade", "fade"]
       ],
       "default": "slide",
-      "description": "Controls how homepage slideshow transitions between images"
+      "description": "Controls how homepage slideshow transitions between images",
+      "requires": [
+        "slideshow present"
+      ]
     },
     {
       "variable": "homepage_slideshow_autoplay",
@@ -727,7 +730,18 @@
       "default": 4000,
       "description": "Controls how quickly slides advance in the auto-playing slideshow",
       "requires": [
+        "slideshow present",
         "homepage_slideshow_autoplay eq true"
+      ]
+    },
+    {
+      "variable": "hero_link",
+      "label": "Welcome image/slideshow link",
+      "section": "homepage",
+      "type": "text",
+      "description": "Adds a click destination to the welcome image or slideshow on the Home page",
+      "requires": [
+        {"any": ["welcome_image present", "slideshow present"]}
       ]
     },
     {
