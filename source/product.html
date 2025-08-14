@@ -116,22 +116,38 @@
 
   <section class="product-detail">
     <div class="product-detail__header">
-      {% assign hide_price = false %}
-      {% if product.status == 'sold-out' and theme.show_sold_out_product_prices == false or product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
-        {% assign hide_price = true %}
-      {% endif %}
-
       {% capture product_pricing %}
         {% if product.variable_pricing and hide_price == false %}
           {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
-        {% elsif hide_price == false %}
+        {% else %}
           {{ product.default_price | money: theme.money_format }}
+        {% endif %}
+
+        {% if product.price_suffix != blank %}
+          {% if product.variable_pricing %}
+            {% assign formatted_suffix = '(' | append: product.price_suffix | append: ')' %}
+          {% else %}
+            {% assign formatted_suffix = product.price_suffix %}
+          {% endif %}
+          <span class="price-suffix">{{ formatted_suffix }}</span>
         {% endif %}
       {% endcapture %}
       <h1 class="page-title page-title--left product-detail__title">{{ product.name }}</h1>
+      {% if product_status != blank %}
+        <div class="product-detail__status">{{ product_status }}</div>
+      {% endif %}
       <div class="product-detail__pricing">
-        {% if product_pricing != blank %}{{ product_pricing | strip }}{% endif %}
-        {% if product_status != blank %}<div class="product-detail__status">{{ product_status }}</div>{% endif %}
+        {% assign hide_price = false %}
+        {% if product.status == 'sold-out' and theme.show_sold_out_product_prices == false %}
+          {% assign hide_price = true %}
+        {% endif -%}
+        {% if product.status == 'coming-soon' and theme.show_coming_soon_product_prices == false %}
+          {% assign hide_price = true %}
+        {% endif %}
+
+        {% unless hide_price %}
+          {{ product_pricing | strip }}
+        {% endunless %}
       </div>
     </div>
     {% if product.status == "active" and theme.show_bnpl_messaging %}
