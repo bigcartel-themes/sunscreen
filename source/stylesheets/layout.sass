@@ -357,7 +357,7 @@ footer
     row-gap: 40px
 
     @media screen and (max-width: $break-small)  
-      .footer-nav-links:nth-child(n+2), .footer-nav-social
+      .footer-nav-links:nth-child(n+2)
         position: relative
         margin-top: 20px
         &::after
@@ -536,8 +536,16 @@ footer
     svg
       display: block
       fill: currentColor
-      height: 22px
-      width: 22px
+      height: 24px
+      width: 24px
+
+      &.tumblr-icon
+        width: 16px
+
+      &.reddit-icon,
+      &.discord-icon
+        width: 28px
+        height: 28px
 
 .blur-up
   transition: filter .2s

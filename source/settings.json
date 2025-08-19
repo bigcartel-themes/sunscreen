@@ -739,7 +739,7 @@
       "label": "Welcome image/slideshow link",
       "section": "homepage",
       "type": "text",
-      "description": "Adds a click destination to the welcome image or slideshow on the Home page",
+      "description": "Adds a click destination to the welcome image or slideshow on the Home page. Accepts relative paths (e.g. /products) or full URLs.",
       "requires": [
         {"any": ["welcome_image present", "slideshow present"]}
       ]
