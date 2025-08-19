@@ -344,7 +344,7 @@ header, footer
 footer
   padding: 100px 0 60px
 
-  *
+  *:not(.footer-custom-content)
     text-transform: #{"{{ theme.nav_text_transform_footer }}"}
 
   @media screen and (max-width: $break-small)
