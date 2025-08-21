@@ -35,3 +35,55 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("load", () => {
   document.body.classList.remove("transition-preloader");
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const isHomePage = document.body.getAttribute('data-bc-page-type') === 'home';
+  const heroLink = themeOptions.heroLink && themeOptions.heroLink.trim() !== '' ? themeOptions.heroLink : null;
+  
+  if (isHomePage && heroLink) {    
+    // Handle slideshow clicks
+    const slideshow = document.querySelector(".home-slideshow");
+    if (slideshow) {
+      const slides = slideshow.querySelectorAll('.splide__slide');
+      slides.forEach(slide => {
+        slide.classList.add("hero-clickable");
+        slide.setAttribute("role", "button");
+        slide.setAttribute("aria-label", "Navigate to " + heroLink);
+      });
+      
+      // Use event delegation for better performance
+      slideshow.addEventListener("click", function(event) {
+        // Don't interfere with splide controls - only handle clicks on slide content
+        if (!event.target.closest('.splide__arrow, .splide__pagination')) {
+          const clickedSlide = event.target.closest('.splide__slide');
+          if (clickedSlide) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (isExternalLink(heroLink)) {
+              window.open(heroLink, '_blank', 'noopener,noreferrer');
+            } else {
+              window.location.href = heroLink;
+            }
+          }
+        }
+      });
+    }
+    
+    // Handle welcome image clicks
+    const welcomeImage = document.querySelector(".welcome-image");
+    if (welcomeImage) {
+      welcomeImage.classList.add("hero-clickable");
+      welcomeImage.setAttribute("role", "button");
+      welcomeImage.setAttribute("aria-label", linkLabel);
+      welcomeImage.addEventListener("click", function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (isExternalLink(heroLink)) {
+          window.open(heroLink, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.href = heroLink;
+        }
+      });
+    }
+  }
+});

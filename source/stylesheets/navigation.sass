@@ -4,6 +4,10 @@
   position: relative
   z-index: 10
   transition: box-shadow .2s linear
+  margin: 0 auto
+
+  *
+    text-transform: #{"{{ theme.nav_text_transform_header }}"}
 
   @media screen and (max-width: $break-medium)
     display: none
@@ -131,6 +135,9 @@
   transition: opacity .1s ease, visibility .1s ease
   overscroll-behavior: contain
 
+  *
+    text-transform: #{"{{ theme.nav_text_transform_header }}"}
+
   @media screen and (max-width: $break-medium)
     &[aria-hidden="false"]
       opacity: 1
@@ -160,6 +167,17 @@
     flex-direction: column
     gap: 16px
 
+    &--with-divider
+      position: relative
+      
+      &::before
+        content: ''
+        display: block
+        width: 30px
+        height: 1px
+        background-color: var(--border-color)
+        margin-bottom: 16px
+
     li a
       padding: 4px 0
       font-size: 1.1em
@@ -169,3 +187,4 @@
     left: -4px
     column-gap: 24px
     justify-content: flex-start
+    padding-top: 20px

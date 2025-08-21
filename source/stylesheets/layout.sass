@@ -344,6 +344,9 @@ header, footer
 footer
   padding: 100px 0 60px
 
+  *:not(.footer-custom-content)
+    text-transform: #{"{{ theme.nav_text_transform_footer }}"}
+
   @media screen and (max-width: $break-small)
     padding: 60px 0 40px
 
@@ -354,7 +357,7 @@ footer
     row-gap: 40px
 
     @media screen and (max-width: $break-small)  
-      .footer-nav-links:nth-child(n+2), .footer-nav-social
+      .footer-nav-links:nth-child(n+2)
         position: relative
         margin-top: 20px
         &::after
@@ -369,19 +372,23 @@ footer
           margin-top: -20px
 
 .footer-custom-content
-  display: grid
-  grid-template-columns: 1fr
-  justify-content: center
+  display: block
   text-align: center
   padding: 10px 16px 40px 16px
-  gap: 20px
 
-  > *
-    justify-self: center
+  img
+    display: block
+    margin: 20px auto
+
+  a
+    text-decoration: underline
 
 .footer-store-name
   font-size: 1.5em
   line-height: 30px
+
+.footer-nav-social
+  margin: 20px 10px
 
 .footer-nav-links
   width: 100%
@@ -529,8 +536,16 @@ footer
     svg
       display: block
       fill: currentColor
-      height: 22px
-      width: 22px
+      height: 24px
+      width: 24px
+
+      &.tumblr-icon
+        width: 16px
+
+      &.reddit-icon,
+      &.discord-icon
+        width: 28px
+        height: 28px
 
 .blur-up
   transition: filter .2s
