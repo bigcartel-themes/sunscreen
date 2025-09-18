@@ -6,7 +6,7 @@
       "variable": "logo",
       "label": "Logo",
       "section": "global_navigation",
-      "description": "Recommend a rectangular image with a transparent background with minimum size of 900x300"
+      "description": "Use a PNG file with a transparent background. Your logo should be at at least 900 x 300px in size. Wide logos look better than square ones."
     },
     {
       "variable": "welcome_image",
