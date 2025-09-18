@@ -495,7 +495,7 @@
   ],
   "options": [
     {
-      "variable": "logo_image_height",
+      "variable": "logo_image_size",
       "label": "Logo image size",
       "section": "global_navigation",
       "type": "select",
@@ -508,7 +508,7 @@
         ["XX Large", "300"]
       ],
       "default": "100",
-      "description": "Controls the maximum size of your logo"
+      "description": "Controls the size of your logo"
     },
     {
       "variable": "nav_page_display",
