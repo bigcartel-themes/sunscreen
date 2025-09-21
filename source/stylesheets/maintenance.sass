@@ -6,6 +6,9 @@
   @media screen and (max-width: $break-medium)
     padding: 60px 20px
 
+  h1
+    margin-bottom: 0
+
   .message-container
     +flexbox
     +align-items(center)
@@ -23,3 +26,15 @@
 
     .store-name
       font-size: 1.75em
+
+    .social-icons
+      a
+        svg
+          width: 20px
+          height: 20px
+
+      @media screen and (max-width: $break-small)
+        a
+          svg
+            width: 18px
+            height: 18px
