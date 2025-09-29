@@ -99,7 +99,7 @@ a.product-list-link
   right: 12px
   position: absolute
   z-index: 2
-  font-size: .925rem
+  font-size: calc(0.925rem * min(var(--product-grid-scale, 1), 1.25))
   line-height: normal
   display: inline-block
   padding: 6px 8px
@@ -120,23 +120,24 @@ a.product-list-link
   text-align: center
   display: grid
   gap: 8px
+  font-size: calc(1rem * var(--product-grid-scale, 1))
 
 .product-list-thumb-name
-  font-size: 1.3em
+  font-size: calc(1.3rem * var(--product-grid-scale, 1))
   word-break: break-word
 
   @media screen and (max-width: $break-small)
-    font-size: 1.1em
+    font-size: calc(1.1rem * var(--product-grid-scale, 1))
 
 .product-list-thumb-price
-  font-size: .975rem
+  font-size: calc(0.975rem * var(--product-grid-scale, 1))
 
 .price-suffix
   white-space: nowrap
 
 .product-list-thumb-options-description
   font-style: italic
-  font-size: .975rem
+  font-size: calc(0.975rem * var(--product-grid-scale, 1))
 
 .pagination
   display: flex

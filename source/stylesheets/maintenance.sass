@@ -12,6 +12,26 @@
   @media screen and (max-width: $break-small)
     padding: 40px var(--spacing-unit)
 
+  .social-icons
+  a
+    svg
+      width: 20px
+      height: 20px
+
+      &.tumblr-icon
+        width: 13px
+      
+      &.reddit-icon,
+      &.discord-icon
+        width: 22px
+        height: 22px
+
+  @media screen and (max-width: $break-small)
+    a
+      svg
+        width: 18px
+        height: 18px
+
 .maintenance-container
   max-width: 600px
   width: 100%
@@ -50,15 +70,3 @@
 
   h1, h2
     padding: var(--spacing-unit) 0
-
-.social-icons
-  a
-    svg
-      width: 20px
-      height: 20px
-
-  @media screen and (max-width: $break-small)
-    a
-      svg
-        width: 18px
-        height: 18px
