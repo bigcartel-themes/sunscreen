@@ -23,6 +23,31 @@
   &.visible
     display: flex
 
+  &--scrolling
+    min-height: 64px
+    padding: 0
+    overflow: hidden
+
+    @media screen and (max-width: $break-small)
+      min-height: 48px
+
+  &__scroll-wrapper
+    width: 100%
+    overflow: hidden
+
+  &__scroll-content
+    display: inline-flex
+    white-space: nowrap
+    animation: scroll-announcement var(--announcement-scroll-duration) linear infinite
+
+    .announcement-message--scrolling:hover &
+      animation-play-state: paused
+
+  &__text
+    .announcement-message--scrolling &
+      display: inline-flex
+      padding: 0 5em
+
   &__close-button
     align-items: center
     color: var(--primary-text-color)
@@ -39,6 +64,15 @@
     @media screen and (max-width: $break-small)
       right: 16px
 
+    .announcement-message--scrolling &
+      display: none
+
   &__close-icon
     height: 14px
     width: 14px
+
+@keyframes scroll-announcement
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(-20%)
