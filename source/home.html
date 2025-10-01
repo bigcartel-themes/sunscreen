@@ -127,9 +127,11 @@
         </div>
       {% endfor %}
     </div>
-    {% assign all_products_button_text = t['home.all_products'] %}
-    {% if all_products_button_text != blank %}
-      <a class="button centered-button all-products-button" href="/products">{{ all_products_button_text }}</a>
+    {% if theme.homepage_show_all_items_link %}
+      {% assign all_products_button_text = t['home.all_products'] %}
+      {% if all_products_button_text != blank %}
+        <a class="button centered-button all-products-button" href="/products">{{ all_products_button_text }}</a>
+      {% endif %}
     {% endif %}
   {% endif %}
 
@@ -248,7 +250,7 @@
               {% endfor %}
             </div>
           </div>
-          {% if paginate.pages > 1 %}
+          {% if theme.homepage_show_all_items_link and paginate.pages > 1 %}
             {% assign all_products_button_text = t['home.all_products'] %}
             {% if all_products_button_text != blank %}
               <a class="button centered-button all-products-button" href="/products">{{ all_products_button_text }}</a>
