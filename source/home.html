@@ -59,7 +59,11 @@
 {% assign featured_text = theme.homepage_featured_text %}
 {% assign featured_text_position = theme.homepage_featured_text_position %}
 
-{% comment %} Show featured text above when position is "above" OR when no featured items {% endcomment %}
+{% comment %}
+  Show featured text above when:
+  - Position is explicitly set to "above", OR
+  - No featured items exist (automatic fallback to "above" section)
+{% endcomment %}
 {% if featured_text != blank %}
   {% if featured_text_position == "above" or theme.featured_items == 0 %}
     <div class="featured-message">{{ featured_text }}</div>
@@ -77,8 +81,12 @@
     {% if theme.featured_items > 0 %}
       <h1 class="featured-title page-title">{{ featured_header }}</h1>
     {% endif %}
-    
-    {% comment %} Only show featured text within if we have items AND position is within {% endcomment %}
+
+    {% comment %}
+      Show featured text within section when:
+      - Featured items exist (theme.featured_items > 0), AND
+      - Position is explicitly set to "within"
+    {% endcomment %}
     {% if featured_text != blank and featured_text_position == "within" and theme.featured_items > 0 %}
       <div class="featured-message">{{ featured_text }}</div>
     {% endif %}
