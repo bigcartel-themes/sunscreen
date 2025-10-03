@@ -3,8 +3,8 @@
   "version": "1.20.0",
   "images": [
     {
-      "variable": "logo",
-      "label": "Logo",
+      "variable": "logo_image",
+      "label": "Logo image",
       "section": "global_navigation",
       "description": "Use a PNG file with a transparent background. Your logo should be at at least 900 x 300px in size. Wide logos look better than square ones."
     },
@@ -1991,7 +1991,7 @@
     }
   ],
   "checkout": {
-    "header_image": "{{ logo }}",
+    "header_image": "{{ logo_image }}",
     "header_image_max_width": "754px",
     "header_image_max_height": "180px",
     "title_font": "{{ shop_name_font }}",

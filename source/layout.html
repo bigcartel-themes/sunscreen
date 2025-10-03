@@ -88,9 +88,9 @@
               </button>
             {% endif %}
           </div>
-          <div class="store-name {% if theme.logo != blank %}image{% else %}text{% endif %}">
-            <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.logo != blank %}logo{% else %}text{% endif %}">
-              {% if theme.logo != blank %}
+          <div class="store-name {% if theme.logo_image != blank %}image{% else %}text{% endif %}">
+            <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.logo_image != blank %}logo{% else %}text{% endif %}">
+              {% if theme.logo_image != blank %}
                 {% comment %} Calculate optimal image size with width and height constraints for DPI optimization {% endcomment %}
                 {% assign display_height = theme.logo_image_size %}
                 {% assign optimal_width = display_height | times: 6 %}
@@ -98,8 +98,8 @@
                 {% assign retina_height = display_height | times: 2 %}
                 <img
                   class="store-logo"
-                  srcset="{{ theme.images.logo.url | constrain: optimal_width, display_height }} 1x, {{ theme.images.logo.url | constrain: retina_width, retina_height }} 2x"
-                  src="{{ theme.images.logo.url | constrain: optimal_width, display_height }}"
+                  srcset="{{ theme.images.logo_image.url | constrain: optimal_width, display_height }} 1x, {{ theme.images.logo_image.url | constrain: retina_width, retina_height }} 2x"
+                  src="{{ theme.images.logo_image.url | constrain: optimal_width, display_height }}"
                   alt="{{ store.name }} Home"
                 >
               {% else %}
