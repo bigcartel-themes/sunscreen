@@ -1,10 +1,13 @@
+html
+  font-size: calc(16px * var(--font-scale, 1))
+
 body
   +flexbox
   +flex-direction(column)
   background-color: var(--background-color)
   color: var(--primary-text-color)
   font-family: var(--primary-font)
-  font-size: 16px
+  font-size: 1rem
   height: 100%
   min-height: 100vh
 
@@ -16,6 +19,20 @@ body
 
 .content
   margin-bottom: 100px
+
+
+// shop sprinkles overrides
+.emoji
+  font-size: var(--shop-sprinkles-size) !important
+  animation-name: var(--shop-sprinkles-animation) !important
+  animation-duration: var(--shop-sprinkles-style-duration) !important
+  animation-timing-function: var(--shop-sprinkles-style-timing) !important
+
+.emoji .inner
+  animation-duration: var(--shop-sprinkles-fall-duration) !important
+
+.emoji .inner span
+  animation-name: var(--shop-sprinkles-spin-animation) !important
 
 a.skip-link
   +transition(all .3s)
@@ -97,12 +114,12 @@ h1, h2, h3, h4, h5, h6
   text-align: center
 
 h1
-  font-size: 2.25em
+  font-size: 2.25rem
   line-height: 1.3
   margin-bottom: 55px
 
   @media screen and (max-width: $break-small)
-    font-size: 2em
+    font-size: 2rem
 
 .wrapper
   margin: 0 auto
@@ -228,33 +245,33 @@ h1
   svg
     flex-shrink: 0
     fill: currentColor
-    height: 24px
-    width: 24px
+    height: 20px
+    width: 20px
 
     @media screen and (max-width: $break-medium)
       height: 20px
       width: 20px
 
-.cart-link
-  border-radius: var(--border-radius)
-  display: flex
-  align-items: center
-  justify-content: center
-  height: 36px
-  padding: 12px
-  gap: 10px
-  font-weight: 500
-  font-size: 1.25em
-  position: relative
-  right: -12px
+  .cart-link
+    border-radius: var(--border-radius)
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 36px
+    padding: 12px
+    gap: 10px
+    font-weight: 500
+    font-size: 1.25rem
+    position: relative
+    right: -12px
 
-  @media screen and (max-width: $break-medium)
-    padding: 12px 6px
-    right: 0
+    @media screen and (max-width: $break-medium)
+      padding: 12px 6px
+      right: 0
 
-  svg
-    flex-shrink: 0
-    height: 24px
+    svg
+      flex-shrink: 0
+      height: 24px
     width: 24px
 
     @media screen and (max-width: $break-medium)
@@ -312,13 +329,13 @@ a.header-store-link
   color: var(--shop-name-text-color)
   
   &.header-store-link--text
-    font-size: 2.75em
-    
+    font-size: calc(2.75rem * var(--shop-name-scale, 1) * var(--header-scale, 1))
+
     @media screen and (max-width: $break-medium)
-      font-size: 2.5em
-    
+      font-size: calc(2.5rem * var(--shop-name-scale, 1) * var(--header-scale, 1))
+
     @media screen and (max-width: $break-small)
-      font-size: 2.25em
+      font-size: calc(2.25rem * var(--shop-name-scale, 1) * var(--header-scale, 1))
   
   &.header-store-link--logo
     display: flex
@@ -328,7 +345,7 @@ a.header-store-link
   display: block
   object-fit: contain
   width: auto
-  max-height: calc(var(--logo-max-height-numeric) * 1px)
+  height: calc(var(--logo-max-size-numeric) * 1px)
   max-width: 90%
   margin: 0 auto
 
@@ -375,6 +392,7 @@ footer
   display: block
   text-align: center
   padding: 10px 16px 40px 16px
+  font-size: calc(1rem * var(--footer-scale, 1))
 
   img
     display: block
@@ -384,7 +402,7 @@ footer
     text-decoration: underline
 
 .footer-store-name
-  font-size: 1.5em
+  font-size: calc(1.5rem * var(--shop-name-scale, 1) * var(--footer-scale, 1))
   line-height: 30px
 
 .footer-nav-social
@@ -403,6 +421,7 @@ footer
 
     a
       display: block
+      font-size: calc(1rem * var(--footer-scale, 1))
 
       &:hover
         color: var(--link-hover-color)
@@ -413,11 +432,11 @@ footer
       row-gap: 24px
 
 .footer-store-credit
-  font-size: 14px
+  font-size: calc(0.875rem * var(--footer-scale, 1))
 
 .bigcartel-credit
   line-height: 1em
-  font-size: 15px
+  font-size: 0.9375rem
   display: inline-flex
   align-items: center
   gap: 8px
@@ -536,16 +555,16 @@ footer
     svg
       display: block
       fill: currentColor
-      height: 24px
-      width: 24px
+      height: 22px
+      width: 22px
 
       &.tumblr-icon
-        width: 16px
+        width: 14px
 
       &.reddit-icon,
       &.discord-icon
-        width: 28px
-        height: 28px
+        width: 24px
+        height: 24px
 
 .blur-up
   transition: filter .2s
