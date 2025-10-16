@@ -25,18 +25,24 @@
 
   &--scrolling
     cursor: pointer
+    padding: 0
+    overflow: visible
+    display: flex
+    align-items: center
+    justify-content: center
+    // Safari fix: overflow visible on parent, hidden on wrapper
+
+  &__scroll-wrapper
     padding: 22px 0
+    width: 100%
     overflow: hidden
-    min-height: fit-content
+    display: flex
+    align-items: center
+    // Isolate this container to prevent layout thrashing
+    isolation: isolate
 
     @media screen and (max-width: $break-small)
       padding: 14px 0
-
-  &__scroll-wrapper
-    width: 100%
-    overflow: hidden
-    // Isolate this container to prevent layout thrashing
-    isolation: isolate
 
   &__scroll-content
     display: inline-flex
