@@ -88,9 +88,9 @@
               </button>
             {% endif %}
           </div>
-          <div class="store-name {% if theme.logo_image != blank %}image{% else %}text{% endif %}">
-            <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.logo_image != blank %}logo{% else %}text{% endif %}">
-              {% if theme.logo_image != blank %}
+          <div class="store-name {% if theme.images.logo_image != blank %}image{% else %}text{% endif %}">
+            <a href="/" title="{{ store.name | escape }}" class="header-store-link header-store-link--{% if theme.images.logo_image != blank %}logo{% else %}text{% endif %}">
+              {% if theme.images.logo_image != blank %}
                 {% comment %} Calculate optimal image size with width and height constraints for DPI optimization {% endcomment %}
                 {% assign display_height = theme.logo_image_size %}
                 {% assign optimal_width = display_height | times: 6 %}
