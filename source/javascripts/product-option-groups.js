@@ -1,4 +1,7 @@
 function processProduct(product) {
+  window.bigcartel = window.bigcartel || {};
+  window.bigcartel.product = product;
+
   if (product.has_option_groups) {
     setInitialProductOptionStatuses(product);
     $(".product_option_group").on('change',function() {
@@ -8,6 +11,10 @@ function processProduct(product) {
     if ($('#option').val() > 0) {
       enableAddButton();
     }
+  }
+
+  if (typeof updateInventoryMessage === 'function') {
+    updateInventoryMessage();
   }
   if ($('.product-option-select').length) {
     if (themeOptions.showSoldOutOptions === false) {
