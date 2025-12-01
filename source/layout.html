@@ -324,6 +324,9 @@
         {% if pages.required_pages.size > 0 %}
           {% assign show_pages_section_in_footer = true %}
         {% endif %}
+        {% if store.website != blank %}
+          {% assign show_pages_section_in_footer = true %}
+        {% endif %}
 
     		<nav class="footer-nav-links footer-nav-links--main" aria-label="Footer main">
           <ul>
