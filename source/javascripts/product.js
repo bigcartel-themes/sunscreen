@@ -129,9 +129,7 @@ function enableAddButton(updated_price, original_price) {
   var addButton = $('.add-to-cart-button');
   var addButtonTitle = addButton.attr('data-add-title');
   addButton.attr("disabled",false);
-  if (updated_price) {
-    updateProductPrice(updated_price, original_price);
-  }
+  updateProductPrice(updated_price, original_price);
   addButton.html(addButtonTitle);
   addButton.attr('aria-label',addButton.text());
   updateInventoryMessage($('#option').val());
