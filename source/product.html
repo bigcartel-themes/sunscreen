@@ -235,10 +235,10 @@
                     {% if option.original_price > option.price %}
                       {% assign option_is_on_sale = true %}
                     {% endif %}
-                    {% if product.on_sale and option_is_on_sale and theme.show_sale_label_in_product_options %}
-                      {% unless option.sold_out %}
-                        {% assign sale_label = ' (' | append: t['products.on_sale'] | append: ')' %}
-                      {% endunless %}
+                    {% if option.sold_out %}
+                      {% assign sale_label = ' (' | append: t['products.sold_out'] | append: ')' %}
+                    {% elsif product.on_sale and option_is_on_sale and theme.show_sale_label_in_product_options %}
+                      {% assign sale_label = ' (' | append: t['products.on_sale'] | append: ')' %}
                     {% endif %}
                     <option value="{{ option.id }}" data-price="{{ option.price }}" data-original-price="{{ option.original_price }}"{% if option.sold_out %} disabled="disabled" disabled-type="sold-out"{% endif %}>{{ option.name }}{{ sale_label }}</option>
                   {% endfor %}
