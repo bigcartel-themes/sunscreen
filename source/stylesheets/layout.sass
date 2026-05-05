@@ -223,6 +223,17 @@ h1
     @media screen and (max-width: $break-medium)
       right: -6px
 
+    .cart-link
+      display: flex
+      align-items: center
+      gap: 6px
+      padding: 6px
+
+      svg
+        flex-shrink: 0
+        width: 24px
+        height: 24px
+
   .wrapper
     display: flex
     align-items: center
@@ -297,6 +308,16 @@ h1
 
   .header-right
     justify-self: flex-end
+
+    .cart-link
+      display: flex
+      align-items: center
+      gap: 6px
+
+      svg
+        flex-shrink: 0
+        width: 23px
+        height: 20px
 
   @media screen and (max-width: $break-medium)
     grid-template-columns: minmax(0, 1fr)

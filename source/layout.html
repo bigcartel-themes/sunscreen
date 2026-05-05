@@ -138,9 +138,6 @@
                         {% for category in categories.active %}
                           <li>{{ category | link_to }}</li>
                         {% endfor %}
-                        {% if pages.subscribe_page %}
-                          <li class="artist-support"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
-                        {% endif %}
                       </ul>
                     {% endif %}
                   </div>
@@ -154,6 +151,10 @@
               {% for custom_page in pages.custom_pages limit: theme.nav_items %}
               <li class="header-page-link">{{ custom_page | link_to }}</li>
               {% endfor %}
+            {% endif %}
+
+            {% if pages.subscribe_page %}
+              <li class="header-page-link"><a href="{{ pages.subscribe_page.url }}">{{ t['navigation.subscribe'] }}</a></li>
             {% endif %}
 
             {% if theme.nav_page_display == 'all' or theme.nav_page_display == 'contact_only' %}
@@ -273,7 +274,32 @@
                               {% endif %}
 
                               {% unless hide_price %}
-                                {{ related_product | product_price: theme.money_format, theme.product_variable_pricing_display_format }}
+                                {% assign show_strikethrough = false %}
+                                {% assign strikethrough_regular = nil %}
+                                {% assign strikethrough_sale = nil %}
+
+                                {% if theme.show_strikethrough_pricing %}
+                                  {% if related_product.variable_pricing == false and related_product.original_price > related_product.default_price %}
+                                    {% assign show_strikethrough = true %}
+                                    {% assign strikethrough_regular = related_product.original_price %}
+                                    {% assign strikethrough_sale = related_product.default_price %}
+                                  {% elsif related_product.variable_pricing and theme.product_variable_pricing_display_format == "min_only" and related_product.min_original_price > related_product.min_price %}
+                                    {% assign show_strikethrough = true %}
+                                    {% assign strikethrough_regular = related_product.min_original_price %}
+                                    {% assign strikethrough_sale = related_product.min_price %}
+                                  {% elsif related_product.variable_pricing and theme.product_variable_pricing_display_format == "max_only" and related_product.max_original_price > related_product.max_price %}
+                                    {% assign show_strikethrough = true %}
+                                    {% assign strikethrough_regular = related_product.max_original_price %}
+                                    {% assign strikethrough_sale = related_product.max_price %}
+                                  {% endif %}
+                                {% endif %}
+
+                                {% if show_strikethrough %}
+                                  <s class="price-compare">{{ strikethrough_regular | money: theme.money_format }}</s>
+                                  <span class="price-sale">{{ strikethrough_sale | money: theme.money_format }}</span>
+                                {% else %}
+                                  {{ related_product | product_price: theme.money_format, theme.product_variable_pricing_display_format }}
+                                {% endif %}
 
                                 {% if related_product.price_suffix != blank %}
                                   {% assign variable_price_shown = true %}
@@ -293,7 +319,7 @@
                             {% unless hide_price %}
                               {% if related_product.options.size > 1 and theme.show_product_variant_count_in_grid %}
                                 <div class="product-list-thumb-options-description">
-                                  {{ related_product.options.size }} {{ t['products.variants'] }}
+                                  {{ related_product.options.size }} {{ t['products.variants'] | downcase }}
                                 </div>
                               {% endif %}
                             {% endunless %}
@@ -322,6 +348,9 @@
           {% endif %}
         {% endif %}
         {% if pages.required_pages.size > 0 %}
+          {% assign show_pages_section_in_footer = true %}
+        {% endif %}
+        {% if store.website != blank %}
           {% assign show_pages_section_in_footer = true %}
         {% endif %}
 
@@ -648,6 +677,7 @@
       };
       const themeOptions = {
         showSoldOutOptions: {{ theme.show_sold_out_product_options }},
+        showStrikethroughPricing: {{ theme.show_strikethrough_pricing }},
         showLowInventoryMessages: {{ theme.show_low_inventory_messages }},
         lowInventoryMessage: "{{ t['products.low_inventory'] | replace: '"', '\"' | replace: "'", "\\'" }}",
         almostSoldOutMessage: "{{ t['products.almost_sold_out'] | replace: '"', '\"' | replace: "'", "\\'" }}",
